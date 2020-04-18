@@ -24,7 +24,7 @@ class SongsState extends State<Songs> {
     'Кино - Звезда по имени солнце',
   ];
 
-  List<String> newSongsList = List.from(songsList)..sort();
+  List<String> newSongsList = List.from(songsList..sort());
   
   void getItemAndNavigate(String item, BuildContext context) {
     Navigator.push(
