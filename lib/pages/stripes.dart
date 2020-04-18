@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Stripes extends StatelessWidget {
 
-  final List<String> items = [
+  final List<String> stripes = [
     'Костровой',
     'Повар',
     'Художник',
@@ -12,6 +12,9 @@ class Stripes extends StatelessWidget {
     'Узловой',
     'Медик',
   ];
+
+  //items.sort((a, b) => title.compare(b.title));
+  
 
   void getItemAndNavigate(String item, BuildContext context) {
     Navigator.push(
@@ -26,11 +29,12 @@ class Stripes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar (
+        centerTitle: true,
         title: Text('Нашивки'),
       ),
       body: Center(
         child: ListView(
-          children: items
+          children: stripes
           .map((data) => ListTile(
             title: Text(data),
             onTap: ()=>{
