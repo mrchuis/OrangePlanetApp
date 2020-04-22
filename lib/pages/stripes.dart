@@ -98,6 +98,7 @@ class StripesState extends State<Stripes> {
 class SecondScreen extends StatelessWidget {
   final String itemHolder;
   SecondScreen({Key key, @required this.itemHolder}) : super(key: key);
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
