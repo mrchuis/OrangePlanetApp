@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   material_design_icons_flutter: ^4.0.5045
+  google_fonts: ^1.0.0
 
   cupertino_icons: ^0.1.2
 

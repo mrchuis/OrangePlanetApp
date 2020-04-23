@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Songs extends StatefulWidget {
   SongsState createState() {
@@ -11,7 +12,7 @@ class SongsState extends State<Songs> {
   TextEditingController _textController = TextEditingController();
 
   final duplicateItems = List<Song>.from(getSongs())..sort((a,b) {
-    return a.title.toLowerCase().compareTo(b.title.toLowerCase());
+    return a.singer.toLowerCase().compareTo(b.singer.toLowerCase());
   });
   var songs = List<Song>();
 
@@ -205,7 +206,6 @@ class SongsState extends State<Songs> {
   // }
 }
 
-
 class Song {
   String title;
   String singer;
@@ -220,7 +220,7 @@ List<Song> getSongs() {
     Song(
       title: "Алые паруса",
       singer: "",
-      content: 'C\nУ синего моря,\nAm\nГде бушуют бураны,\nDm\nЖила там девчонка\nG\nС именем странным.\nC\nИ часто бывало\nAm\nОна на просторе\nDm\nВ мечтах уплывала\nG\nЗа синее море.\n\nПрипев:\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm    G        C\nАлые паруса, паруса. Ассоль плюс Грей.\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm    G        C\nАлые паруса, паруса. Ассоль плюс Грей.\n\nC\nА там за морями,\nAm\nЗа синей чертою.\nDm\nЖил парень отважный.\nG\nС открытой душою.\nC\nМечтал он о море,\nAm\nО подвигах славных.\nDm\nМечтал о походах\nG\nВ дальние страны.\n\nПрипев:\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm    G        C\nАлые паруса, паруса. Ассоль + Грей = \u{2665}\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm    G        C\nАлые паруса, паруса. Ассоль + Грей = \u{2665}\n\nC\nИ вечером поздним,\nAm\nКогда все уснули,\nDm\nНа небе зажглись\nG\nМиллионы огней.\nC\nИ этой же ночью\nAm\nСлучилось чудо.\nDm\nТот парень с девчонкой\nG\nВлюбились друг в друга.\n\nПрипев:\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm    G        C\nАлые паруса, паруса. Ассоль + Грей = \u{2665}\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm    G        C\nАлые паруса, паруса. Ассоль + Грей = \u{2665}\n',
+      content: 'C\nУ синего моря,\nAm\nГде бушуют бураны,\nDm\nЖила там девчонка\nG\nС именем странным.\nC\nИ часто бывало\nAm\nОна на просторе\nDm\nВ мечтах уплывала\nG\nЗа синее море.\n\nПрипев:\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm      G                C\nАлые паруса, паруса. Ассоль + Грей = \u{2665}\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm      G                C\nАлые паруса, паруса. Ассоль + Грей = \u{2665}\n\nC\nА там за морями,\nAm\nЗа синей чертою.\nDm\nЖил парень отважный.\nG\nС открытой душою.\nC\nМечтал он о море,\nAm\nО подвигах славных.\nDm\nМечтал о походах\nG\nВ дальние страны.\n\nПрипев:\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm      G                C\nАлые паруса, паруса. Ассоль + Грей = \u{2665}\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm      G                C\nАлые паруса, паруса. Ассоль + Грей = \u{2665}\n\nC\nИ вечером поздним,\nAm\nКогда все уснули,\nDm\nНа небе зажглись\nG\nМиллионы огней.\nC\nИ этой же ночью\nAm\nСлучилось чудо.\nDm\nТот парень с девчонкой\nG\nВлюбились друг в друга.\n\nПрипев:\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm      G                C\nАлые паруса, паруса. Ассоль + Грей = \u{2665}\nC\nАлые паруса. Ассоль.\nAm\nАлые паруса. Плюс Грей.\nDm      G                C\nАлые паруса, паруса. Ассоль + Грей = \u{2665}',
     ),
     Song(
       title: "До скорой встречи",
@@ -230,7 +230,7 @@ List<Song> getSongs() {
     Song(
       title: "Будь готов",
       singer: "",
-      content: '\nНас немного пока, но мечтаем мы все об одном:\nЭтот мир изменить, озаряя душевным огнем.',
+      content: ' Am                                                                             Dm\nНас немного пока, но мечтаем мы все об одном:\n G                                                                 C                        E\nЭтот мир изменить, озаряя душевным огнем.\n Am                           \nИскру мысли вдохнуть в сочетание\n Dm\nстареньких слов,\n G                                                                                             C\nЧтобы снова гремел над страной наш девиз\n                E\n"Будь готов!"\n\nПрипев:\n Dm                                   G                                     C\nБудь готов с нами вместе идти до конца,\n                                   Am                                              Dm\nБудь готов удержаться под градом свинца,\n                                              G                                             C\nБудь готов стать сторонником лучших идей,\n                                         E                                           Am\nБудь готов воспитать настоящих людей.\n\n Am                                                                          Dm\nПо ухабам истории путь где-то - вверх, где-то - вниз.\n G                                                                  C                     E\nКак народная мудрость гласит: «На ошибках учись»!\n Am                                                                          Dm\nНелегко нам сегодня добиться реальных побед,\n G                                                  C                            E\nНо гораздо трудней в одиночку бороться тебе.\n\nПрипев:\n Dm                                   G                                     C\nБудь готов с нами вместе идти до конца,\n                                   Am                                              Dm\nБудь готов удержаться под градом свинца,\n                                              G                                             C\nБудь готов стать сторонником лучших идей,\n                                         E                                           Am\nБудь готов воспитать настоящих людей.\n\n Am                                                                               Dm\nМы не "Ласковый май", мы, скорее, суровый февраль!\n G                                                       C                         E\nШутки в сторону, видите - здесь закаляется сталь!\n Am                                                                                Dm\nЧерез тернии - к звездам, нелегким, но верным путем,\n G                                           C                                  E\nТолько за руки взявшись, мы к цели заветной придем!\n\nПрипев:\n Dm                                   G                                     C\nБудь готов с нами вместе идти до конца,\n                                   Am                                              Dm\nБудь готов удержаться под градом свинца,\n                                              G                                             C\nБудь готов стать сторонником лучших идей,\n                                         E                                           Am\nБудь готов воспитать настоящих людей.',
     ),
     Song(
       title: "Районы-кварталы",
@@ -259,29 +259,37 @@ class TitleSongs {
   getTitleSongs() => title;
 }
 
-
 class SecondScreen extends StatelessWidget {
   final Song song;
   SecondScreen({Key key, @required this.song}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '${song.title}'
-        ),
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(left: 10.0),
-        child: Text(
-          song.content,
-          style: TextStyle(
-            wordSpacing: 2.0,
-            fontSize: 17.0,
-            fontWeight: FontWeight.w500,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            expandedHeight: 50.0,
+            floating: true,
+            pinned: false,
+            flexibleSpace: new FlexibleSpaceBar(
+              title: Text('${song.title}'),
+            ),
           ),
-        ),
-      )
+          SliverList(
+            delegate:SliverChildBuilderDelegate(
+              (content, index) => SingleChildScrollView(
+                padding: EdgeInsets.only(left: 10.0),
+                child: Text(
+                  song.content,
+                  style: GoogleFonts.lato(                    
+                  )
+                ),
+              ),
+              childCount: 1,
+            )
+          )
+        ],
+      ),
     );
   }
 }
