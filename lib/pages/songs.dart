@@ -1,4 +1,9 @@
+import 'dart:io';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Songs extends StatefulWidget {
@@ -245,51 +250,168 @@ List<Song> getSongs() {
   ];
 }
 
+// class TitleSongs {
+//   List<String> title;
+//   TitleSongs(this.title);
 
-class TitleSongs {
-  List<String> title;
-  TitleSongs(this.title);
+//   List<String> setTitleSongs(List<Song> songs) {
+//     for(var x in songs) {
+//       title.add(x.title);
+//     }
+//     return title;
+//   }
+//   getTitleSongs() => title;
+// }
 
-  List<String> setTitleSongs(List<Song> songs) {
-    for(var x in songs) {
-      title.add(x.title);
-    }
-    return title;
-  }
-  getTitleSongs() => title;
-}
-
-class SecondScreen extends StatelessWidget {
+class SecondScreen extends StatefulWidget {
   final Song song;
   SecondScreen({Key key, @required this.song}) : super(key: key);
+
+  @override
+  _SecondScreenState createState() => _SecondScreenState();
+}
+
+class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMixin {
+  ScrollController _scrollController = ScrollController();
+  bool scroll = false;
+  int speedFactor = 6;
+  bool check = true;
+  bool startPause = true;
+
+  _scroll() {
+    double maxExtent = _scrollController.position.maxScrollExtent;
+    double distanceDifference = maxExtent - _scrollController.offset;
+    double durationDouble = distanceDifference / speedFactor;
+
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+      duration: Duration(seconds: durationDouble.toInt()),
+      curve: Curves.linear
+    );
+  }
+
+  _toggleScrolling() {
+    setState(() {
+      scroll = !scroll;
+    });
+
+    if (scroll) {
+      _scroll();
+    } else {
+      _scrollController.animateTo(
+        _scrollController.offset,
+        duration: Duration(seconds: 1), 
+        curve: Curves.linear
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            expandedHeight: 50.0,
-            floating: true,
-            pinned: false,
-            flexibleSpace: new FlexibleSpaceBar(
-              title: Text('${song.title}'),
+      floatingActionButtonLocation: 
+      FloatingActionButtonLocation.endDocked,
+      floatingActionButton: check ? play() : pause(),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.grey[100],
+        shape: CircularNotchedRectangle(),
+        notchMargin: 6.0,
+        child: new Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.fast_rewind), 
+              color: Colors.grey[700],
+              onPressed: () {},
             ),
-          ),
-          SliverList(
-            delegate:SliverChildBuilderDelegate(
-              (content, index) => SingleChildScrollView(
-                padding: EdgeInsets.only(left: 10.0),
-                child: Text(
-                  song.content,
-                  style: GoogleFonts.lato(                    
-                  )
-                ),
+            IconButton(
+              icon: Icon(Icons.fast_forward),
+              color: Colors.grey[700], 
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
+      body: NotificationListener(
+        onNotification: (notif) {
+          if (notif is ScrollEndNotification && scroll) {
+            Timer(Duration(seconds: 1), () {
+              _scroll();
+            });
+          }
+          return true;
+        },
+        child: CustomScrollView(
+          controller: _scrollController,
+          slivers: <Widget>[
+            SliverAppBar(
+              expandedHeight: 50.0,
+              floating: true,
+              pinned: false,
+              flexibleSpace: new FlexibleSpaceBar(
+                title: Text('${widget.song.title}'),
               ),
-              childCount: 1,
+            ),
+            SliverList(
+              delegate:SliverChildBuilderDelegate(
+                (content, index) => SingleChildScrollView(
+                  padding: EdgeInsets.only(left: 10.0),
+                  child: Text(
+                    widget.song.content,
+                    style: GoogleFonts.lato(                    
+                    )
+                  ),
+                ),
+                childCount: 1,
+              )
             )
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
+
+  Widget play() {
+    return FloatingActionButton(
+      onPressed: (){
+        setState(() {
+          check=!check;
+          _toggleScrolling();
+        });
+      },
+      foregroundColor: Colors.grey[700],
+      child: Icon(Icons.play_arrow),
+    );
+  }
+
+  Widget pause() {
+    return FloatingActionButton(
+      onPressed: (){
+        setState(() {
+          check=!check;
+          _toggleScrolling();
+        });
+      },
+      foregroundColor: Colors.grey[700],
+      child: Icon(Icons.pause),
+    );
+  }
+
+  // Widget loadTimer() {
+  //   return FloatingActionButton(
+  //       // setState(() {
+  //       //   check=!check;
+  //       //   _toggleScrolling();
+  //       // });
+  //     onPressed: (){
+  //       // setState(() {
+  //       //   check=!check;
+  //       //   _toggleScrolling();
+  //       // });
+  //     },
+  //     foregroundColor: Colors.grey[700],
+  //     child: Icon(MdiIcons.numeric3),
+  //   );
+  // }
 }
