@@ -250,19 +250,6 @@ List<Song> getSongs() {
   ];
 }
 
-// class TitleSongs {
-//   List<String> title;
-//   TitleSongs(this.title);
-
-//   List<String> setTitleSongs(List<Song> songs) {
-//     for(var x in songs) {
-//       title.add(x.title);
-//     }
-//     return title;
-//   }
-//   getTitleSongs() => title;
-// }
-
 class SecondScreen extends StatefulWidget {
   final Song song;
   SecondScreen({Key key, @required this.song}) : super(key: key);
@@ -274,9 +261,12 @@ class SecondScreen extends StatefulWidget {
 class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMixin {
   ScrollController _scrollController = ScrollController();
   bool scroll = false;
-  int speedFactor = 6;
+  int speedFactor = 7;
+
   bool check = true;
-  bool startPause = true;
+  bool firstPause = true;
+  bool firstPressedPlay = true;
+  bool activeProgressIndicator = false;
 
   _scroll() {
     double maxExtent = _scrollController.position.maxScrollExtent;
@@ -321,13 +311,11 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.fast_rewind), 
-              color: Colors.grey[700],
+              icon: Icon(Icons.fast_rewind, color: Colors.orange[700],), 
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(Icons.fast_forward),
-              color: Colors.grey[700], 
+              icon: Icon(Icons.fast_forward, color: Colors.orange[700],),               
               onPressed: () {},
             ),
           ],
@@ -375,13 +363,24 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
   Widget play() {
     return FloatingActionButton(
       onPressed: (){
+        if (firstPause) {
+          Timer(Duration(seconds: 20),(){
+            check=!check;
+            _toggleScrolling();       
+          });
+          firstPause = false;
+        }
         setState(() {
-          check=!check;
-          _toggleScrolling();
+          if (firstPressedPlay) {
+            activeProgressIndicator = true;
+            firstPressedPlay = false;
+          } else {
+            check=!check;
+           _toggleScrolling();
+          }
         });
       },
-      foregroundColor: Colors.grey[700],
-      child: Icon(Icons.play_arrow),
+      child: activeProgressIndicator ? CircularProgressIndicator(backgroundColor: Colors.white,) : Icon(Icons.play_arrow, color: Colors.white,)
     );
   }
 
@@ -389,29 +388,12 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
     return FloatingActionButton(
       onPressed: (){
         setState(() {
+          activeProgressIndicator = false;
           check=!check;
           _toggleScrolling();
         });
       },
-      foregroundColor: Colors.grey[700],
-      child: Icon(Icons.pause),
+      child: Icon(Icons.pause, color: Colors.white,),
     );
   }
-
-  // Widget loadTimer() {
-  //   return FloatingActionButton(
-  //       // setState(() {
-  //       //   check=!check;
-  //       //   _toggleScrolling();
-  //       // });
-  //     onPressed: (){
-  //       // setState(() {
-  //       //   check=!check;
-  //       //   _toggleScrolling();
-  //       // });
-  //     },
-  //     foregroundColor: Colors.grey[700],
-  //     child: Icon(MdiIcons.numeric3),
-  //   );
-  // }
 }
