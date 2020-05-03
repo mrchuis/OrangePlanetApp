@@ -1,10 +1,10 @@
-import 'dart:io';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 class Songs extends StatefulWidget {
   SongsState createState() {
@@ -95,18 +95,18 @@ class SongsState extends State<Songs> {
                       songs[index].title,
                     ),
                     subtitle: Row(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 10,
-                        child: Padding(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 10,
+                          child: Padding(
                             padding: EdgeInsets.all(1.0),
                             child: Text(songs[index].singer,
                               style: TextStyle(color: Colors.black87)
                             )
                           ),
-                      )
-                    ],
-                  ),
+                        )
+                      ],
+                    ),
                     onTap: () {
                       Navigator.push(
                         context, 
@@ -117,7 +117,8 @@ class SongsState extends State<Songs> {
                     },
                   ),
                 );
-              }),
+              }
+            ),
           ),
         ],
       ),
@@ -216,8 +217,6 @@ class Song {
   String singer;
   String content;
   Song({this.title, this.singer, this.content});
-
-  getTitle() => title;
 }
 
 List<Song> getSongs() {
@@ -247,6 +246,16 @@ List<Song> getSongs() {
       singer: "Кино",
       content: '\nБелый снег, серый лед,\nНа растрескавшейся земле.\nОдеялом лоскутным на ней -\nГород в дорожной петле.',
     ),
+    Song(
+      title: "Все острова",
+      singer: "Элизиум",
+      content: "\n Вступление:  C  G  Am  Em  F  C  G\n C              G        Am              Em\nОни мечтали, к волнам спускали\n F                  C                                  G\nЗа бригом бриг, не покладая рук\n C                   G      Am                             Em\nИ уплывали, хотя не знали\n F                         C                                  G\nКогда увидят вновь своих подруг",
+    ),
+    Song(
+      title: "Перевал",
+      singer: "Юрий Визбор",
+      content: "Am                       Dm\nПросто нечего нам больше терять,\nE7                                      Am\nВсе нам вспомнится на страшном суде.\nAm                   Dm\nЭта ночь легла, как тот перевал,\nG7               C\nЗа которым исполненье надежд.\nA7                Dm\nВидно, прожитое прожито зря,\nG7                 C\nНо не в этом, понимаешь ли, соль.\nAm                   Dm\nСлышишь - падают дожди октября,\nE7                      Am\nВидишь - старый дом стоит средь лесов.",
+    ),
   ];
 }
 
@@ -259,6 +268,10 @@ class SecondScreen extends StatefulWidget {
 }
 
 class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMixin {
+  
+  final key = GlobalKey();
+  final key2 = GlobalKey();
+
   ScrollController _scrollController = ScrollController();
   bool scroll = false;
   int speedFactor = 7;
@@ -280,11 +293,28 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
     );
   }
 
+  void _accel() {
+    setState(() {
+      if (speedFactor < 12) {
+          speedFactor = speedFactor + 2;
+          _scroll();
+      }
+    });
+  }
+
+  void _decel() {
+    setState(() {
+      if (speedFactor > 4) {
+        speedFactor = speedFactor - 2;
+        _scroll();
+      }
+    });
+  }
+
   _toggleScrolling() {
     setState(() {
       scroll = !scroll;
     });
-
     if (scroll) {
       _scroll();
     } else {
@@ -295,6 +325,13 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
       );
     }
   }
+
+  // _showTooltip()
+  // {                  
+  //   Timer(Duration(milliseconds: 500),
+  //   final dynamic tooltip = key.currentState;
+  //   tooltip.ensureTooltipVisible();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -310,13 +347,38 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.fast_rewind, color: Colors.orange[700],), 
-              onPressed: () {},
+            Tooltip(
+              //key: key,
+              message: "Замедление",
+              child: IconButton(
+                icon: Icon(Icons.fast_rewind, color: Colors.orange[700],), 
+                onPressed: () {
+                  // setState(() {
+                  //   final dynamic tooltip = key.currentState; 
+                  //   tooltip.ensureTooltipVisible(); 
+                  //   Timer(
+                  //     Duration(milliseconds: 500), () { 
+                  //       tooltip.ensureTooltipVisible(); 
+                  //     }
+                  //   );
+                  // });
+                  // final dynamic tooltip = key.currentState;
+                  // tooltip.ensureTooltipVisible();
+                  _decel();
+                },
+              ),
             ),
-            IconButton(
-              icon: Icon(Icons.fast_forward, color: Colors.orange[700],),               
-              onPressed: () {},
+            Tooltip(
+              key: key2,
+              message: 'Ускорение',
+              child: IconButton(
+                icon: Icon(Icons.fast_forward, color: Colors.orange[700],),               
+                onPressed: () {
+                  final dynamic tooltip = key2.currentState;
+                  tooltip.ensureTooltipVisible();
+                  _accel();
+                },
+              ),
             ),
           ],
         ),
@@ -362,9 +424,10 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
 
   Widget play() {
     return FloatingActionButton(
+      tooltip: "5 секунд",
       onPressed: (){
         if (firstPause) {
-          Timer(Duration(seconds: 20),(){
+          Timer(Duration(seconds: 5),(){
             check=!check;
             _toggleScrolling();       
           });
@@ -380,7 +443,7 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
           }
         });
       },
-      child: activeProgressIndicator ? CircularProgressIndicator(backgroundColor: Colors.white,) : Icon(Icons.play_arrow, color: Colors.white,)
+      child: activeProgressIndicator ? CircularProgressIndicator(backgroundColor: Colors.white,) : Icon(Icons.play_arrow, color: Colors.white,),
     );
   }
 

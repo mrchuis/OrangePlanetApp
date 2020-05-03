@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
+import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
+import 'package:orange_planet_app/pages/stripes/climberStripe.dart';
+import 'package:orange_planet_app/pages/stripes/painterStripe.dart';
+import 'package:orange_planet_app/pages/stripes/sniperStripe.dart';
+import 'package:orange_planet_app/pages/stripes/supplyManagerStripe.dart';
+import 'package:orange_planet_app/pages/stripes/theaterMasterStripe.dart';
 
-import 'pages/songs.dart';
-import 'pages/stripes.dart';
-import 'pages/trials.dart';
+import 'pages/songsScreen.dart';
+import 'pages/stripesScreen.dart';
+import 'pages/trialsScreen.dart';
+import 'pages/stripes/cookStripe.dart';
+import 'pages/stripes/navigatorStripe.dart';
+import 'pages/stripes/campManagerStripe.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,6 +28,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
       ),
       home: MyHomePage(),
+      routes: <String, WidgetBuilder>{
+        CookStripe.routeName: (BuildContext context) => CookStripe(),
+        NavigatorStripe.routeName: (BuildContext context) => NavigatorStripe(),
+        CampManagerStripe.routeName: (BuildContext context) => CampManagerStripe(),
+        CampfireStripe.routeName: (BuildContext context) => CampfireStripe(),
+        ChroniclerStripe.routeName: (BuildContext context) => ChroniclerStripe(),
+        SniperStripe.routeName: (BuildContext context) => SniperStripe(),
+        TheaterMasterStripe.routeName: (BuildContext context) => TheaterMasterStripe(),
+        PainterStripe.routeName: (BuildContext context) => PainterStripe(),
+        SupplyManagerStripe.routeName: (BuildContext context) => SupplyManagerStripe(),
+        ClimberStripe.routeName: (BuildContext context) => ClimberStripe(),
+      },
     );
   }
 }
