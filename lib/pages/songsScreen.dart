@@ -244,7 +244,7 @@ List<Song> getSongs() {
     Song(
       title: "Звезда по имени Солнце",
       singer: "Кино",
-      content: '\nБелый снег, серый лед,\nНа растрескавшейся земле.\nОдеялом лоскутным на ней -\nГород в дорожной петле.',
+      content: 'Вступление:   Dm7     Am\n         Am\nБелый снег, серый лед,\n                 C\nНа растрескавшейся земле.',
     ),
     Song(
       title: "Все острова",
@@ -269,6 +269,49 @@ class SecondScreen extends StatefulWidget {
 
 class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMixin {
   
+  //for ReachText
+  Widget _myWidget(BuildContext context) {
+    
+    final style = TextStyle(
+      color: Colors.blue,
+      fontWeight: FontWeight.w500,  
+    );
+    final spans = _getSpans(widget.song.content, style);
+
+    return RichText(
+      text: TextSpan(
+        style: Theme.of(context).textTheme.body1.copyWith(),
+        children: spans,
+      ),
+    );
+  }
+
+  List<TextSpan> _getSpans(String text, TextStyle style) {
+    
+    List<TextSpan> spans = [];
+    int spanBoundary = 0;
+
+    do {
+      // look for the next match
+      final startIndex = text.indexOf(new RegExp(r"Am|A7|A|Bm|B7|B|C7|Cm|C|Dm|D7|D|Em|E7|E|Fm|F7|F|Gm|G7|G"), spanBoundary);
+      //final startIndex = text.indexOf(matchWord, spanBoundary);
+      if (startIndex == -1) {
+        spans.add(TextSpan(text: text.substring(spanBoundary)));
+        break;
+      }
+      // add any unstyled text before the next match
+      spans.add(TextSpan(text: text.substring(spanBoundary, startIndex)));
+      // style the matched text
+      final endIndex = startIndex + 2;
+      final spanText = text.substring(startIndex, endIndex);
+      spans.add(TextSpan(text: spanText, style:style));
+      // mark the boundary to start the next search from
+      spanBoundary = endIndex;
+      // continue untill there are no more matches      
+    } while (spanBoundary < text.length);
+    return spans;
+  }
+
   final key = GlobalKey();
   final key2 = GlobalKey();
 
@@ -407,11 +450,7 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
               delegate:SliverChildBuilderDelegate(
                 (content, index) => SingleChildScrollView(
                   padding: EdgeInsets.only(left: 10.0),
-                  child: Text(
-                    widget.song.content,
-                    style: GoogleFonts.lato(                    
-                    )
-                  ),
+                  child: _myWidget(context),
                 ),
                 childCount: 1,
               )
