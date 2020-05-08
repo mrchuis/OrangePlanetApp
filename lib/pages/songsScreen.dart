@@ -249,7 +249,7 @@ List<Song> getSongs() {
     Song(
       title: "Все острова",
       singer: "Элизиум",
-      content: "\n Вступление:  C  G  Am  Em  F  C  G\n C              G        Am              Em\nОни мечтали, к волнам спускали\n F                  C                                  G\nЗа бригом бриг, не покладая рук\n C                   G      Am                             Em\nИ уплывали, хотя не знали\n F                         C                                  G\nКогда увидят вновь своих подруг",
+      content: "\n Вступление:  C  G  Am  Em  F  C  G\n C               G       Am                Em\nОни мечтали, к волнам спускали\n F                   C                                G\nЗа бригом бриг, не покладая рук\n C                G    Am              Em\nИ уплывали, хотя не знали\n F                    C                          G\nКогда увидят вновь своих подруг\n\nПрипев:\n                C               G                    Am\nВсе острова - давным, давно открыты\nF   G       C                 G         Am      F\nИ даже те - где тесно и вдвоем\n   G          C          G                    Am          F\nНо, все то, что мы знаем, - ни чего не значит\n       C                G                Am             F\nВсе то, что мы знаем, - ни чего не значит\n     G                                    C   G\nДля нас - мы новый найдем!\n\n C                G    Am               Em\nОни сумели, пройти все мели\n F                   C                               G\nИ слишком мал для них был шар земной\n C                G     Am                     Em\nВ шторма и штили, они входили\n F                     C                             G\nВ любую гавань, как к себе домой\n\n C                 G    Am               Em\nКогда сэр Дрейк уплывал, покидая свой причал\n F                    C                              G\nКем вернется он назад, - вряд ли кто б тогда сказал\n C                 G   Am               Em\nДарвин, и Магеллан, слыша голос дальних стран\n F                    C                             G\nЗабывали те слова, что твердил капеллан.\n\n C               G   Am             Em\nИх волны звали, они узнали\n F                   C                      G\nУ слез и моря одинаков вкус\n C                 G    Am                  Em\nКто испугался, навек остался\n F                   C                     G\nСреди акул, кораллов и медуз\n\nПрипев:\n                C               G                    Am\nВсе острова - давным, давно открыты\nF   G       C                 G         Am      F\nИ даже те - где тесно и вдвоем\n   G          C          G                    Am          F\nНо, все то, что мы знаем, - ни чего не значит\n       C                G                Am             F\nВсе то, что мы знаем, - ни чего не значит\n     G                                    C   G\nДля нас - мы новый найдем!\n                   C  G\nМы новый найдем!",
     ),
     Song(
       title: "Перевал",
@@ -269,7 +269,6 @@ class SecondScreen extends StatefulWidget {
 
 class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMixin {
   
-  //for ReachText
   Widget _myWidget(BuildContext context) {
     
     final style = TextStyle(
@@ -294,7 +293,6 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
     do {
       // look for the next match
       final startIndex = text.indexOf(new RegExp(r"Am|A7|A|Bm|B7|B|C7|Cm|C|Dm|D7|D|Em|E7|E|Fm|F7|F|Gm|G7|G"), spanBoundary);
-      //final startIndex = text.indexOf(matchWord, spanBoundary);
       if (startIndex == -1) {
         spans.add(TextSpan(text: text.substring(spanBoundary)));
         break;
