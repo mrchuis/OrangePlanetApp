@@ -279,7 +279,7 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
 
     return RichText(
       text: TextSpan(
-        style: Theme.of(context).textTheme.body1.copyWith(),
+        style: Theme.of(context).textTheme.bodyText2.copyWith(),
         children: spans,
       ),
     );
