@@ -44,53 +44,334 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  
-  int _selectedIndex = 1;
-  
-  final List<Widget> _children = [
-    Trials(),
-    Stripes(),
-    Songs(),
-  ];
-  
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-  
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _children[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.explore),
-            title: Text('Испытания'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(MdiIcons.cards),
-            title: Text('Нашивки'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(MdiIcons.guitarAcoustic),
-            title: Text('Песни'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.orange[700],
-        onTap: _onItemTapped, 
-      ),
+      body: SingleChildScrollView(
+          child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            ClipPath(
+              clipper: MyClipper(),
+              child: Container(
+                height: 310,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      Color(0xFF3383CD),
+                      Color(0xFF11249F),
+                    ]
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(height: 20),
+                    Expanded(
+                      child: Stack(
+                        children: <Widget>[
+                          Image.asset(
+                            'icon/logoPrince.png',
+                            width: 320,
+                            alignment: Alignment.bottomRight,
+                          ),
+                        ],
+                      )
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    "Основное",
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      HorizontalCard(
+                        icon: Icons.book, 
+                        title: "Законы и Заповеди",
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return Trials();
+                            }),
+                          );
+                        },
+                      ),
+                      HorizontalCard(
+                        icon: MdiIcons.cards, 
+                        title: "\nНашивки",
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return Stripes();
+                            }),
+                          );
+                        },
+                      ),
+                      HorizontalCard(
+                        icon: MdiIcons.guitarAcoustic, 
+                        title: "\nПесни",
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return Songs();
+                            }),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    "Информация",
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  SizedBox(height:10),
+                  VerticalCard(
+                    image: 'icon/icon.png',
+                    title: "Как стать следопытом",
+                    press: () {},
+                  ),
+                  VerticalCard(
+                    image: 'icon/icon.png',
+                    title: "Что-то еще",
+                    press: () {},
+                  ),
+                  VerticalCard(
+                    image: 'icon/icon.png',
+                    title: "И еще",
+                    press: () {},
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      )
     );
   }
 }
+
+class VerticalCard extends StatelessWidget {
+  final String image;
+  final String title;
+  final Function press;
+  const VerticalCard({
+    Key key, 
+    this.image, 
+    this.title, 
+    this.press,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 116,
+      child: Stack(
+        children: <Widget>[
+          Container(
+            height: 90,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(2, 4),
+                  blurRadius: 3,
+                  color: Colors.black12,
+                ),
+              ]
+            ),
+            child: Material(
+              borderRadius: BorderRadius.circular(13),
+              elevation: 14,
+              shadowColor: Colors.black,
+              color: Colors.white,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(13),
+                onTap: () {},
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Image.asset(image,
+                          width: 67,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child:Container(
+                          width: MediaQuery.of(context).size.width - 150,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                title,
+                                style: Theme.of(context).textTheme.headline6,
+                              ),
+                            ],
+                          ),
+                        )
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ),
+          ),
+        ],
+      )
+    );
+  }
+}
+
+class HorizontalCard extends StatefulWidget {
+  final IconData icon;
+  final String title;
+  final Function press;
+  const HorizontalCard({
+    Key key, 
+    this.icon, 
+    this.title, 
+    this.press, 
+  }) : super(key: key);
+
+  @override
+  _HorizontalCardState createState() => _HorizontalCardState();
+}
+
+class _HorizontalCardState extends State<HorizontalCard> {
+  @override
+  Widget build(BuildContext context) {     
+      return Container(
+          width: 90,
+          height: 100,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(13),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(2, 4),
+                blurRadius: 3,
+                color: Colors.black12,
+              )
+            ],
+          ),
+          child: Material(
+            borderRadius: BorderRadius.circular(13),
+            elevation: 14,
+            shadowColor: Colors.black,
+            color: Colors.white,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(13),
+              onTap: widget.press,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: <Widget>[
+                    Icon(
+                      widget.icon,
+                      size: 45,
+                      color: Colors.orange,
+                    ),
+                    Text(
+                      widget.title,
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                  ],
+                ),
+              ),
+            )
+          )
+    );
+  }
+}
+
+class MyClipper extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0, size.height - 67);
+    path.quadraticBezierTo(
+      size.width / 2 , size.height, size.width, size.height - 67
+    );
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+
+}
+
+// class MyHomePage extends StatefulWidget {
+//   MyHomePage({Key key, this.title}) : super(key: key);
+//   final String title;
+
+//   @override
+//   _MyHomePageState createState() => _MyHomePageState();
+// }
+
+// class _MyHomePageState extends State<MyHomePage> {
+  
+//   int _selectedIndex = 1;
+  
+//   final List<Widget> _children = [
+//     Trials(),
+//     Stripes(),
+//     Songs(),
+//   ];
+  
+//   void _onItemTapped(int index) {
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+//   }
+  
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: _children[_selectedIndex],
+//       bottomNavigationBar: BottomNavigationBar(
+//         items: const <BottomNavigationBarItem>[
+//           BottomNavigationBarItem(
+//             icon: Icon(Icons.explore),
+//             title: Text('Испытания'),
+//           ),
+//           BottomNavigationBarItem(
+//             icon: Icon(MdiIcons.cards),
+//             title: Text('Нашивки'),
+//           ),
+//           BottomNavigationBarItem(
+//             icon: Icon(MdiIcons.guitarAcoustic),
+//             title: Text('Песни'),
+//           ),
+//         ],
+//         currentIndex: _selectedIndex,
+//         selectedItemColor: Colors.orange[700],
+//         onTap: _onItemTapped, 
+//       ),
+//     );
+//   }
+// }
