@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
@@ -26,6 +27,13 @@ class MyApp extends StatelessWidget {
       title: 'Orange Planet',
       theme: ThemeData(
         primarySwatch: Colors.orange,
+        textTheme: GoogleFonts.robotoCondensedTextTheme(
+          Theme.of(context).textTheme.copyWith(
+            headline1: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+            headline6: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),
+            bodyText2: TextStyle(fontSize: 40.0, fontFamily: 'Hind'),
+          ),
+        ),
       ),
       home: MyHomePage(),
       routes: <String, WidgetBuilder>{
