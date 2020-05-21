@@ -30,4 +30,14 @@ flutter:
   assets:
     - icon/logoPrince.png
     - icon/icon.png
+    - assets/images/bonfires/kolodec.png
+    - assets/images/bonfires/krestnakrest.png
+    - assets/images/bonfires/napoleno.png
+    - assets/images/bonfires/nodya.png
+    - assets/images/bonfires/ohotnichiy.png
+    - assets/images/bonfires/shalash.png
+    - assets/images/bonfires/taezniy.png
+    - assets/images/bonfires/yamka.png
+    - assets/images/bonfires/zvezda.png
+
 
