@@ -29,9 +29,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         textTheme: GoogleFonts.robotoCondensedTextTheme(
           Theme.of(context).textTheme.copyWith(
-            headline1: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-            headline6: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),
-            bodyText2: TextStyle(fontSize: 40.0, fontFamily: 'Hind'),
+            //headline1: TextStyle(fontSize: 96.0, fontWeight: FontWeight.bold),
+            //headline6: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),
+            bodyText2: TextStyle(fontSize: 16.0,),
           ),
         ),
       ),
@@ -101,9 +101,9 @@ class MyHomePage extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     "Основное",
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.headline5,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -148,7 +148,7 @@ class MyHomePage extends StatelessWidget {
                   SizedBox(height: 20),
                   Text(
                     "Информация",
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.headline5,
                   ),
                   SizedBox(height:10),
                   VerticalCard(
@@ -158,7 +158,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                   VerticalCard(
                     image: 'icon/icon.png',
-                    title: "Что-то еще",
+                    title: "Игры",
                     press: () {},
                   ),
                   VerticalCard(
@@ -190,7 +190,7 @@ class VerticalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 116,
+      height: 100,
       child: Stack(
         children: <Widget>[
           Container(
@@ -209,7 +209,7 @@ class VerticalCard extends StatelessWidget {
             ),
             child: Material(
               borderRadius: BorderRadius.circular(13),
-              elevation: 14,
+              elevation: 5,
               shadowColor: Colors.black,
               color: Colors.white,
               child: InkWell(
@@ -286,7 +286,7 @@ class _HorizontalCardState extends State<HorizontalCard> {
           ),
           child: Material(
             borderRadius: BorderRadius.circular(13),
-            elevation: 14,
+            elevation: 5,
             shadowColor: Colors.black,
             color: Colors.white,
             child: InkWell(
@@ -303,7 +303,7 @@ class _HorizontalCardState extends State<HorizontalCard> {
                     ),
                     Text(
                       widget.title,
-                      style: Theme.of(context).textTheme.subtitle2,
+                      style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ],
                 ),

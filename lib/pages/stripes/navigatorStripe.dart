@@ -35,14 +35,11 @@ class NavigatorStripe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Штурман должен уметь",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.headline6),
+                                  style: Theme.of(context).textTheme.headline5,
                                 ),
                                 Text(
                                   "\nДо похода:",
-                                  style: GoogleFonts.tinos(
-                                    textStyle: Theme.of(context).textTheme.headline6, 
-                                    fontStyle: FontStyle.italic
-                                  ),
+                                  style: Theme.of(context).textTheme.headline6,                               
                                 ),
                                 Text(
                                   "\n1. Выучить топографические знаки.\n"
@@ -50,31 +47,25 @@ class NavigatorStripe extends StatelessWidget {
                                   "\n3. Совместно с руководителем похода разработать и тщательно изучить географические и погодные особенности маршрута и график похода. Составить маршрутный лист.\n"
                                   "\n4. Обеспечить упаковку и хранение карт в походе.\n"
                                   "\n5. Уметь ориентироваться в поле и в лесу, определить на глаз расстояние, время, направление ветра.\n",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),
                                 Text(
                                   "В походе:",
-                                  style: GoogleFonts.tinos(
-                                    textStyle: Theme.of(context).textTheme.headline6, 
-                                    fontStyle: FontStyle.italic
-                                  ),
+                                  style: Theme.of(context).textTheme.headline6, 
                                 ),
                                 Text(
                                   "\n1. Вести отряд.\n"
                                   "\n2. Показывать летописцу объекты съемок.\n",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),  
                                 Text(
                                   "После похода:",
-                                  style: GoogleFonts.tinos(
-                                    textStyle: Theme.of(context).textTheme.headline6, 
-                                    fontStyle: FontStyle.italic
-                                  ),
+                                  style: Theme.of(context).textTheme.headline6,
                                 ),
                                 Text(
                                   "\n1. Сдать оставшиеся карты.\n"
                                   "\n2. Составить словесное описание маршрута.\n",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),  
                               ],
                             ),
@@ -90,13 +81,13 @@ class NavigatorStripe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Правила ориентирования на местности",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.headline6),
+                                  style: Theme.of(context).textTheme.headline5,
                                 ),
                                 Text(
                                   "\nСамыми важными предметами для ориентирования являются карта и компас. Компас позволяет определить направление на север и двигаться на местности по выбранному азимуту. Азимут – угол между направлением на север и заданным направлением на объект. Компас устанавливается горизонтально, вне зоны действия электро- и радиоприборов (это могут быть мобильный телефон, радио, рельсы, просто ключи в кармане). Красная стрелка указывает на север."
                                   "Карта всегда напечатана таким образом, что верх карты – это направление на север, в случае если это не так, направление на север специально обозначается. Сориентировать карту - значит придать ей такое положение, при котором верх карты обращён на север, а изображённые на ней ориентиры соответствуют"
                                   "ориентирам на местности. То есть, красная стрелка компаса должна смотреть на верх карты. Масштаб карты показывает, во сколько раз изображение местности уменьшено на карте. Например масштаб М 1: 10000 означает, что в 1 см на карте изображается 10000 см на местности. Для простоты мысленно убираем два последних нуля и сразу получаем метры, то есть в 1 см карты 100 метров местности. Старайтесь выработать \"память карты\", т.е. способность быстро запечатлевать и сохранять образ карты или местности в голове и реже обращаться к карте.",                         
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),
                               ],
                             ),

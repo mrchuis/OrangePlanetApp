@@ -35,7 +35,8 @@ class CampManagerStripe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Лагерник должен уметь:",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.headline6),
+                                  style: Theme.of(context).textTheme.headline5,
+                                  //style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.headline6),
                                 ),
                                 Text(
                                   "\n1. Уметь устраиваться на биваке, быстро располагаться в палатке или шалаше.\n"
@@ -43,7 +44,8 @@ class CampManagerStripe extends StatelessWidget {
                                   "\n3. Принять участие в 4-х больших лесных играх (одна ночная). Подготовить цикловую игру.\n"
                                   "\n4. Уметь строить лагерные патенты.\n"
                                   "\n5. Знать, какой инвентарь в лагере нужен, уметь с ним обращаться.",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
+                                  //style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
                                 ),
                               ],
                             ),
@@ -59,12 +61,12 @@ class CampManagerStripe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Постановка лагеря:",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.headline6),
+                                  style: Theme.of(context).textTheme.headline5,
                                 ),
                                 Text(
                                   "\n1. Место для бивака подыскивается не позднее, чем за 2 часа до темноты.\n"
                                   "\n2. Место лагеря выбирается с учетом наличия: летом – воды, зимой – топлива для костра.",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),
                               ],
                             ),
@@ -80,7 +82,7 @@ class CampManagerStripe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "В лагере должно быть:",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.headline6),
+                                  style: Theme.of(context).textTheme.headline5,
                                 ),
                                 Text(
                                   "\n1. Окопанный костер, сиденья под тентом.\n"
@@ -96,7 +98,7 @@ class CampManagerStripe extends StatelessWidget {
                                   "\n11. Неорганические – складываются в мусорный пакет.\n"
                                   "\n12. Удобные подходы к воде.\n"
                                   "\n13. Умывальник.",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),
                               ],
                             ),
@@ -112,14 +114,14 @@ class CampManagerStripe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "При постановке лагеря:",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.headline6),
+                                  style: Theme.of(context).textTheme.headline5,
                                 ),
                                 Text(
                                   "\n1. Сразу распределить задачи для участников похода: костровой – выбирает место для костра, натягивает тросик (ставит перекладину), собирает хворост.\nВодоносы, 2 человека, сразу достают котлы и идут за водой, после этого оборудуют умывальники.\nПовар забирает у завхоза продукты и начинает готовить.\n2 человека натягивают тент, потом идут за дровами.\n2 человека ставят палатки.\nОстальные – за дровами. (Если скоро стемнеет, то все сразу идут за дровами!)\n"
                                   "\n2. После этого все достают пенки, застилают места в палатке, переодеваются в сухое, проводится осмотр на наличие клещей. Медик оказывает помощь (мозоли, насморк и прочие досадные неприятности).\nРеммастер проверяет и ремонтирует снаряжение.\n"
                                   "\n3. Распределяется время ночного дежурства на стоянке. Запас дров необходимо укрыть от сырости, Инструменты убираются под тент.\n"
                                   "\n4. Если предполагается дневка, то можно соорудить вокруг очага на безопасном расстоянии сиденья из бревен или напиленных чурбаков.",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),
                               ],
                             ),
@@ -135,13 +137,13 @@ class CampManagerStripe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Правила постановки палатки:",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.headline6),
+                                  style: Theme.of(context).textTheme.headline5,
                                 ),
                                 Text(
                                   "\n1. Палатка ставится спиной к ветру, выходом к костру, на расстоянии с костром (во избежание возгорания и прожигания искрами), не в низине, чтобы не текла вода.\n"
                                   "\n2. Стойки не должны прорывать дно или верх палатки. Колышки должны держаться крепко. Возможно крепление за деревья, камни и т.п. Верхний тент не должен касаться палатки, чтобы не копился конденсат.\n"
                                   "\n3. Палатка окапывается и делается водоотток в сторону спуска.",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),
                               ],
                             ),
@@ -157,7 +159,7 @@ class CampManagerStripe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Технические места лагеря:",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.headline6),
+                                  style: Theme.of(context).textTheme.headline5,
                                 ),
                                 Text(
                                   "\n1. Выше по течению реки располагается место для забора воды, ниже – место для купания.\n"
@@ -166,7 +168,7 @@ class CampManagerStripe extends StatelessWidget {
                                   "\n4. При мытье посуды соблюдаются следующие правила:\n"
                                   "\t- Воду для мытья посуды берут там же, где и для приготовления пищи.\n"
                                   "\t- В водоеме посуду не моем. Ни в коем случае пищевые отходы нельзя смывать в воду или оставлять на берегу.",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),
                               ],
                             ),
@@ -182,13 +184,13 @@ class CampManagerStripe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Туалеты:",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.headline6),
+                                  style: Theme.of(context).textTheme.headline5,
                                 ),
                                 Text(
                                   "\n1. Место для туалетов выбирают в 200—250 метрах от лагеря в густых зарослях, с учетом господствующего направления ветра, чтобы запахи уносились прочь.\n"
                                   "\n2. Нельзя располагать туалеты вблизи источников воды и выше по рельефу, чем расположена стоянка. Мужские и женские туалеты оборудуются отдельно.\n"
                                   "\n3. Для устройства туалета выкапывается длинная канава, на которую кладется решетка из досок или слег (жердей). Вокруг туалета ставятся стенки из непрозрачного полиэтилена, который можно закрепить на растущих вблизи деревьях или каркасе из жердей. Уровень стенок должен соответствовать росту «посетителей». Желательно оборудовать простейший навес, чтобы туалетом можно было пользоваться во время дождя.",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),
                               ],
                             ),
@@ -204,12 +206,12 @@ class CampManagerStripe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "В туалете должно быть:",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.headline6),
+                                  style: Theme.of(context).textTheme.headline5,
                                 ),
                                 Text(
                                   "\n1. “Белая радость”, она же бумага туалетная, в непромокаемой таре.\n"
                                   "\n2. Мешок с торфом или песком, чтобы присыпать яму каждый раз после использования.",
-                                  style: GoogleFonts.tinos(textStyle: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),
                               ],
                             ),
