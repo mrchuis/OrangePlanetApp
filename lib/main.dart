@@ -163,7 +163,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                   VerticalCard(
                     image: 'icon/icon.png',
-                    title: "И еще",
+                    title: "Построение",
                     press: () {},
                   ),
                 ],
