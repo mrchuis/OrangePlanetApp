@@ -39,5 +39,24 @@ flutter:
     - assets/images/bonfires/taezniy.png
     - assets/images/bonfires/yamka.png
     - assets/images/bonfires/zvezda.png
+    - assets/images/knots/tkackiy.png
+    - assets/images/knots/greipvain.png
+    - assets/images/knots/vstrechniy.png
+    - assets/images/knots/bramshkot.png
+    - assets/images/knots/academicheskiy.png
+    - assets/images/knots/provodnik.png
+    - assets/images/knots/vosmerka.png
+    - assets/images/knots/pchelka.png
+    - assets/images/knots/2provodnik.png
+    - assets/images/knots/udavka.png
+    - assets/images/knots/schtik.png
+    - assets/images/knots/stremya.png
+    - assets/images/knots/bulin.png
+    - assets/images/knots/shvativayuschiy.png
+    - assets/images/knots/pustischka.png
+    - assets/images/knots/markirovochniy.png
+    - assets/images/knots/bahman.png
+    - assets/images/knots/karabinnayaUdavka.png
+    
 
 

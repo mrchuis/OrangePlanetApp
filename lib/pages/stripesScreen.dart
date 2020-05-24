@@ -4,6 +4,7 @@ import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
 import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/climberStripe.dart';
 import 'package:orange_planet_app/pages/stripes/cookStripe.dart';
+import 'package:orange_planet_app/pages/stripes/knitterStripe.dart';
 import 'package:orange_planet_app/pages/stripes/navigatorStripe.dart';
 import 'package:orange_planet_app/pages/stripes/painterStripe.dart';
 import 'package:orange_planet_app/pages/stripes/sniperStripe.dart';
@@ -123,5 +124,6 @@ List<String> getRouteName(){
     PainterStripe.routeName,
     SupplyManagerStripe.routeName,
     ClimberStripe.routeName,
+    KnitterStripe.routeName,
   ];
 }
