@@ -130,6 +130,6 @@ List<String> getRouteName(){
     KnitterStripe.routeName,
     //PhotographerStripe.routeName,
     //SailorStripe.routeName,
-    //DrummerStripe.routeName,
+    DrummerStripe.routeName,
   ];
 }
