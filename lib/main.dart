@@ -5,8 +5,11 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
 import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/climberStripe.dart';
+import 'package:orange_planet_app/pages/stripes/drummer.dart';
 import 'package:orange_planet_app/pages/stripes/knitterStripe.dart';
 import 'package:orange_planet_app/pages/stripes/painterStripe.dart';
+import 'package:orange_planet_app/pages/stripes/photographer.dart';
+import 'package:orange_planet_app/pages/stripes/sailor.dart';
 import 'package:orange_planet_app/pages/stripes/sniperStripe.dart';
 import 'package:orange_planet_app/pages/stripes/supplyManagerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/theaterMasterStripe.dart';
@@ -48,7 +51,10 @@ class MyApp extends StatelessWidget {
         PainterStripe.routeName: (BuildContext context) => PainterStripe(),
         SupplyManagerStripe.routeName: (BuildContext context) => SupplyManagerStripe(),
         ClimberStripe.routeName: (BuildContext context) => ClimberStripe(),
-        KnitterStripe.routeName: (BuildContext context) =>KnitterStripe(),
+        KnitterStripe.routeName: (BuildContext context) => KnitterStripe(),
+        PhotographerStripe.routeName: (BuildContext context) => PhotographerStripe(),
+        SailorStripe.routeName: (BuildContext context) => SailorStripe(),
+        DrummerStripe.routeName: (BuildContext context) => DrummerStripe(),
         
       },
     );

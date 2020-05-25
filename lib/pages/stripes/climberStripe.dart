@@ -19,12 +19,36 @@ class ClimberStripe extends StatelessWidget {
             SliverList(
               delegate:SliverChildBuilderDelegate(
                 (content, index) => SingleChildScrollView(
-                  padding: EdgeInsets.only(left: 10.0),
-                  child: Text(
-                    "Тескст про нашивку\n\n\nТескст про нашивку\n\n\nТескст про нашивку \n\n\nТескст про нашивку \n\n\nТескст про нашивку \n\n\nТескст про нашивку \n\n\nТескст про нашивку \n\n\nТескст про нашивку \n\n\nТескст про нашивку \n\n\nТескст про нашивку",
-                    style: TextStyle(
-                      fontSize: 25,
-                    ),  
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(3, 5, 3, 3),
+                    child: Column(
+                      children: <Widget>[
+                        Card(
+                          elevation: 2.0,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              mainAxisSize: MainAxisSize.max,
+                              children: <Widget>[
+                                Text(
+                                  "headline5",
+                                  style: Theme.of(context).textTheme.headline5,
+                                ),
+                                Text(
+                                "\nheadline6",
+                                style: Theme.of(context).textTheme.headline6,                               
+                              ),
+                                Text(
+                                  "\n1. ",
+                                  style: Theme.of(context).textTheme.bodyText2,
+                                ),
+                              ],
+                            ),
+                          )
+                        ),
+                      ],
+                    )
                   ),
                 ),
                 childCount: 1,

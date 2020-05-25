@@ -4,9 +4,12 @@ import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
 import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/climberStripe.dart';
 import 'package:orange_planet_app/pages/stripes/cookStripe.dart';
+import 'package:orange_planet_app/pages/stripes/drummer.dart';
 import 'package:orange_planet_app/pages/stripes/knitterStripe.dart';
 import 'package:orange_planet_app/pages/stripes/navigatorStripe.dart';
 import 'package:orange_planet_app/pages/stripes/painterStripe.dart';
+import 'package:orange_planet_app/pages/stripes/photographer.dart';
+import 'package:orange_planet_app/pages/stripes/sailor.dart';
 import 'package:orange_planet_app/pages/stripes/sniperStripe.dart';
 import 'package:orange_planet_app/pages/stripes/supplyManagerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/theaterMasterStripe.dart';
@@ -114,16 +117,19 @@ class StripesState extends State<Stripes> {
 
 List<String> getRouteName(){
   return [
-    CookStripe.routeName,
-    NavigatorStripe.routeName,
+    //CookStripe.routeName,
+    //NavigatorStripe.routeName,
     CampManagerStripe.routeName,
     CampfireStripe.routeName,
-    ChroniclerStripe.routeName,
-    SniperStripe.routeName,
-    TheaterMasterStripe.routeName,
-    PainterStripe.routeName,
-    SupplyManagerStripe.routeName,
-    ClimberStripe.routeName,
+    //ChroniclerStripe.routeName,
+    //SniperStripe.routeName,
+    //TheaterMasterStripe.routeName,
+    //PainterStripe.routeName,
+    //SupplyManagerStripe.routeName,
+    //ClimberStripe.routeName,
     KnitterStripe.routeName,
+    //PhotographerStripe.routeName,
+    //SailorStripe.routeName,
+    //DrummerStripe.routeName,
   ];
 }

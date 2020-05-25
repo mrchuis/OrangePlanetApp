@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ChroniclerStripe extends StatelessWidget {
-  static const String routeName = "/Летописец";
+class SailorStripe extends StatelessWidget {
+  static const String routeName = "/Матрос";
 
   @override
   Widget build(BuildContext context) {
