@@ -195,15 +195,14 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(16.0),
-                                  child: FloatingActionButton(
-                                    mini: true,
+                                   child: RaisedButton(
                                     elevation: 2,
-                                    child: Icon(Icons.refresh, color: Colors.orange,),
-                                    backgroundColor: Colors.white,
+                                    color: Colors.white,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                                      //side: BorderSide(color: Colors.black45, width: 2.0),
+                                      side: BorderSide(color: Colors.black54, width: 1.75),
                                     ),
+                                    child: Icon(Icons.refresh, color: Colors.orange,),
                                     onPressed: (){
                                       setState(() {
                                         for (var item in _publicOutfitList.keys) {
@@ -250,15 +249,14 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(16.0),
-                                  child: FloatingActionButton(
-                                    mini: true,
+                                  child: RaisedButton(
                                     elevation: 2,
-                                    child: Icon(Icons.refresh, color: Colors.orange,),
-                                    backgroundColor: Colors.white,
+                                    color: Colors.white,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                                      //side: BorderSide(color: Colors.black45, width: 2.0),
+                                      side: BorderSide(color: Colors.black54, width: 1.75),
                                     ),
+                                    child: Icon(Icons.refresh, color: Colors.orange,),
                                     onPressed: (){
                                       setState(() {
                                         for (var item in _personalOutfitList.keys) {
@@ -266,8 +264,28 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                         }
                                       });
                                     }
-                                  ),
+                                  )
                                 )
+                                // Padding(
+                                //   padding: const EdgeInsets.all(16.0),
+                                //   child: FloatingActionButton(
+                                //     mini: true,
+                                //     elevation: 2,
+                                //     child: Icon(Icons.refresh, color: Colors.orange,),
+                                //     backgroundColor: Colors.white,
+                                //     shape: RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                                //       //side: BorderSide(color: Colors.black45, width: 2.0),
+                                //     ),
+                                //     onPressed: (){
+                                //       setState(() {
+                                //         for (var item in _personalOutfitList.keys) {
+                                //           _personalOutfitList[item] = false;
+                                //         }
+                                //       });
+                                //     }
+                                //   ),
+                                // )
                               ],
                             ),                           
                           )
