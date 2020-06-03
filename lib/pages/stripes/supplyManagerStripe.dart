@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grouped_buttons/grouped_buttons.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SupplyManagerStripe extends StatefulWidget {
   static const String routeName = "/Завхоз";
@@ -35,7 +35,15 @@ class _strikeThrough extends StatelessWidget{
   }
 }
 
+class ListStructure{
+  String key;
+  bool values;
+  ListStructure(this.key, this.values);
+}
+
 class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
+
+  //static List<ListStructure> _list = new List<ListStructure>();
     
   Map<String, bool> _publicOutfitList = {
     "1. Палатки по количеству народа + одноместная продуктовая. Отвечает за продуктовую палатку завхоз, доступ к ней также имеет повар": false,
@@ -59,6 +67,49 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
     "19. Средство для мытья посуды, две и более губки": false,
     "20. Мусорные мешки": false,
   };
+  //..forEach((k,v) => _list.add(new ListStructure(k,v)));
+
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPublicOutfit();
+  }
+
+  _loadPublicOutfit() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+
+      // for (int i = 0; i < _list.length; i++)
+      // {
+      //   _list[i].values = prefs.getBool(_list[i].key) ?? false;
+      // }
+
+      _publicOutfitList.updateAll((key, value) => value = prefs.getBool(key) ?? false);
+
+      //_publicOutfitList = _list.asMap();
+
+
+      
+      //_publicOutfitList.forEach((key, value) {value = prefs.getBool(key) ?? false;});
+      // for (var item in _publicOutfitList.entries){
+      //   //item.value = prefs.getBool(key) ?? false;
+      //   item.value = prefs.getBool(key) ?? false;
+      // }
+    });
+  }
+
+  _incrementCounter(String checkKey, bool checkValue) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {    
+
+      prefs.setBool(checkKey, checkValue);
+      _publicOutfitList[checkKey] = prefs.getBool(checkKey) ?? false;
+      //_publicOutfitList.forEach((key, value) {value = prefs.getBool(key) ?? checkValue;});
+    });
+  }
+
+
 
   Map<String, bool> _personalOutfitList = {
     "1. Рюкзак большой с полиэтиленовым вкладышем": false,
@@ -184,9 +235,10 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                       CheckboxListTile(
                                         value: _publicOutfitList[key], 
                                         onChanged: (bool value) {
-                                          setState(() {
-                                            _publicOutfitList[key] = value;
-                                          });
+                                          _incrementCounter(key, value);
+                                          // setState(() {
+                                          //   _publicOutfitList[key] = value;
+                                          // });
                                         },
                                         title: _strikeThrough(todoText: key, todoToggle: _publicOutfitList[key]),
                                       )
@@ -206,7 +258,8 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                     onPressed: (){
                                       setState(() {
                                         for (var item in _publicOutfitList.keys) {
-                                          _publicOutfitList[item] = false;
+                                          //_publicOutfitList[item] = false;
+                                          _incrementCounter(item, false);
                                         }
                                       });
                                     }
