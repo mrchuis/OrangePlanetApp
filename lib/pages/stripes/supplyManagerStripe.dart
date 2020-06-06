@@ -42,8 +42,6 @@ class ListStructure{
 }
 
 class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
-
-  //static List<ListStructure> _list = new List<ListStructure>();
     
   Map<String, bool> _publicOutfitList = {
     "1. Палатки по количеству народа + одноместная продуктовая. Отвечает за продуктовую палатку завхоз, доступ к ней также имеет повар": false,
@@ -67,49 +65,6 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
     "19. Средство для мытья посуды, две и более губки": false,
     "20. Мусорные мешки": false,
   };
-  //..forEach((k,v) => _list.add(new ListStructure(k,v)));
-
-
-  @override
-  void initState() {
-    super.initState();
-    _loadPublicOutfit();
-  }
-
-  _loadPublicOutfit() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-
-      // for (int i = 0; i < _list.length; i++)
-      // {
-      //   _list[i].values = prefs.getBool(_list[i].key) ?? false;
-      // }
-
-      _publicOutfitList.updateAll((key, value) => value = prefs.getBool(key) ?? false);
-
-      //_publicOutfitList = _list.asMap();
-
-
-      
-      //_publicOutfitList.forEach((key, value) {value = prefs.getBool(key) ?? false;});
-      // for (var item in _publicOutfitList.entries){
-      //   //item.value = prefs.getBool(key) ?? false;
-      //   item.value = prefs.getBool(key) ?? false;
-      // }
-    });
-  }
-
-  _incrementCounter(String checkKey, bool checkValue) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {    
-
-      prefs.setBool(checkKey, checkValue);
-      _publicOutfitList[checkKey] = prefs.getBool(checkKey) ?? false;
-      //_publicOutfitList.forEach((key, value) {value = prefs.getBool(key) ?? checkValue;});
-    });
-  }
-
-
 
   Map<String, bool> _personalOutfitList = {
     "1. Рюкзак большой с полиэтиленовым вкладышем": false,
@@ -120,6 +75,85 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
     "6. Штормовка и штаны к ней": false,
     "7. Пакеты для упаковки вещей": false,
   };
+
+  Map<String, bool> _necessaryThingsList = {
+    "1. Непромокаемая длинная куртка с капюшоном": false,
+    "2. Теплый свитер с горлом": false,
+    "3. Длинные штаны (лучше хлопчатобумажные)": false,
+    "4. Головной убор": false,
+    "5. Основная обувь: крепкие разношенные ботинки": false,
+    "6. Легкая обувь: кроссовки и т.п.": false,
+    "7. Шорты, футболки": false,
+    "8. По смене нижнего белья на каждый день": false,
+    "9. Носки хлопчатобумажные (пара на день) и шерстяные": false,
+    "10. Пижама или другая одежда для сна": false,
+    "11. Гигиенические принадлежности: мыло в мыльнице, зубная паста, щетка, полотенца, шампунь и пр.": false,
+    "12. Ремонтный набор: нитки, иголки, шнурки и пр. в упаковке": false,
+    "13. Туалетная бумага, носовые платки": false,
+    "14. Личная аптечка": false,
+    "15. Фонарик, компас": false,
+    "16. Шлепанцы": false,
+    "17. Купальный костюм": false,
+  };
+
+  Map<String, bool> _dontForgetList = {
+    "1. Блокнот с ручкой": false,
+    "2. Деньги и документы": false,
+    "3. Часы": false,
+    "4. Фотоаппарат": false,
+    "5. Внешний аккумулятор": false,
+    "6. Гитару": false,
+  };
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCheckboxLists();
+  }
+
+  _loadCheckboxLists() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _publicOutfitList.updateAll((key, value) => value = prefs.getBool(key) ?? false);
+      _personalOutfitList.updateAll((key, value) => value = prefs.getBool(key) ?? false);
+      _necessaryThingsList.updateAll((key, value) => value = prefs.getBool(key) ?? false);
+      _dontForgetList.updateAll((key, value) => value = prefs.getBool(key) ?? false);
+    });
+  }
+
+  _checkPublicOutfitList(String checkKey, bool checkValue) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {    
+      prefs.setBool(checkKey, checkValue);
+      _publicOutfitList[checkKey] = prefs.getBool(checkKey) ?? false;
+    });
+  }
+
+  _checkPersonalOutfitList(String checkKey, bool checkValue) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {    
+      prefs.setBool(checkKey, checkValue);
+      _personalOutfitList[checkKey] = prefs.getBool(checkKey) ?? false;
+    });
+  }
+
+  _checkNecessaryThingsList(String checkKey, bool checkValue) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {    
+      prefs.setBool(checkKey, checkValue);
+      _necessaryThingsList[checkKey] = prefs.getBool(checkKey) ?? false;
+    });
+  }
+
+  _checkDontForgetList(String checkKey, bool checkValue) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {    
+      prefs.setBool(checkKey, checkValue);
+      _dontForgetList[checkKey] = prefs.getBool(checkKey) ?? false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -227,7 +261,7 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                 ),
                                 SizedBox(height:10),
                                 Container(
-                                  height: 1160,
+                                  height: 1155,
                                   child: ListView(
                                     physics: NeverScrollableScrollPhysics(),
                                     padding: EdgeInsets.all(5.0),
@@ -235,10 +269,7 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                       CheckboxListTile(
                                         value: _publicOutfitList[key], 
                                         onChanged: (bool value) {
-                                          _incrementCounter(key, value);
-                                          // setState(() {
-                                          //   _publicOutfitList[key] = value;
-                                          // });
+                                          _checkPublicOutfitList(key, value);
                                         },
                                         title: _strikeThrough(todoText: key, todoToggle: _publicOutfitList[key]),
                                       )
@@ -258,8 +289,7 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                     onPressed: (){
                                       setState(() {
                                         for (var item in _publicOutfitList.keys) {
-                                          //_publicOutfitList[item] = false;
-                                          _incrementCounter(item, false);
+                                          _checkPublicOutfitList(item, false);
                                         }
                                       });
                                     }
@@ -283,7 +313,7 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                 ),
                                 SizedBox(height:10),
                                 Container(
-                                  height: 390,
+                                  height: 400,
                                   child: ListView(
                                     physics: NeverScrollableScrollPhysics(),
                                     padding: EdgeInsets.all(5.0),
@@ -292,7 +322,7 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                         value: _personalOutfitList[key], 
                                         onChanged: (bool value) {
                                           setState(() {
-                                            _personalOutfitList[key] = value;
+                                            _checkPersonalOutfitList(key, value);
                                           });
                                         },
                                         title: _strikeThrough(todoText: key, todoToggle: _personalOutfitList[key]),
@@ -313,32 +343,120 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                     onPressed: (){
                                       setState(() {
                                         for (var item in _personalOutfitList.keys) {
-                                          _personalOutfitList[item] = false;
+                                          _checkPersonalOutfitList(item, false);
                                         }
                                       });
                                     }
                                   )
                                 )
-                                // Padding(
-                                //   padding: const EdgeInsets.all(16.0),
-                                //   child: FloatingActionButton(
-                                //     mini: true,
-                                //     elevation: 2,
-                                //     child: Icon(Icons.refresh, color: Colors.orange,),
-                                //     backgroundColor: Colors.white,
-                                //     shape: RoundedRectangleBorder(
-                                //       borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                                //       //side: BorderSide(color: Colors.black45, width: 2.0),
-                                //     ),
-                                //     onPressed: (){
-                                //       setState(() {
-                                //         for (var item in _personalOutfitList.keys) {
-                                //           _personalOutfitList[item] = false;
-                                //         }
-                                //       });
-                                //     }
-                                //   ),
-                                // )
+                              ],
+                            ),                           
+                          )
+                        ),
+                        Card(
+                          elevation: 2.0,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10,),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              mainAxisSize: MainAxisSize.max,
+                              children: <Widget>[
+                                Text(
+                                  "  Необходимые вещи",
+                                  style: Theme.of(context).textTheme.headline5,
+                                ),
+                                SizedBox(height:10),
+                                Container(
+                                  height: 980,
+                                  child: ListView(
+                                    physics: NeverScrollableScrollPhysics(),
+                                    padding: EdgeInsets.all(5.0),
+                                    children: _necessaryThingsList.keys.map((String key) => 
+                                      CheckboxListTile(
+                                        value: _necessaryThingsList[key], 
+                                        onChanged: (bool value) {
+                                          setState(() {
+                                            _checkNecessaryThingsList(key, value);
+                                          });
+                                        },
+                                        title: _strikeThrough(todoText: key, todoToggle: _necessaryThingsList[key]),
+                                      )
+                                    ).toList()
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: RaisedButton(
+                                    elevation: 2,
+                                    color: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                                      side: BorderSide(color: Colors.black54, width: 1.75),
+                                    ),
+                                    child: Icon(Icons.refresh, color: Colors.orange,),
+                                    onPressed: (){
+                                      setState(() {
+                                        for (var item in _necessaryThingsList.keys) {
+                                          _checkNecessaryThingsList(item, false);
+                                        }
+                                      });
+                                    }
+                                  )
+                                )
+                              ],
+                            ),                           
+                          )
+                        ),
+                        Card(
+                          elevation: 2.0,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10,),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              mainAxisSize: MainAxisSize.max,
+                              children: <Widget>[
+                                Text(
+                                  "  Дополнительно",
+                                  style: Theme.of(context).textTheme.headline5,
+                                ),
+                                SizedBox(height:10),
+                                Container(
+                                  height: 340,
+                                  child: ListView(
+                                    physics: NeverScrollableScrollPhysics(),
+                                    padding: EdgeInsets.all(5.0),
+                                    children: _dontForgetList.keys.map((String key) => 
+                                      CheckboxListTile(
+                                        value: _dontForgetList[key], 
+                                        onChanged: (bool value) {
+                                          setState(() {
+                                            _checkDontForgetList(key, value);
+                                          });
+                                        },
+                                        title: _strikeThrough(todoText: key, todoToggle: _dontForgetList[key]),
+                                      )
+                                    ).toList()
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: RaisedButton(
+                                    elevation: 2,
+                                    color: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                                      side: BorderSide(color: Colors.black54, width: 1.75),
+                                    ),
+                                    child: Icon(Icons.refresh, color: Colors.orange,),
+                                    onPressed: (){
+                                      setState(() {
+                                        for (var item in _dontForgetList.keys) {
+                                          _checkDontForgetList(item, false);
+                                        }
+                                      });
+                                    }
+                                  )
+                                )
                               ],
                             ),                           
                           )
