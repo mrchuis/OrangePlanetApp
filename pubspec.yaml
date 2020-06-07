@@ -18,6 +18,7 @@ dependencies:
   google_fonts: ^1.0.0
   grouped_buttons: ^1.0.4
   shared_preferences: ^0.5.7+3
+  flutter_svg: ^0.17.4
 
   cupertino_icons: ^0.1.2
 
@@ -34,35 +35,11 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/icons/
+    - assets/images/bonfires/
+    - assets/images/knots/
     - icon/logoPrince.png
     - icon/icon.png
-    - assets/images/bonfires/kolodec.png
-    - assets/images/bonfires/krestnakrest.png
-    - assets/images/bonfires/napoleno.png
-    - assets/images/bonfires/nodya.png
-    - assets/images/bonfires/ohotnichiy.png
-    - assets/images/bonfires/shalash.png
-    - assets/images/bonfires/taezniy.png
-    - assets/images/bonfires/yamka.png
-    - assets/images/bonfires/zvezda.png
-    - assets/images/knots/tkackiy.png
-    - assets/images/knots/greipvain.png
-    - assets/images/knots/vstrechniy.png
-    - assets/images/knots/bramshkot.png
-    - assets/images/knots/academicheskiy.png
-    - assets/images/knots/provodnik.png
-    - assets/images/knots/vosmerka.png
-    - assets/images/knots/pchelka.png
-    - assets/images/knots/2provodnik.png
-    - assets/images/knots/udavka.png
-    - assets/images/knots/schtik.png
-    - assets/images/knots/stremya.png
-    - assets/images/knots/bulin.png
-    - assets/images/knots/shvativayuschiy.png
-    - assets/images/knots/pustischka.png
-    - assets/images/knots/markirovochniy.png
-    - assets/images/knots/bahman.png
-    - assets/images/knots/karabinnayaUdavka.png
     
 
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -72,6 +73,7 @@ class MyHomePage extends StatelessWidget {
             ClipPath(
               clipper: MyClipper(),
               child: Container(
+                padding: EdgeInsets.only(top: 30),
                 height: 310,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -87,20 +89,56 @@ class MyHomePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    SizedBox(height: 20),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: PopupMenuButton<int>(
+                        color: Color(0xFF5583CD),
+                        icon: Icon(Icons.menu, color: Colors.white,),
+                        itemBuilder: (context) => [
+                          PopupMenuItem(
+                            value: 1,
+                            child: Text("Обратная связь"),
+                          ),
+                          PopupMenuItem(
+                            value: 2,
+                            child: Text("Оставить отзыв"),
+                          ),
+                        ],
+                      ),
+                      //child: SvgPicture.asset("assets/icons/menu.svg"),
+                    ),
                     Expanded(
                       child: Stack(
+                        //alignment: Alignment.centerRight,
                         children: <Widget>[
                           Image.asset(
                             'icon/logoPrince.png',
-                            width: 320,
-                            alignment: Alignment.bottomRight,
+                            width: 244,
+                            //fit: BoxFit.fitWidth,
+                            //alignment: Alignment.bottomRight,
                           ),
                         ],
-                      )
-                    )
+                      ),
+                    ),
                   ],
                 ),
+                // child: Column(
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: <Widget>[
+                //     SizedBox(height: 20),
+                //     Expanded(
+                //       child: Stack(
+                //         children: <Widget>[
+                //           Image.asset(
+                //             'icon/logoPrince.png',
+                //             width: 320,
+                //             alignment: Alignment.bottomRight,
+                //           ),
+                //         ],
+                //       )
+                //     )
+                //   ],
+                // ),
               ),
             ),
             Padding(
