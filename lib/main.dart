@@ -17,6 +17,7 @@ import 'package:orange_planet_app/pages/stripes/theaterMasterStripe.dart';
 
 import 'pages/songsScreen.dart';
 import 'pages/stripesScreen.dart';
+import 'pages/laws.dart';
 import 'pages/trialsScreen.dart';
 import 'pages/stripes/cookStripe.dart';
 import 'pages/stripes/navigatorStripe.dart';
@@ -92,7 +93,7 @@ class MyHomePage extends StatelessWidget {
                     Align(
                       alignment: Alignment.topRight,
                       child: PopupMenuButton<int>(
-                        color: Color(0xFF5583CD),
+                        //color: Color(0xFF5583CD),
                         icon: Icon(Icons.menu, color: Colors.white,),
                         itemBuilder: (context) => [
                           PopupMenuItem(
@@ -151,46 +152,61 @@ class MyHomePage extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      HorizontalCard(
-                        icon: Icons.book, 
-                        title: "Законы и Заповеди",
-                        press: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) {
-                              return Trials();
-                            }),
-                          );
-                        },
-                      ),
-                      HorizontalCard(
-                        icon: MdiIcons.cards, 
-                        title: "\nНашивки",
-                        press: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) {
-                              return Stripes();
-                            }),
-                          );
-                        },
-                      ),
-                      HorizontalCard(
-                        icon: MdiIcons.guitarAcoustic, 
-                        title: "\nПесни",
-                        press: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) {
-                              return Songs();
-                            }),
-                          );
-                        },
-                      ),
-                    ],
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        HorizontalCard(
+                          icon: Icons.book, 
+                          title: "Законы и\nЗаповеди",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return Laws();
+                              }),
+                            );
+                          },
+                        ),
+                        HorizontalCard(
+                          icon: MdiIcons.cards, 
+                          title: "\nНашивки",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return Stripes();
+                              }),
+                            );
+                          },
+                        ),
+                        HorizontalCard(
+                          icon: MdiIcons.guitarAcoustic, 
+                          title: "\nИспытания",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return Trials();
+                              }),
+                            );
+                          },
+                        ),
+                        HorizontalCard(
+                          icon: MdiIcons.guitarAcoustic, 
+                          title: "\nПесни",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return Songs();
+                              }),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 20),
                   Text(
@@ -318,45 +334,50 @@ class _HorizontalCardState extends State<HorizontalCard> {
   @override
   Widget build(BuildContext context) {     
       return Container(
-          width: 90,
-          height: 100,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(13),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(2, 4),
-                blurRadius: 3,
-                color: Colors.black12,
-              )
-            ],
-          ),
-          child: Material(
-            borderRadius: BorderRadius.circular(13),
-            elevation: 5,
-            shadowColor: Colors.black,
-            color: Colors.white,
-            child: InkWell(
-              borderRadius: BorderRadius.circular(13),
-              onTap: widget.press,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    Icon(
-                      widget.icon,
-                      size: 45,
-                      color: Colors.orange,
-                    ),
-                    Text(
-                      widget.title,
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
-                  ],
-                ),
-              ),
+        margin: EdgeInsets.only( right: 15, top: 5, bottom: 10),
+        //padding: EdgeInsets.all(5),
+        width: 105,
+        height: 130,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(1, 4),
+              blurRadius: 20,
+              color: Color(0xFFB0CCE1).withOpacity(0.32),
+              //color: Colors.black12,
             )
+          ],
+        ),
+        child: Material(
+          borderRadius: BorderRadius.circular(13),
+          elevation: 5,
+          shadowColor: Colors.black,
+          color: Colors.white,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(13),
+            onTap: widget.press,
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                //crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
+                    widget.icon,
+                    size: 45,
+                    color: Colors.orange,
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    widget.title,
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                ],
+              ),
+            ),
           )
+        )
     );
   }
 }

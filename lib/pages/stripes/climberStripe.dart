@@ -38,7 +38,7 @@ class ClimberStripe extends StatelessWidget {
                                 Text(
                                 "\nheadline6",
                                 style: Theme.of(context).textTheme.headline6,                               
-                              ),
+                                ),
                                 Text(
                                   "\n1. ",
                                   style: Theme.of(context).textTheme.bodyText2,
