@@ -148,13 +148,14 @@ class MyHomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Основное",
+                    "Следопытство",
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   SizedBox(height: 10),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
+                  // SingleChildScrollView(
+                  //   scrollDirection: Axis.horizontal,
+                  // child: Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         HorizontalCard(
@@ -193,41 +194,81 @@ class MyHomePage extends StatelessWidget {
                             );
                           },
                         ),
-                        HorizontalCard(
-                          icon: MdiIcons.guitarAcoustic, 
-                          title: "\nПесни",
-                          press: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) {
-                                return Songs();
-                              }),
-                            );
-                          },
-                        ),
+                        // HorizontalCard(
+                        //   icon: MdiIcons.guitarAcoustic, 
+                        //   title: "\nПесни",
+                        //   press: () {
+                        //     Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(builder: (context) {
+                        //         return Songs();
+                        //       }),
+                        //     );
+                        //   },
+                        // ),
                       ],
                     ),
-                  ),
+                  //),
                   SizedBox(height: 20),
                   Text(
-                    "Информация",
+                    "Развлечения",
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   SizedBox(height:10),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: <Widget>[
+                  //     HorizontalCard(
+                  //       icon: Icons.games,
+                  //       title: "Игры",
+                  //       press: () {
+                  //         Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(builder: (context) {
+                  //             //return Laws();
+                  //             return null;
+                  //           }),
+                  //         );
+                  //       },
+                  //     ),
+                  //     HorizontalCard(
+                  //       icon: Icons.games,
+                  //       title: "Песни",
+                  //       press: () {
+                  //         Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(builder: (context) {
+                  //             return Songs();
+                  //           }),
+                  //         );
+                  //       },
+                  //     ),                     
+                  //   ],
+                  // ),
                   VerticalCard(
                     image: 'icon/icon.png',
-                    title: "Как стать следопытом",
-                    press: () {},
+                    title: "Песни",
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return Songs();
+                        }),
+                      );
+                    },
                   ),
                   VerticalCard(
                     image: 'icon/icon.png',
                     title: "Игры",
-                    press: () {},
-                  ),
-                  VerticalCard(
-                    image: 'icon/icon.png',
-                    title: "Построение",
-                    press: () {},
+                    press: () {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) {
+                      //     return Songs();
+                      //   }),
+                      // );
+                    },
+                    //press: () {},
                   ),
                 ],
               ),
@@ -239,7 +280,7 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class VerticalCard extends StatelessWidget {
+class VerticalCard extends StatefulWidget {
   final String image;
   final String title;
   final Function press;
@@ -250,6 +291,11 @@ class VerticalCard extends StatelessWidget {
     this.press,
   }) : super(key: key);
 
+  @override
+  _VerticalCardState createState() => _VerticalCardState();
+}
+
+class _VerticalCardState extends State<VerticalCard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -277,14 +323,14 @@ class VerticalCard extends StatelessWidget {
               color: Colors.white,
               child: InkWell(
                 borderRadius: BorderRadius.circular(13),
-                onTap: () {},
+                onTap: widget.press,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(4.0),
-                        child: Image.asset(image,
+                        child: Image.asset(widget.image,
                           width: 67,
                         ),
                       ),
@@ -296,7 +342,7 @@ class VerticalCard extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                title,
+                                widget.title,
                                 style: Theme.of(context).textTheme.headline6,
                               ),
                             ],
@@ -334,7 +380,7 @@ class _HorizontalCardState extends State<HorizontalCard> {
   @override
   Widget build(BuildContext context) {     
       return Container(
-        margin: EdgeInsets.only( right: 15, top: 5, bottom: 10),
+        //margin: EdgeInsets.only( right: 15, top: 5, bottom: 10),
         //padding: EdgeInsets.all(5),
         width: 105,
         height: 130,
