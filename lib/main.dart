@@ -74,8 +74,8 @@ class MyHomePage extends StatelessWidget {
             ClipPath(
               clipper: MyClipper(),
               child: Container(
-                padding: EdgeInsets.only(top: 30),
-                height: 310,
+                padding: EdgeInsets.only(top: 10),
+                height: 290,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -303,16 +303,16 @@ class _VerticalCardState extends State<VerticalCard> {
       child: Stack(
         children: <Widget>[
           Container(
-            height: 90,
-            width: double.infinity,
+             height: 90,
+             width: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(10),
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  offset: Offset(2, 4),
-                  blurRadius: 3,
-                  color: Colors.black12,
+                  offset: Offset(1, 4),
+                  blurRadius: 20,
+                  color: Color(0xFFB0CCE1).withOpacity(0.32),
                 ),
               ]
             ),
@@ -383,7 +383,7 @@ class _HorizontalCardState extends State<HorizontalCard> {
         //margin: EdgeInsets.only( right: 15, top: 5, bottom: 10),
         //padding: EdgeInsets.all(5),
         width: 105,
-        height: 130,
+        height: 125,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
