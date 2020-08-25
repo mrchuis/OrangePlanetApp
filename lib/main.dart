@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -110,36 +109,16 @@ class MyHomePage extends StatelessWidget {
                     ),
                     Expanded(
                       child: Stack(
-                        //alignment: Alignment.centerRight,
                         children: <Widget>[
                           Image.asset(
                             'icon/logoPrince.png',
                             width: 244,
-                            //fit: BoxFit.fitWidth,
-                            //alignment: Alignment.bottomRight,
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
-                // child: Column(
-                //   crossAxisAlignment: CrossAxisAlignment.center,
-                //   children: <Widget>[
-                //     SizedBox(height: 20),
-                //     Expanded(
-                //       child: Stack(
-                //         children: <Widget>[
-                //           Image.asset(
-                //             'icon/logoPrince.png',
-                //             width: 320,
-                //             alignment: Alignment.bottomRight,
-                //           ),
-                //         ],
-                //       )
-                //     )
-                //   ],
-                // ),
               ),
             ),
             Padding(
@@ -152,9 +131,6 @@ class MyHomePage extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   SizedBox(height: 10),
-                  // SingleChildScrollView(
-                  //   scrollDirection: Axis.horizontal,
-                  // child: Row(
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
@@ -194,18 +170,6 @@ class MyHomePage extends StatelessWidget {
                             );
                           },
                         ),
-                        // HorizontalCard(
-                        //   icon: MdiIcons.guitarAcoustic, 
-                        //   title: "\nПесни",
-                        //   press: () {
-                        //     Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(builder: (context) {
-                        //         return Songs();
-                        //       }),
-                        //     );
-                        //   },
-                        // ),
                       ],
                     ),
                   //),
@@ -215,36 +179,6 @@ class MyHomePage extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   SizedBox(height:10),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: <Widget>[
-                  //     HorizontalCard(
-                  //       icon: Icons.games,
-                  //       title: "Игры",
-                  //       press: () {
-                  //         Navigator.push(
-                  //           context,
-                  //           MaterialPageRoute(builder: (context) {
-                  //             //return Laws();
-                  //             return null;
-                  //           }),
-                  //         );
-                  //       },
-                  //     ),
-                  //     HorizontalCard(
-                  //       icon: Icons.games,
-                  //       title: "Песни",
-                  //       press: () {
-                  //         Navigator.push(
-                  //           context,
-                  //           MaterialPageRoute(builder: (context) {
-                  //             return Songs();
-                  //           }),
-                  //         );
-                  //       },
-                  //     ),                     
-                  //   ],
-                  // ),
                   VerticalCard(
                     image: 'icon/icon.png',
                     title: "Песни",
@@ -261,14 +195,7 @@ class MyHomePage extends StatelessWidget {
                     image: 'icon/icon.png',
                     title: "Игры",
                     press: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) {
-                      //     return Songs();
-                      //   }),
-                      // );
                     },
-                    //press: () {},
                   ),
                 ],
               ),
@@ -446,54 +373,3 @@ class MyClipper extends CustomClipper<Path>{
   }
 
 }
-
-// class MyHomePage extends StatefulWidget {
-//   MyHomePage({Key key, this.title}) : super(key: key);
-//   final String title;
-
-//   @override
-//   _MyHomePageState createState() => _MyHomePageState();
-// }
-
-// class _MyHomePageState extends State<MyHomePage> {
-  
-//   int _selectedIndex = 1;
-  
-//   final List<Widget> _children = [
-//     Trials(),
-//     Stripes(),
-//     Songs(),
-//   ];
-  
-//   void _onItemTapped(int index) {
-//     setState(() {
-//       _selectedIndex = index;
-//     });
-//   }
-  
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: _children[_selectedIndex],
-//       bottomNavigationBar: BottomNavigationBar(
-//         items: const <BottomNavigationBarItem>[
-//           BottomNavigationBarItem(
-//             icon: Icon(Icons.explore),
-//             title: Text('Испытания'),
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Icon(MdiIcons.cards),
-//             title: Text('Нашивки'),
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Icon(MdiIcons.guitarAcoustic),
-//             title: Text('Песни'),
-//           ),
-//         ],
-//         currentIndex: _selectedIndex,
-//         selectedItemColor: Colors.orange[700],
-//         onTap: _onItemTapped, 
-//       ),
-//     );
-//   }
-// }
