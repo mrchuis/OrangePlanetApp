@@ -259,7 +259,6 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
       else {
         spans.add(TextSpan(text: spanText, style:style));
       }
-
       // mark the boundary to start the next search from
       spanBoundary = endIndex;
       // continue untill there are no more matches      
@@ -277,6 +276,17 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
   bool firstPause = true;
   bool firstPressedPlay = true;
   bool activeProgressIndicator = false;
+
+  int _speedCounter = 4;
+  Map<int, String> _speed = {
+    1: "Замедление max",
+    2: "Замедление x4",
+    3: "Замедление x2",
+    4: "Нормальная скорость",
+    5: "Ускорение x2",
+    6: "Ускорение x4",
+    7: "Ускорение max",
+  };
 
   _scroll() {
     double maxExtent = _scrollController.position.maxScrollExtent;
@@ -341,25 +351,31 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
             IconButton(
               icon: Icon(Icons.fast_rewind, color: Colors.orange[700],), 
               onPressed: () {
-                _decel();
-                _scaffoldKey.currentState.showSnackBar(SnackBar(
-                  content: Text('Замедление'),
-                  duration: Duration(seconds: 1),
-                  behavior: SnackBarBehavior.floating,
-                  backgroundColor: Colors.black.withOpacity(0.85),
-                ));
+                if (_speedCounter >= 2) {
+                  _decel();
+                  --_speedCounter;
+                  _scaffoldKey.currentState.showSnackBar(SnackBar(
+                    content: Text('${_speed[_speedCounter]}'),
+                    duration: Duration(seconds: 1),
+                    behavior: SnackBarBehavior.floating,
+                    backgroundColor: Colors.black.withOpacity(0.85),
+                  ));
+                }
               }
             ),
             IconButton(
               icon: Icon(Icons.fast_forward, color: Colors.orange[700],),               
               onPressed: () {
-                _accel();
-                _scaffoldKey.currentState.showSnackBar(SnackBar(
-                  content: Text('Ускорение'),
-                  duration: Duration(seconds: 1),
-                  behavior: SnackBarBehavior.floating,
-                  backgroundColor: Colors.black.withOpacity(0.85),
-                ));
+                if (_speedCounter <= 6) {
+                  _accel();
+                  ++_speedCounter;
+                  _scaffoldKey.currentState.showSnackBar(SnackBar(
+                    content: Text('${_speed[_speedCounter]}'),
+                    duration: Duration(seconds: 1),
+                    behavior: SnackBarBehavior.floating,
+                    backgroundColor: Colors.black.withOpacity(0.85),
+                  ));
+                }               
               },
             ),
           ],
