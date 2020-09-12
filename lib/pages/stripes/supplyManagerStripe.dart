@@ -102,7 +102,7 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
     "3. Часы": false,
     "4. Фотоаппарат": false,
     "5. Внешний аккумулятор": false,
-    "6. Гитару": false,
+    "6. Гитара": false,
   };
 
 

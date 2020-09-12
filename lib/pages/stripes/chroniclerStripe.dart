@@ -32,15 +32,41 @@ class ChroniclerStripe extends StatelessWidget {
                               mainAxisSize: MainAxisSize.max,
                               children: <Widget>[
                                 Text(
-                                  "headline5",
+                                  "Летописец должен",
                                   style: Theme.of(context).textTheme.headline5,
                                 ),
                                 Text(
-                                "\nheadline6",
-                                style: Theme.of(context).textTheme.headline6,                               
-                              ),
+                                  "\nНа смене: ",
+                                  style: Theme.of(context).textTheme.headline6,                               
+                                ),
                                 Text(
-                                  "\n1. ",
+                                  "\n1. Вести дневник отрядной жизни, давать оценку событиям, отношение к ним отряда. Уметь украсить текст рисунками, вырезками. Писать четко и красиво.\n",
+                                  style: Theme.of(context).textTheme.bodyText2,
+                                ),
+                                Text(
+                                  "До похода: ",
+                                  style: Theme.of(context).textTheme.headline6,                               
+                                ),
+                                Text(
+                                  "\n1. Продумать ведение летописи.\n"
+                                  "\n2. Обеспечить необходимые материалы: блокнот, ручки, карандаши и пр.\n",
+                                  style: Theme.of(context).textTheme.bodyText2,
+                                ),
+                                Text(
+                                  "В походе: ",
+                                  style: Theme.of(context).textTheme.headline6,                               
+                                ),
+                                Text(
+                                  "\n1. Организовать ведение летописи.\n"
+                                  "\n2. Обеспечить всем необходимым участников, ведущих летопись.\n",
+                                  style: Theme.of(context).textTheme.bodyText2,
+                                ),
+                                Text(
+                                  "После похода: ",
+                                  style: Theme.of(context).textTheme.headline6,                               
+                                ),
+                                Text(
+                                  "\n1. Выпустить стенгазету по итогам похода.",
                                   style: Theme.of(context).textTheme.bodyText2,
                                 ),
                               ],
