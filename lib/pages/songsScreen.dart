@@ -421,7 +421,13 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
       tooltip: "5 секунд",
       onPressed: (){
         if (firstPause) {
-          Timer(Duration(seconds: 5),(){
+          _scaffoldKey.currentState.showSnackBar(SnackBar(
+            content: Text('Автопрокрутка текста через 15 секунд'),
+            duration: Duration(seconds: 5),
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: Colors.black.withOpacity(0.85),
+          ));
+          Timer(Duration(seconds: 15),(){
             check=!check;
             _toggleScrolling();       
           });
