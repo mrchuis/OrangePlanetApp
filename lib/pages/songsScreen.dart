@@ -351,7 +351,7 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
             IconButton(
               icon: Icon(Icons.fast_rewind, color: Colors.orange[700],), 
               onPressed: () {
-                if (_speedCounter >= 2) {
+                if (_speedCounter >= 2 && check == false) {
                   _decel();
                   --_speedCounter;
                   _scaffoldKey.currentState.showSnackBar(SnackBar(
@@ -366,7 +366,7 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
             IconButton(
               icon: Icon(Icons.fast_forward, color: Colors.orange[700],),               
               onPressed: () {
-                if (_speedCounter <= 6) {
+                if (_speedCounter <= 6 && check == false) {
                   _accel();
                   ++_speedCounter;
                   _scaffoldKey.currentState.showSnackBar(SnackBar(
