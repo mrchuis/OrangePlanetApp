@@ -8,6 +8,7 @@ import 'package:orange_planet_app/pages/stripes/knitterStripe.dart';
 
 import 'package:orange_planet_app/pages/stripes/supplyManagerStripe.dart';
 
+import 'stripes/navigatorStripe.dart';
 
 class Stripes extends StatefulWidget {
   StripesState createState() {
@@ -113,7 +114,7 @@ class StripesState extends State<Stripes> {
 List<String> getRouteName(){
   return [
     //CookStripe.routeName,
-    //NavigatorStripe.routeName,
+    NavigatorStripe.routeName,
     CampManagerStripe.routeName,
     CampfireStripe.routeName,
     ChroniclerStripe.routeName,

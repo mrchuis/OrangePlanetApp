@@ -309,8 +309,8 @@ class _HorizontalCardState extends State<HorizontalCard> {
       return Container(
         //margin: EdgeInsets.only( right: 15, top: 5, bottom: 10),
         //padding: EdgeInsets.all(5),
-        width: 105,
-        height: 125,
+        width: 95,
+        height: 115,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
@@ -332,7 +332,7 @@ class _HorizontalCardState extends State<HorizontalCard> {
             borderRadius: BorderRadius.circular(13),
             onTap: widget.press,
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: Column(
                 //crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[

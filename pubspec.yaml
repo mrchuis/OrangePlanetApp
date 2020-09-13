@@ -38,6 +38,7 @@ flutter:
     - assets/icons/
     - assets/images/bonfires/
     - assets/images/knots/
+    - assets/images/navigator/
     - assets/songs/
     - icon/logoPrince.png
     - icon/icon.png
