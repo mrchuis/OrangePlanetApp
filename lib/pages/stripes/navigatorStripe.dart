@@ -79,7 +79,7 @@ class NavigatorStripe extends StatelessWidget {
                             title: Text(
                               "Правила ориентирования на местности",
                               style: Theme.of(context).textTheme.headline6,
-                            ),
+                            ),                           
                             children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
