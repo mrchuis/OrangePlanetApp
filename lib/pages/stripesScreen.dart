@@ -5,6 +5,7 @@ import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
 
 import 'package:orange_planet_app/pages/stripes/drummer.dart';
 import 'package:orange_planet_app/pages/stripes/knitterStripe.dart';
+import 'package:orange_planet_app/pages/stripes/sniperStripe.dart';
 
 import 'package:orange_planet_app/pages/stripes/supplyManagerStripe.dart';
 
@@ -118,7 +119,7 @@ List<String> getRouteName(){
     CampManagerStripe.routeName,
     CampfireStripe.routeName,
     ChroniclerStripe.routeName,
-    //SniperStripe.routeName,
+    SniperStripe.routeName,
     //TheaterMasterStripe.routeName,
     //PainterStripe.routeName,
     SupplyManagerStripe.routeName,
