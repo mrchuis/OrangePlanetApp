@@ -270,7 +270,7 @@ class NavigatorStripe extends StatelessWidget {
                                         style: Theme.of(context).textTheme.bodyText2,
                                         children: [
                                           TextSpan(
-                                            text: "\n⦁ Муравейники",
+                                            text: "\nМуравейники",
                                             style: TextStyle(fontWeight: FontWeight.bold),
                                           ),
                                           TextSpan(

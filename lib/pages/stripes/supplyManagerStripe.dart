@@ -215,7 +215,8 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                   children: <Widget>[
                                     Text(
                                       "До похода:",
-                                      style: Theme.of(context).textTheme.headline6,                               
+                                      style: Theme.of(context).textTheme.headline6,     
+                                      textAlign: TextAlign.center,                           
                                     ),
                                     Text(
                                       "\n1. Составить список группового снаряжения с учетом особенностей маршрута.\n"
@@ -227,7 +228,8 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                     ),
                                     Text(
                                       "\nВ походе:",
-                                      style: Theme.of(context).textTheme.headline6,                               
+                                      style: Theme.of(context).textTheme.headline6,     
+                                      textAlign: TextAlign.center,                           
                                     ),
                                     Text(
                                       "\n1. Следить за сохранностью снаряжения и его состоянием.\n"
@@ -238,7 +240,8 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                     ),
                                     Text(
                                       "\nПосле похода:",
-                                      style: Theme.of(context).textTheme.headline6,                               
+                                      style: Theme.of(context).textTheme.headline6,         
+                                      textAlign: TextAlign.center,                       
                                     ),
                                     Text(
                                       "\n1. Организовать просушку и ремонт снаряжения.\n"

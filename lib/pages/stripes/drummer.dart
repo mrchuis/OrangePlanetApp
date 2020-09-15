@@ -76,7 +76,8 @@ class DrummerStripe extends StatelessWidget {
                                   children: <Widget>[
                                     Text(
                                       "Теория:",
-                                      style: Theme.of(context).textTheme.headline6,                               
+                                      style: Theme.of(context).textTheme.headline6,     
+                                      textAlign: TextAlign.center,                          
                                     ),
                                     Text(
                                       "\n1. Понимать значения терминов «символы» и «ритуалы».\n"
@@ -88,8 +89,9 @@ class DrummerStripe extends StatelessWidget {
                                       style: Theme.of(context).textTheme.bodyText2,
                                     ),
                                     Text(
-                                    "\nПрактика:",
-                                    style: Theme.of(context).textTheme.headline6,                               
+                                      "\nПрактика:",
+                                     style: Theme.of(context).textTheme.headline6,   
+                                      textAlign: TextAlign.center,                             
                                     ),
                                     Text(
                                       "\n1. Уметь показывать знаки барабанщиков, переходы барабана.\n"

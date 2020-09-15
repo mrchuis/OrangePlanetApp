@@ -39,7 +39,8 @@ class CampfireStripe extends StatelessWidget {
                                 children: <Widget>[
                                   Text(
                                     "До похода:",
-                                    style: Theme.of(context).textTheme.headline6,                               
+                                    style: Theme.of(context).textTheme.headline6,       
+                                    textAlign: TextAlign.center,                        
                                   ),
                                   Text(
                                     "\n1. Подготовить материалы для розжига костра (спички, сухое горючее) и упаковать их для походных условий.\n"
@@ -49,6 +50,7 @@ class CampfireStripe extends StatelessWidget {
                                   Text(
                                     "В походе:",
                                     style: Theme.of(context).textTheme.headline6, 
+                                    textAlign: TextAlign.center, 
                                   ),
                                   Text(
                                     "\n1. Подготовить место для костра, соблюдая правила безопасности.\n"
