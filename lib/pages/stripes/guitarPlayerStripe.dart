@@ -180,9 +180,180 @@ class GuitarPlayerStripe extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.stretch,
                                   mainAxisSize: MainAxisSize.max,
                                   children: <Widget>[
+                                    RichText(
+                                      text: TextSpan(
+                                        style: Theme.of(context).textTheme.bodyText2,
+                                        children: [
+                                          TextSpan(
+                                            text: "Гитарный бой",
+                                            style: TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: " — самый известный приём игры на гитаре. Заключается в ударном звукоизвлечении (отсюда и название), резким, но скользящим ударом — по отдельным, рядом расположенным, струнам, либо по всем сразу.\n",
+                                          ),
+                                        ]
+                                      )
+                                    ),
                                     Text(
-                                      "1. \n",
+                                      "Схемы основных гитарных боёв:\n",
+                                      style: Theme.of(context).textTheme.headline6, 
+                                      textAlign: TextAlign.center, 
+                                    ),
+                                    RichText(
+                                      text: TextSpan(
+                                        style: Theme.of(context).textTheme.bodyText2,
+                                        children: [
+                                          TextSpan(
+                                            text: "Бой \"Четверка\"",
+                                            style: TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: " — щипок струны вниз осуществляется большим пальцем, вверх — указательным. Повторяющихся ударных движений четыре: вниз - вверх - вниз с глушением - вверх.\n",
+                                          ),
+                                        ]
+                                      )
+                                    ),
+                                    Image.asset(
+                                      'assets/images/guitar/boy1.png',
+                                      height: 100,
+                                      alignment: Alignment.topCenter,
+                                    ),
+                                    RichText(
+                                      text: TextSpan(
+                                        style: Theme.of(context).textTheme.bodyText2,
+                                        children: [
+                                          TextSpan(
+                                            text: "\nБой \"Шестерка\"",
+                                            style: TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: " — повторяющихся ударных движений шесть: вниз - вниз - вверх - вверх - вниз - вверх.\n",
+                                          ),
+                                        ]
+                                      )
+                                    ),
+                                    Image.asset(
+                                      'assets/images/guitar/boy2.png',
+                                      height: 90,
+                                      alignment: Alignment.topCenter,
+                                    ),
+                                    RichText(
+                                      text: TextSpan(
+                                        style: Theme.of(context).textTheme.bodyText2,
+                                        children: [
+                                          TextSpan(
+                                            text: "\nБой \"Шестерка\" с глушением",
+                                            style: TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: " — повторяющихся ударных движений шесть: вниз - вниз с глушением - вверх - вверх - вниз с глушением - вверх.\n",
+                                          ),
+                                        ]
+                                      )
+                                    ),
+                                    Image.asset(
+                                      'assets/images/guitar/boy3.png',
+                                      height: 90,
+                                      alignment: Alignment.topCenter,
+                                    ),
+                                    Divider(
+                                      color: Colors.black,
+                                    ),
+                                    RichText(
+                                      text: TextSpan(
+                                        style: Theme.of(context).textTheme.bodyText2,
+                                        children: [
+                                          TextSpan(
+                                            text: "\nПеребор",
+                                            style: TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: " — извлечение звука с помощью последовательного чередования (перебора) струн. Исполняется путём последовательного защипывания разных струн несколькими пальцами.\n",
+                                          ),
+                                        ]
+                                      )
+                                    ),
+                                    Text(
+                                      "Основные гитарные переборы:\n",
+                                      style: Theme.of(context).textTheme.headline6, 
+                                      textAlign: TextAlign.center, 
+                                    ),
+                                    RichText(
+                                      text: TextSpan(
+                                        style: Theme.of(context).textTheme.bodyText2,
+                                        children: [
+                                          TextSpan(
+                                            text: "\Перебор \"Шестерка\"",
+                                            style: TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: ". Проще перебора и не придумаешь. Играется он следующим образом:",
+                                          ),
+                                        ]
+                                      )
+                                    ),
+                                    Text(
+                                      "\nБас-3-2-1-2-3\n",
+                                      style: Theme.of(context).textTheme.headline6, 
+                                      textAlign: TextAlign.center, 
+                                    ),
+                                    RichText(
+                                      text: TextSpan(
+                                        style: Theme.of(context).textTheme.bodyText2,
+                                        children: [
+                                          TextSpan(
+                                            text: "\Перебор \"Восьмёрка\"",
+                                            style: TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: ". Это уже слегка продвинутый перебор, но освоить его должен каждый. Он имеет следующую структуру:",
+                                          ),
+                                        ]
+                                      )
+                                    ),
+                                    Text(
+                                      "\nБас-3-2-3-1-3-2-3\n",
+                                      style: Theme.of(context).textTheme.headline6, 
+                                      textAlign: TextAlign.center, 
+                                    ),
+                                    RichText(
+                                      text: TextSpan(
+                                        style: Theme.of(context).textTheme.bodyText2,
+                                        children: [
+                                          TextSpan(
+                                            text: "\Перебор \"Четвёрка\"",
+                                            style: TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: ". Перебор имеет необычную структуру:",
+                                          ),
+                                        ]
+                                      )
+                                    ),
+                                    Text(
+                                      "\nБас-3-(2-1)-3\n",
+                                      style: Theme.of(context).textTheme.headline6, 
+                                      textAlign: TextAlign.center, 
+                                    ),
+                                    Text(
+                                      "Цифры в скобках означают, что сыграть эти струны необходимо синхронно. Заодно будет повод поупражняться в щипках.",
                                       style: Theme.of(context).textTheme.bodyText2,
+                                    ),
+                                    RichText(
+                                      text: TextSpan(
+                                        style: Theme.of(context).textTheme.bodyText2,
+                                        children: [
+                                          TextSpan(
+                                            text: "\Перебор \"Вальсовый\"",
+                                            style: TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                        ]
+                                      )
+                                    ),
+                                    Text(
+                                      "\nБас-(3-2-1)(3-2-1)-(Бас)-(3-2-1)(3-2-1)\n",
+                                      style: Theme.of(context).textTheme.headline6, 
+                                      textAlign: TextAlign.center, 
                                     ),
                                   ]
                                 ),
@@ -249,6 +420,48 @@ class GuitarPlayerStripe extends StatelessWidget {
                                       "\nТранспортировать гитару рекомендуется осторожно, избегая ударов, намокания и нагревания. Зимой гитару нужно переносить в утепленном чехле, чтобы избежать сильного охлаждения корпуса. Любой перепад температуры сказывается на дереве тем или иным образом.\n"
                                       "\nСтоит обратить внимание на хранение гитары в полевых условиях. Необходимо поддерживать оптимальную температуру и избегать намокания. Располагать гитару близко к костру крайне не рекомендуется. После использования убирать в чехол. Ночью хранить в палатке.",
                                       style: Theme.of(context).textTheme.bodyText2,
+                                    ),
+                                  ]
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Card(
+                          elevation: 2.0,
+                          child: ExpansionTile(
+                            title: Text(
+                              "Аппликатуры базовых аккордов",
+                              style: Theme.of(context).textTheme.headline6,
+                            ),
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: <Widget>[
+                                    Image.asset(
+                                      'assets/images/guitar/accords.png',
+                                      alignment: Alignment.topCenter,
+                                    ),
+                                    Divider(
+                                      color: Colors.black,
+                                    ),
+                                    RichText(
+                                      text: TextSpan(
+                                        style: Theme.of(context).textTheme.bodyText2,
+                                        children: [
+                                          TextSpan(
+                                            text: "\nБаррэ́ ",
+                                            style: TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: " — приём игры на гитаре, когда указательный палец играющей на грифе руки, зажимает одновременно все или несколько струн на грифе. Для обучающихся игре на гитаре баррэ является достаточно трудным приёмом. Однако, несмотря на свою трудность, баррэ — обязательное требование к гитаристу любого уровня. Приём баррэ закрепляется на ранних периодах обучения игре на гитаре, так как не зная данного приёма, невозможно сыграть большую часть аккордов.\n"
+                                            "\nИ хотя существуют приёмы игры на гитаре, позволяющие обходиться без баррэ. Так, аккорды, которые стандартно исполняются только с баррэ, имеют некоторые интерпретации без баррэ. В частности, аккорд F можно взять без баррэ, зажав указательным пальцем только шестую струну на первом ладу — нота Фа — основная нота аккорда. Звучание будет иметь другую окраску. Однако использование различных интерпретаций аккордов не даёт повода игнорировать приём баррэ и не осваивать его в процессе обучения.",
+                                          ),
+                                        ]
+                                      )
                                     ),
                                   ]
                                 ),
