@@ -51,7 +51,7 @@ class TheaterMasterStripe extends StatelessWidget {
                           elevation: 2.0,
                           child: ExpansionTile(
                             title: Text(
-                              "Мастер театра должен",
+                              "Требования к нашивке",
                               style: Theme.of(context).textTheme.headline6,
                             ),
                             children: <Widget>[

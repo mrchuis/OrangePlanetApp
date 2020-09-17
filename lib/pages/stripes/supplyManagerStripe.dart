@@ -203,7 +203,7 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                           elevation: 2.0,
                           child: ExpansionTile(
                             title: Text(
-                              "Основные обязанности завхоза",
+                              "Требования к нашивке",
                               style: Theme.of(context).textTheme.headline6,
                             ),                           
                             children: <Widget>[
