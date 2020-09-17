@@ -37,12 +37,11 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/bonfires/
+    - assets/images/guitar/
     - assets/images/knots/
     - assets/images/navigator/
     - assets/images/sniper/
     - assets/songs/
     - icon/logoPrince.png
     - icon/icon.png
-    
-
 
