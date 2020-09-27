@@ -4,6 +4,7 @@ import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
 import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
 
 import 'package:orange_planet_app/pages/stripes/drummer.dart';
+import 'package:orange_planet_app/pages/stripes/guitarPlayerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/knitterStripe.dart';
 import 'package:orange_planet_app/pages/stripes/repairMasterStripe.dart';
 import 'package:orange_planet_app/pages/stripes/sniperStripe.dart';
@@ -131,5 +132,6 @@ List<String> getRouteName(){
     //SailorStripe.routeName,
     DrummerStripe.routeName,
     RepairMasterStripe.routeName,
+    GuitarPlayerStripe.routeName,
   ];
 }

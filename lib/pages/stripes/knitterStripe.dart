@@ -27,7 +27,7 @@ class KnitterStripe extends StatelessWidget {
                           elevation: 2.0,
                           child: ExpansionTile(
                             title: Text(
-                              "Узловой должен",
+                              "Требования к нашивке",
                               style: Theme.of(context).textTheme.headline6,
                             ),                           
                             children: <Widget>[

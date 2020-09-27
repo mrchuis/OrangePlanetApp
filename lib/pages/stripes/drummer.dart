@@ -64,7 +64,7 @@ class DrummerStripe extends StatelessWidget {
                           elevation: 2.0,
                           child: ExpansionTile(
                             title: Text(
-                              "Барабанщик должен",
+                              "Требования к нашивке",
                               style: Theme.of(context).textTheme.headline6,
                             ),                           
                             children: <Widget>[
