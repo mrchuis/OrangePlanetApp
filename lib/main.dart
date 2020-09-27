@@ -9,6 +9,7 @@ import 'package:orange_planet_app/pages/stripes/drummer.dart';
 import 'package:orange_planet_app/pages/stripes/knitterStripe.dart';
 import 'package:orange_planet_app/pages/stripes/painterStripe.dart';
 import 'package:orange_planet_app/pages/stripes/photographer.dart';
+import 'package:orange_planet_app/pages/stripes/repairMasterStripe.dart';
 import 'package:orange_planet_app/pages/stripes/sailor.dart';
 import 'package:orange_planet_app/pages/stripes/sniperStripe.dart';
 import 'package:orange_planet_app/pages/stripes/supplyManagerStripe.dart';
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
         PhotographerStripe.routeName: (BuildContext context) => PhotographerStripe(),
         SailorStripe.routeName: (BuildContext context) => SailorStripe(),
         DrummerStripe.routeName: (BuildContext context) => DrummerStripe(),
-        
+        RepairMasterStripe.routeName: (BuildContext context) => RepairMasterStripe(),
       },
     );
   }
