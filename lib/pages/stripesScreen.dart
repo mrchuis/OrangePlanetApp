@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:orange_planet_app/pages/stripes/campManagerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
 import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
+import 'package:orange_planet_app/pages/stripes/climberStripe.dart';
 
 import 'package:orange_planet_app/pages/stripes/drummer.dart';
 import 'package:orange_planet_app/pages/stripes/guitarPlayerStripe.dart';
@@ -126,7 +127,7 @@ List<String> getRouteName(){
     TheaterMasterStripe.routeName,
     //PainterStripe.routeName,
     SupplyManagerStripe.routeName,
-    //ClimberStripe.routeName,
+    ClimberStripe.routeName,
     KnitterStripe.routeName,
     //PhotographerStripe.routeName,
     //SailorStripe.routeName,
