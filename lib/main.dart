@@ -5,6 +5,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
 import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/climberStripe.dart';
+import 'package:orange_planet_app/pages/stripes/doctorStripe.dart';
 import 'package:orange_planet_app/pages/stripes/drummer.dart';
 import 'package:orange_planet_app/pages/stripes/guitarPlayerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/knitterStripe.dart';
@@ -60,6 +61,7 @@ class MyApp extends StatelessWidget {
         DrummerStripe.routeName: (BuildContext context) => DrummerStripe(),
         RepairMasterStripe.routeName: (BuildContext context) => RepairMasterStripe(),
         GuitarPlayerStripe.routeName: (BuildContext context) => GuitarPlayerStripe(),
+        DoctorStripe.routeName: (BuildContext context) => DoctorStripe(),
       },
     );
   }
