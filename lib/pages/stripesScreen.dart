@@ -3,6 +3,7 @@ import 'package:orange_planet_app/pages/stripes/campManagerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
 import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/climberStripe.dart';
+import 'package:orange_planet_app/pages/stripes/cookStripe.dart';
 import 'package:orange_planet_app/pages/stripes/doctorStripe.dart';
 
 import 'package:orange_planet_app/pages/stripes/drummer.dart';
@@ -121,7 +122,7 @@ class StripesState extends State<Stripes> {
 
 List<String> getRouteName(){
   return [
-    //CookStripe.routeName,
+    CookStripe.routeName,
     NavigatorStripe.routeName,
     CampManagerStripe.routeName,
     CampfireStripe.routeName,
