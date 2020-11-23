@@ -9,11 +9,12 @@ class SupplyManagerStripe extends StatefulWidget {
 }
 
 bool toggle = false;
-class _strikeThrough extends StatelessWidget{
+// ignore: must_be_immutable
+class StrikeThrough extends StatelessWidget{
 
   bool todoToggle;
   String todoText;
-  _strikeThrough({this.todoToggle, this.todoText}) : super();
+  StrikeThrough({this.todoToggle, this.todoText}) : super();
 
   Widget _strikewidget(){
     if(todoToggle==false){
@@ -280,7 +281,7 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                             onChanged: (bool value) {
                                               _checkPublicOutfitList(key, value);
                                             },
-                                            title: _strikeThrough(todoText: key, todoToggle: _publicOutfitList[key]),
+                                            title: StrikeThrough(todoText: key, todoToggle: _publicOutfitList[key]),
                                           )
                                         ).toList()
                                       ),
@@ -338,7 +339,7 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                                 _checkPersonalOutfitList(key, value);
                                               });
                                             },
-                                            title: _strikeThrough(todoText: key, todoToggle: _personalOutfitList[key]),
+                                            title: StrikeThrough(todoText: key, todoToggle: _personalOutfitList[key]),
                                           )
                                         ).toList()
                                       ),
@@ -396,7 +397,7 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                                 _checkNecessaryThingsList(key, value);
                                               });
                                             },
-                                            title: _strikeThrough(todoText: key, todoToggle: _necessaryThingsList[key]),
+                                            title: StrikeThrough(todoText: key, todoToggle: _necessaryThingsList[key]),
                                           )
                                         ).toList()
                                       ),
@@ -454,7 +455,7 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                                 _checkDontForgetList(key, value);
                                               });
                                             },
-                                            title: _strikeThrough(todoText: key, todoToggle: _dontForgetList[key]),
+                                            title: StrikeThrough(todoText: key, todoToggle: _dontForgetList[key]),
                                           )
                                         ).toList()
                                       ),
