@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:orange_planet_app/pages/feedback.dart';
 import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
 import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/climberStripe.dart';
@@ -99,6 +100,14 @@ class MyHomePage extends StatelessWidget {
                       child: PopupMenuButton<int>(
                         //color: Color(0xFF5583CD),
                         icon: Icon(Icons.menu, color: Colors.white,),
+                        onSelected: (value) {
+                          if (value == 1) {
+                            Navigator.push(
+                              context, 
+                              MaterialPageRoute(builder: (context) => FeedbackScreen())
+                            );
+                          }
+                        },
                         itemBuilder: (context) => [
                           PopupMenuItem(
                             value: 1,
