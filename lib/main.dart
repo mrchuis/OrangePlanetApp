@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:orange_planet_app/gamesScreen.dart';
 import 'package:orange_planet_app/pages/feedback.dart';
 import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
 import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
@@ -237,6 +238,12 @@ class MyHomePage extends StatelessWidget {
                     image: 'icon/icon.png',
                     title: "Игры",
                     press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return Games();
+                        }),
+                      );
                     },
                   ),
                 ],
