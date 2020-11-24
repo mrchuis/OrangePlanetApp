@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:orange_planet_app/components/body.dart';
 
+import 'components/size_config.dart';
 
 class Games extends StatefulWidget {
   GamesState createState() {
@@ -7,20 +9,20 @@ class Games extends StatefulWidget {
   }
 }
 
-// Подвижные игры, Игры на знакомство, Игры на сплочение, Игры с залом, Психологические игры, Игры пятиминутки
+// Подвижные игры,
+// Игры на знакомство,
+// Игры на сплочение,
+// Игры с залом,
+// Психологические игры,
+// Игры пятиминутки
 class GamesState extends State<Games> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Игры'),   
-      ),
-      body: Column(
-        children: <Widget>[
-          Text("Игры"),
-        ],
-      ),  
+      extendBodyBehindAppBar: true,
+      //appBar: AppBar(),
+      body: Body(),
     );
   }
 }
