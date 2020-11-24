@@ -44,6 +44,14 @@ class MyApp extends StatelessWidget {
             bodyText2: TextStyle(fontSize: 16.0,),
           ),
         ),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+            side: BorderSide(color: Colors.orange, width: 1.75),
+          ),
+          height: 45,
+        )
       ),
       home: MyHomePage(),
       routes: <String, WidgetBuilder>{

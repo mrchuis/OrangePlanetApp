@@ -41,12 +41,12 @@ class FeedbackScreen extends StatelessWidget {
                 padding: EdgeInsets.all(8.0),
                 child: RaisedButton(
                   elevation: 2,
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(4)),
-                    side: BorderSide(color: Colors.orange, width: 1.75),
-                  ),
-                  child: Text("Отправить сообщение"),
+                  // color: Colors.white,
+                  // shape: RoundedRectangleBorder(
+                  //   borderRadius: BorderRadius.all(Radius.circular(4)),
+                  //   side: BorderSide(color: Colors.orange, width: 1.75),
+                  // ),
+                  child: Text("ОТПРАВИТЬ СООБЩЕНИЕ", style: TextStyle(fontSize: 14)),
                   onPressed: ()=>_sendEmail(),
                 )
               ),

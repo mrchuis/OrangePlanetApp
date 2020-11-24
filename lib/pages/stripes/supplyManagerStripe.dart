@@ -288,11 +288,11 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                       padding: const EdgeInsets.all(16.0),
                                       child: RaisedButton(
                                         elevation: 2,
-                                        color: Colors.white,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                                          side: BorderSide(color: Colors.black54, width: 1.75),
-                                        ),
+                                        // color: Colors.white,
+                                        // shape: RoundedRectangleBorder(
+                                        //   borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                                        //   side: BorderSide(color: Colors.black54, width: 1.75),
+                                        // ),
                                         child: Icon(Icons.refresh, color: Colors.orange,),
                                         onPressed: (){
                                           setState(() {
@@ -346,11 +346,11 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                       padding: const EdgeInsets.all(16.0),
                                       child: RaisedButton(
                                         elevation: 2,
-                                        color: Colors.white,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                                          side: BorderSide(color: Colors.black54, width: 1.75),
-                                        ),
+                                        // color: Colors.white,
+                                        // shape: RoundedRectangleBorder(
+                                        //   borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                                        //   side: BorderSide(color: Colors.black54, width: 1.75),
+                                        // ),
                                         child: Icon(Icons.refresh, color: Colors.orange,),
                                         onPressed: (){
                                           setState(() {
@@ -404,11 +404,11 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                       padding: const EdgeInsets.all(16.0),
                                       child: RaisedButton(
                                         elevation: 2,
-                                        color: Colors.white,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                                          side: BorderSide(color: Colors.black54, width: 1.75),
-                                        ),
+                                        // color: Colors.white,
+                                        // shape: RoundedRectangleBorder(
+                                        //   borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                                        //   side: BorderSide(color: Colors.black54, width: 1.75),
+                                        // ),
                                         child: Icon(Icons.refresh, color: Colors.orange,),
                                         onPressed: (){
                                           setState(() {
@@ -462,11 +462,11 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
                                       padding: const EdgeInsets.all(16.0),
                                       child: RaisedButton(
                                         elevation: 2,
-                                        color: Colors.white,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                                          side: BorderSide(color: Colors.black54, width: 1.75),
-                                        ),
+                                        // color: Colors.white,
+                                        // shape: RoundedRectangleBorder(
+                                        //   borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                                        //   side: BorderSide(color: Colors.black54, width: 1.75),
+                                        // ),
                                         child: Icon(Icons.refresh, color: Colors.orange,),
                                         onPressed: (){
                                           setState(() {
