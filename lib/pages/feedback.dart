@@ -58,14 +58,15 @@ class FeedbackScreen extends StatelessWidget {
   }
 
   _sendEmail() async {
-    final Uri _emailLaunchUri = Uri(
-      scheme: 'mailto',
-      path: 'mrchuev@yandex.ru',
-      queryParameters: {
-        'subject': _subjectController.text,
-        'body': _bodyController.text,
-      }
-    );
-    launch(_emailLaunchUri.toString());
+    String toMailId = 'mrchuev@yandex.ru';
+    String subject = _subjectController.text;
+    String body = _bodyController.text;
+
+    var url = 'mailto:$toMailId?subject=$subject&body=$body';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

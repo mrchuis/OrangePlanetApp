@@ -17,6 +17,7 @@ import 'package:orange_planet_app/pages/stripes/sailor.dart';
 import 'package:orange_planet_app/pages/stripes/sniperStripe.dart';
 import 'package:orange_planet_app/pages/stripes/supplyManagerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/theaterMasterStripe.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'pages/songsScreen.dart';
 import 'pages/stripesScreen.dart';
@@ -69,6 +70,16 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+
+  _launchURL() async {
+    const url = 'https://flutter.dev';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,46 +103,55 @@ class MyHomePage extends StatelessWidget {
                     ]
                   ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: PopupMenuButton<int>(
-                        //color: Color(0xFF5583CD),
-                        icon: Icon(Icons.menu, color: Colors.white,),
-                        onSelected: (value) {
-                          if (value == 1) {
-                            Navigator.push(
-                              context, 
-                              MaterialPageRoute(builder: (context) => FeedbackScreen())
-                            );
-                          }
-                        },
-                        itemBuilder: (context) => [
-                          PopupMenuItem(
-                            value: 1,
-                            child: Text("Обратная связь"),
-                          ),
-                          PopupMenuItem(
-                            value: 2,
-                            child: Text("Оставить отзыв"),
-                          ),
-                        ],
+                child: Padding(
+                  padding: const EdgeInsets.only(top:20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: PopupMenuButton<int>(
+                          //color: Color(0xFF5583CD),
+                          icon: Icon(Icons.menu, color: Colors.white,),
+                          onSelected: (value) {
+                            if (value == 1) {
+                              Navigator.push(
+                                context, 
+                                MaterialPageRoute(builder: (context) => FeedbackScreen())
+                              );
+                            }
+                            if (value == 2) {
+                              Navigator.push(
+                                context, 
+                                _launchURL()
+                              );
+                            }
+                          },
+                          itemBuilder: (context) => [
+                            PopupMenuItem(
+                              value: 1,
+                              child: Text("Обратная связь"),
+                            ),
+                            PopupMenuItem(
+                              value: 2,
+                              child: Text("Оставить отзыв"),
+                            ),
+                          ],
+                        ),
+                        //child: SvgPicture.asset("assets/icons/menu.svg"),
                       ),
-                      //child: SvgPicture.asset("assets/icons/menu.svg"),
-                    ),
-                    Expanded(
-                      child: Stack(
-                        children: <Widget>[
-                          Image.asset(
-                            'icon/logoPrince.png',
-                            width: 244,
-                          ),
-                        ],
+                      Expanded(
+                        child: Stack(
+                          children: <Widget>[
+                            Image.asset(
+                              'icon/logoPrince.png',
+                              width: 244,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

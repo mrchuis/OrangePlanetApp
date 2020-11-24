@@ -106,8 +106,6 @@ class _SupplyManagerStripeState extends State<SupplyManagerStripe> {
     "6. Гитара": false,
   };
 
-
-
   @override
   void initState() {
     super.initState();
