@@ -9,19 +9,15 @@ class Games extends StatefulWidget {
   }
 }
 
-// Подвижные игры,
-// Игры на знакомство,
-// Игры на сплочение,
-// Игры с залом,
-// Психологические игры,
-// Игры пятиминутки
 class GamesState extends State<Games> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      //appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Игры'),
+      ),
       body: Body(),
     );
   }
