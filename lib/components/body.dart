@@ -8,11 +8,6 @@ class Body extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Categories(),
-        // Image.asset(
-        //   "assets/images/home_bg.png",
-        //   //height: getProportionateScreenHeight(340),
-        //   fit: BoxFit.cover,
-        // ),
       ],
     );
   }
