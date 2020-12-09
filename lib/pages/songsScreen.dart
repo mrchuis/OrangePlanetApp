@@ -18,18 +18,15 @@ class SongsState extends State<Songs> {
   List<Song> songsSortList;
 
   Future<List<Song>> _getSongs() async {
-
     if (songsSortList != null) {
       return songsSortList;
     }
     final manifestContent = await DefaultAssetBundle.of(context).loadString('AssetManifest.json');
     final Map<String, dynamic> manifestMap = json.decode(manifestContent);
-
     final pathToSongs = manifestMap.keys
     .where((String key) => key.contains('assets/songs/'))
     .where((String key) => key.contains('.txt'))
     .toList();
-
     // записываем содержимое файлов в songFileList
     String responseText;
     List<String> songsFileList = List<String>();
@@ -39,11 +36,8 @@ class SongsState extends State<Songs> {
         songsFileList.add(responseText);
       }
     }
-
     songsSortList = _parseSongFiles(songsFileList);
-
     print(songsSortList.length);
-
     return songsSortList;
   }
   
@@ -65,18 +59,15 @@ class SongsState extends State<Songs> {
         }
         singerAndTitle = singerAndTitle + text[i];
       }
-
       List<String> arr = singerAndTitle.split('\n');
       file.singer = arr[0];
       file.title = arr[1];
-      file.content = content;
-      
+      file.content = content;   
       songsTemp.add(file);
     }   
     duplicateItems = List<Song>.from(songsTemp)..sort((a,b) {
       return a.singer.toLowerCase().compareTo(b.singer.toLowerCase());
     });
-
     return duplicateItems;
   }
 
@@ -214,7 +205,7 @@ class SecondScreen extends StatefulWidget {
 class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMixin {
   
   Widget _myWidget(BuildContext context) {
-    
+
     final style = TextStyle(
       color: Colors.blue,
       fontWeight: FontWeight.w500,  
@@ -223,7 +214,7 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
     final underlineStyle = TextStyle(
       color: Colors.white,
     );
-    
+
     final spans = _getSpans(widget.song.content, style, underlineStyle);
     
     return RichText(

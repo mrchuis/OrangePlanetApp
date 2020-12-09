@@ -19,16 +19,18 @@ class _CategoriesState extends State<Categories> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20.0),
-      child: SizedBox(
-        height: 25,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (context, index) => buildCategory(index),
-        ),
+    return Container(
+      //padding: const EdgeInsets.symmetric(vertical: 20.0),
+      height: 90.0,
+      color: Theme.of(context).primaryColor,
+      //child: SizedBox(
+      //  height: 25,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: categories.length,
+        itemBuilder: (context, index) => buildCategory(index),
       ),
+      //),
     );
   }
 
@@ -40,7 +42,10 @@ class _CategoriesState extends State<Categories> {
         });
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20.0,
+          vertical: 30.0
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -48,16 +53,17 @@ class _CategoriesState extends State<Categories> {
               categories[index],
               style: TextStyle(
                 fontWeight: FontWeight.bold,
+                fontSize: 22.0,
                 color:
-                    selectedIndex == index ? Colors.black : Color(0xFFACACAC),
+                    selectedIndex == index ? Colors.black : Colors.white,
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 4),
-              height: 2,
-              width: 45,
-              color: selectedIndex == index ? Colors.black : Colors.transparent,
-            )
+            // Container(
+            //   margin: EdgeInsets.only(top: 4),
+            //   height: 2,
+            //   width: 45,
+            //   color: selectedIndex == index ? Colors.black : Colors.transparent,
+            // )
           ],
         ),
       ),

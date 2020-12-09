@@ -37,7 +37,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Orange Planet',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        //primarySwatch: Colors.orange,
+        primaryColor: Colors.orange,
+        accentColor: Color(0xFFFEF9EB),
         textTheme: GoogleFonts.robotoCondensedTextTheme(
           Theme.of(context).textTheme.copyWith(
             //headline1: TextStyle(fontSize: 96.0, fontWeight: FontWeight.bold),

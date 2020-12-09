@@ -14,9 +14,17 @@ class GamesState extends State<Games> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Игры'),
+        title: Text(
+          'Игры',
+          style: TextStyle(
+            fontSize: 28.0,
+            //fontWeight: FontWeight.bold,
+          ),
+        ),
+        elevation: 0.0,
       ),
       body: Body(),
     );
