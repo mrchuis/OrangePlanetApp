@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           //primarySwatch: Colors.orange,
           primaryColor: Colors.orange,
-          accentColor: Color(0xFFFEF9EB),
+          //accentColor: Color(0xFFFEF9EB),
           textTheme: GoogleFonts.robotoCondensedTextTheme(
             Theme.of(context).textTheme.copyWith(
                   //headline1: TextStyle(fontSize: 96.0, fontWeight: FontWeight.bold),

@@ -11,7 +11,6 @@ class Songs extends StatefulWidget {
 }
 
 class SongsState extends State<Songs> {
-  
   TextEditingController _textController = TextEditingController();
 
   List<Song> duplicateItems = List<Song>();
@@ -21,12 +20,13 @@ class SongsState extends State<Songs> {
     if (songsSortList != null) {
       return songsSortList;
     }
-    final manifestContent = await DefaultAssetBundle.of(context).loadString('AssetManifest.json');
+    final manifestContent =
+        await DefaultAssetBundle.of(context).loadString('AssetManifest.json');
     final Map<String, dynamic> manifestMap = json.decode(manifestContent);
     final pathToSongs = manifestMap.keys
-    .where((String key) => key.contains('assets/songs/'))
-    .where((String key) => key.contains('.txt'))
-    .toList();
+        .where((String key) => key.contains('assets/songs/'))
+        .where((String key) => key.contains('.txt'))
+        .toList();
     // записываем содержимое файлов в songFileList
     String responseText;
     List<String> songsFileList = List<String>();
@@ -40,16 +40,16 @@ class SongsState extends State<Songs> {
     print(songsSortList.length);
     return songsSortList;
   }
-  
-  _parseSongFiles(songsFileList) {    
-    var songsTemp = new List<Song>();  
+
+  _parseSongFiles(songsFileList) {
+    var songsTemp = new List<Song>();
     String content = "";
     int counter = 0;
     for (var text in songsFileList) {
       Song file = new Song();
       String singerAndTitle = "";
       for (int i = 0; i < text.length; i++) {
-        if(text[i] == '\n') {
+        if (text[i] == '\n') {
           if (counter == 1) {
             content = text.substring(++i);
             counter = 0;
@@ -62,23 +62,24 @@ class SongsState extends State<Songs> {
       List<String> arr = singerAndTitle.split('\n');
       file.singer = arr[0];
       file.title = arr[1];
-      file.content = content;   
+      file.content = content;
       songsTemp.add(file);
-    }   
-    duplicateItems = List<Song>.from(songsTemp)..sort((a,b) {
-      return a.singer.toLowerCase().compareTo(b.singer.toLowerCase());
-    });
+    }
+    duplicateItems = List<Song>.from(songsTemp)
+      ..sort((a, b) {
+        return a.singer.toLowerCase().compareTo(b.singer.toLowerCase());
+      });
     return duplicateItems;
   }
 
   void filterSearchResults(String query) {
     List<Song> dummySearchList = List<Song>();
     dummySearchList.addAll(duplicateItems);
-    if(query.isNotEmpty) {
+    if (query.isNotEmpty) {
       List<Song> dummyListData = List<Song>();
-        dummySearchList.forEach((item) {
-        if(item.title.toLowerCase().contains(query) || 
-        item.singer.toLowerCase().contains(query)) {
+      dummySearchList.forEach((item) {
+        if (item.title.toLowerCase().contains(query) ||
+            item.singer.toLowerCase().contains(query)) {
           dummyListData.add(item);
         }
       });
@@ -98,34 +99,34 @@ class SongsState extends State<Songs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar (
+      appBar: AppBar(
         centerTitle: true,
-        title: Text('Песни'),      
+        title: Text('Песни'),
       ),
-      body: Column (
+      body: Column(
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
             child: TextField(
               controller: _textController,
               decoration: InputDecoration(
-                hintText: 'Поиск песни',
-                filled: true,
-                fillColor: Colors.white70,
-                prefixIcon: Icon(Icons.search,
-                  color: Colors.orange,
-                  size: 25.0,
-                ),
-                contentPadding: EdgeInsets.fromLTRB(7.0, 0.0, 7.0, 0.0),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(color: Colors.orange, width:1),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(color: Colors.orange, width:1),
-                )
-              ),
+                  hintText: 'Поиск песни',
+                  filled: true,
+                  fillColor: Colors.white70,
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.orange,
+                    size: 25.0,
+                  ),
+                  contentPadding: EdgeInsets.fromLTRB(7.0, 0.0, 7.0, 0.0),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: Colors.orange, width: 1),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: Colors.orange, width: 1),
+                  )),
               onChanged: filterSearchResults,
             ),
           ),
@@ -140,42 +141,39 @@ class SongsState extends State<Songs> {
                         child: Text("Загрузка песен..."),
                       ),
                     );
-                  }
-                  else {
+                  } else {
                     return ListView.builder(
-                      itemCount: projectSnap.data.length,
-                      itemBuilder: (context, index) {
-                        Song song = projectSnap.data[index];
-                        return Card(
-                          child: ListTile(
-                            title: Text(
-                              song.title,
+                        itemCount: projectSnap.data.length,
+                        itemBuilder: (context, index) {
+                          Song song = projectSnap.data[index];
+                          return Card(
+                            child: ListTile(
+                              title: Text(
+                                song.title,
+                              ),
+                              subtitle: Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    flex: 10,
+                                    child: Padding(
+                                        padding: EdgeInsets.all(1.0),
+                                        child: Text(song.singer,
+                                            style: TextStyle(
+                                                color: Colors.black87))),
+                                  )
+                                ],
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          SecondScreen(song: song)),
+                                );
+                              },
                             ),
-                            subtitle: Row(
-                              children: <Widget>[
-                                Expanded(
-                                  flex: 10,
-                                  child: Padding(
-                                    padding: EdgeInsets.all(1.0),
-                                    child: Text(song.singer,
-                                      style: TextStyle(color: Colors.black87)
-                                    )
-                                  ),
-                                )
-                              ],
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                                context, 
-                                MaterialPageRoute(
-                                  builder: (context) => SecondScreen(song: song)
-                                ),
-                              );
-                            },
-                          ),
-                        );
-                      }
-                    );
+                          );
+                        });
                   }
                 },
               ),
@@ -202,13 +200,12 @@ class SecondScreen extends StatefulWidget {
   _SecondScreenState createState() => _SecondScreenState();
 }
 
-class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMixin {
-  
+class _SecondScreenState extends State<SecondScreen>
+    with TickerProviderStateMixin {
   Widget _myWidget(BuildContext context) {
-
     final style = TextStyle(
       color: Colors.blue,
-      fontWeight: FontWeight.w500,  
+      fontWeight: FontWeight.w500,
     );
 
     final underlineStyle = TextStyle(
@@ -216,7 +213,7 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
     );
 
     final spans = _getSpans(widget.song.content, style, underlineStyle);
-    
+
     return RichText(
       text: TextSpan(
         style: Theme.of(context).textTheme.bodyText2.copyWith(),
@@ -225,14 +222,17 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
     );
   }
 
-  List<TextSpan> _getSpans(String text, TextStyle style, TextStyle underlineStyle) {
-    
+  List<TextSpan> _getSpans(
+      String text, TextStyle style, TextStyle underlineStyle) {
     List<TextSpan> spans = [];
     int spanBoundary = 0;
 
     do {
       // look for the next match
-      final startIndex = text.indexOf(new RegExp(r"Am|A7|A|Bm|B7|B|C7|Cm|C|Dm|D7|D|Em|E7|E|Fm|F7|F|Gm|G7|G|_"), spanBoundary);
+      final startIndex = text.indexOf(
+          new RegExp(
+              r"Am|A7|A|Bm|B7|B|C7|Cm|C|Dm|Dm7|D7|D|Em|E7|E|Fm|F7|F|Gm|G7|G|_"),
+          spanBoundary);
       if (startIndex == -1) {
         spans.add(TextSpan(text: text.substring(spanBoundary)));
         break;
@@ -243,16 +243,15 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
       final endIndex = startIndex + 2;
       final spanText = text.substring(startIndex, endIndex);
       if (spanText == "__") {
-        spans.add(TextSpan(text: spanText, style:underlineStyle));
+        spans.add(TextSpan(text: spanText, style: underlineStyle));
       } else if (spanText == "_ ") {
-        spans.add(TextSpan(text: spanText, style:underlineStyle));
-      }
-      else {
-        spans.add(TextSpan(text: spanText, style:style));
+        spans.add(TextSpan(text: spanText, style: underlineStyle));
+      } else {
+        spans.add(TextSpan(text: spanText, style: style));
       }
       // mark the boundary to start the next search from
       spanBoundary = endIndex;
-      // continue untill there are no more matches      
+      // continue untill there are no more matches
     } while (spanBoundary < text.length);
     return spans;
   }
@@ -284,18 +283,16 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
     double distanceDifference = maxExtent - _scrollController.offset;
     double durationDouble = distanceDifference / speedFactor;
 
-    _scrollController.animateTo(
-      _scrollController.position.maxScrollExtent,
-      duration: Duration(seconds: durationDouble.toInt()),
-      curve: Curves.linear
-    );
+    _scrollController.animateTo(_scrollController.position.maxScrollExtent,
+        duration: Duration(seconds: durationDouble.toInt()),
+        curve: Curves.linear);
   }
 
   void _accel() {
     setState(() {
       if (speedFactor < 12) {
-          speedFactor = speedFactor + 2;
-          _scroll();
+        speedFactor = speedFactor + 2;
+        _scroll();
       }
     });
   }
@@ -316,11 +313,8 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
     if (scroll) {
       _scroll();
     } else {
-      _scrollController.animateTo(
-        _scrollController.offset,
-        duration: Duration(seconds: 1), 
-        curve: Curves.linear
-      );
+      _scrollController.animateTo(_scrollController.offset,
+          duration: Duration(seconds: 1), curve: Curves.linear);
     }
   }
 
@@ -328,8 +322,7 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      floatingActionButtonLocation: 
-      FloatingActionButtonLocation.endDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: check ? play() : pause(),
       bottomNavigationBar: BottomAppBar(
         color: Colors.grey[100],
@@ -340,22 +333,27 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.fast_rewind, color: Colors.orange[700],), 
-              onPressed: () {
-                if (_speedCounter >= 2 && check == false) {
-                  _decel();
-                  --_speedCounter;
-                  _scaffoldKey.currentState.showSnackBar(SnackBar(
-                    content: Text('${_speed[_speedCounter]}'),
-                    duration: Duration(seconds: 1),
-                    behavior: SnackBarBehavior.floating,
-                    backgroundColor: Colors.black.withOpacity(0.85),
-                  ));
-                }
-              }
-            ),
+                icon: Icon(
+                  Icons.fast_rewind,
+                  color: Colors.orange[700],
+                ),
+                onPressed: () {
+                  if (_speedCounter >= 2 && check == false) {
+                    _decel();
+                    --_speedCounter;
+                    _scaffoldKey.currentState.showSnackBar(SnackBar(
+                      content: Text('${_speed[_speedCounter]}'),
+                      duration: Duration(seconds: 1),
+                      behavior: SnackBarBehavior.floating,
+                      backgroundColor: Colors.black.withOpacity(0.85),
+                    ));
+                  }
+                }),
             IconButton(
-              icon: Icon(Icons.fast_forward, color: Colors.orange[700],),               
+              icon: Icon(
+                Icons.fast_forward,
+                color: Colors.orange[700],
+              ),
               onPressed: () {
                 if (_speedCounter <= 6 && check == false) {
                   _accel();
@@ -366,7 +364,7 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
                     behavior: SnackBarBehavior.floating,
                     backgroundColor: Colors.black.withOpacity(0.85),
                   ));
-                }               
+                }
               },
             ),
           ],
@@ -393,14 +391,13 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
               ),
             ),
             SliverList(
-              delegate:SliverChildBuilderDelegate(
-                (content, index) => SingleChildScrollView(
-                  padding: EdgeInsets.only(left: 10.0),
-                  child: _myWidget(context),
-                ),
-                childCount: 1,
-              )
-            )
+                delegate: SliverChildBuilderDelegate(
+              (content, index) => SingleChildScrollView(
+                padding: EdgeInsets.only(left: 10.0),
+                child: _myWidget(context),
+              ),
+              childCount: 1,
+            ))
           ],
         ),
       ),
@@ -409,8 +406,9 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
 
   Widget play() {
     return FloatingActionButton(
+      backgroundColor: Colors.orange,
       tooltip: "5 секунд",
-      onPressed: (){
+      onPressed: () {
         if (firstPause) {
           _scaffoldKey.currentState.showSnackBar(SnackBar(
             content: Text('Автопрокрутка текста через 15 секунд'),
@@ -418,9 +416,9 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
             behavior: SnackBarBehavior.floating,
             backgroundColor: Colors.black.withOpacity(0.85),
           ));
-          Timer(Duration(seconds: 15),(){
-            check=!check;
-            _toggleScrolling();       
+          Timer(Duration(seconds: 15), () {
+            check = !check;
+            _toggleScrolling();
           });
           firstPause = false;
         }
@@ -429,25 +427,36 @@ class _SecondScreenState extends State<SecondScreen> with TickerProviderStateMix
             activeProgressIndicator = true;
             firstPressedPlay = false;
           } else {
-            check=!check;
-           _toggleScrolling();
+            check = !check;
+            _toggleScrolling();
           }
         });
       },
-      child: activeProgressIndicator ? CircularProgressIndicator(backgroundColor: Colors.white,) : Icon(Icons.play_arrow, color: Colors.white,),
+      child: activeProgressIndicator
+          ? CircularProgressIndicator(
+              backgroundColor: Colors.white,
+            )
+          : Icon(
+              Icons.play_arrow,
+              color: Colors.white,
+            ),
     );
   }
 
   Widget pause() {
     return FloatingActionButton(
-      onPressed: (){
+      backgroundColor: Colors.orange,
+      onPressed: () {
         setState(() {
           activeProgressIndicator = false;
-          check=!check;
+          check = !check;
           _toggleScrolling();
         });
       },
-      child: Icon(Icons.pause, color: Colors.white,),
+      child: Icon(
+        Icons.pause,
+        color: Colors.white,
+      ),
     );
   }
 }
