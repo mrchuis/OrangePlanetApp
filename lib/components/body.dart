@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:orange_planet_app/components/games.dart';
+import 'package:orange_planet_app/components/details_screen.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -65,7 +66,15 @@ class _BodyState extends State<Body> {
                           game.title,
                         ),
                         onTap: () {
-                          return;
+                          setState(() {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DetailsScreen(
+                                          game: game,
+                                        )));
+                            //Navigator.of(context).pushNamed(routeNames[index]);
+                          });
                         },
                       ),
                     );
