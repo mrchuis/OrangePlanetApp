@@ -37,43 +37,51 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Orange Planet',
       theme: ThemeData(
-        //primarySwatch: Colors.orange,
-        primaryColor: Colors.orange,
-        accentColor: Color(0xFFFEF9EB),
-        textTheme: GoogleFonts.robotoCondensedTextTheme(
-          Theme.of(context).textTheme.copyWith(
-            //headline1: TextStyle(fontSize: 96.0, fontWeight: FontWeight.bold),
-            //headline6: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),
-            bodyText2: TextStyle(fontSize: 16.0,),
+          //primarySwatch: Colors.orange,
+          primaryColor: Colors.orange,
+          accentColor: Color(0xFFFEF9EB),
+          textTheme: GoogleFonts.robotoCondensedTextTheme(
+            Theme.of(context).textTheme.copyWith(
+                  //headline1: TextStyle(fontSize: 96.0, fontWeight: FontWeight.bold),
+                  //headline6: TextStyle(fontSize: 20.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w500),
+                  bodyText2: TextStyle(
+                    fontSize: 16.0,
+                  ),
+                ),
           ),
-        ),
-        buttonTheme: ButtonThemeData(
-          buttonColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-            side: BorderSide(color: Colors.orange, width: 1.75),
-          ),
-          height: 45,
-        )
-      ),
+          buttonTheme: ButtonThemeData(
+            buttonColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(4)),
+              side: BorderSide(color: Colors.orange, width: 1.75),
+            ),
+            height: 45,
+          )),
       home: MyHomePage(),
       routes: <String, WidgetBuilder>{
         CookStripe.routeName: (BuildContext context) => CookStripe(),
         NavigatorStripe.routeName: (BuildContext context) => NavigatorStripe(),
-        CampManagerStripe.routeName: (BuildContext context) => CampManagerStripe(),
+        CampManagerStripe.routeName: (BuildContext context) =>
+            CampManagerStripe(),
         CampfireStripe.routeName: (BuildContext context) => CampfireStripe(),
-        ChroniclerStripe.routeName: (BuildContext context) => ChroniclerStripe(),
+        ChroniclerStripe.routeName: (BuildContext context) =>
+            ChroniclerStripe(),
         SniperStripe.routeName: (BuildContext context) => SniperStripe(),
-        TheaterMasterStripe.routeName: (BuildContext context) => TheaterMasterStripe(),
+        TheaterMasterStripe.routeName: (BuildContext context) =>
+            TheaterMasterStripe(),
         PainterStripe.routeName: (BuildContext context) => PainterStripe(),
-        SupplyManagerStripe.routeName: (BuildContext context) => SupplyManagerStripe(),
+        SupplyManagerStripe.routeName: (BuildContext context) =>
+            SupplyManagerStripe(),
         ClimberStripe.routeName: (BuildContext context) => ClimberStripe(),
         KnitterStripe.routeName: (BuildContext context) => KnitterStripe(),
-        PhotographerStripe.routeName: (BuildContext context) => PhotographerStripe(),
+        PhotographerStripe.routeName: (BuildContext context) =>
+            PhotographerStripe(),
         SailorStripe.routeName: (BuildContext context) => SailorStripe(),
         DrummerStripe.routeName: (BuildContext context) => DrummerStripe(),
-        RepairMasterStripe.routeName: (BuildContext context) => RepairMasterStripe(),
-        GuitarPlayerStripe.routeName: (BuildContext context) => GuitarPlayerStripe(),
+        RepairMasterStripe.routeName: (BuildContext context) =>
+            RepairMasterStripe(),
+        GuitarPlayerStripe.routeName: (BuildContext context) =>
+            GuitarPlayerStripe(),
         DoctorStripe.routeName: (BuildContext context) => DoctorStripe(),
       },
     );
@@ -81,7 +89,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-
   _launchURL() async {
     const url = 'https://flutter.dev';
     if (await canLaunch(url)) {
@@ -90,171 +97,173 @@ class MyHomePage extends StatelessWidget {
       throw 'Could not launch $url';
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+        backgroundColor: Color(0xFF035AA6),
+        body: SingleChildScrollView(
           child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            ClipPath(
-              clipper: MyClipper(),
-              child: Container(
-                padding: EdgeInsets.only(top: 10),
-                height: 290,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                      Color(0xFF3383CD),
-                      Color(0xFF11249F),
-                    ]
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SafeArea(
+                bottom: false,
+                //clipper: MyClipper(),
+                child: Container(
+                  padding: EdgeInsets.only(top: 10),
+                  height: 275,
+                  width: double.infinity,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: PopupMenuButton<int>(
+                            //color: Color(0xFF5583CD),
+                            icon: Icon(
+                              Icons.menu,
+                              color: Colors.white,
+                            ),
+                            onSelected: (value) {
+                              if (value == 1) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            FeedbackScreen()));
+                              }
+                              if (value == 2) {
+                                Navigator.push(context, _launchURL());
+                              }
+                            },
+                            itemBuilder: (context) => [
+                              PopupMenuItem(
+                                value: 1,
+                                child: Text("Обратная связь"),
+                              ),
+                              PopupMenuItem(
+                                value: 2,
+                                child: Text("Оставить отзыв"),
+                              ),
+                            ],
+                          ),
+                          //child: SvgPicture.asset("assets/icons/menu.svg"),
+                        ),
+                        Expanded(
+                          child: Stack(
+                            children: <Widget>[
+                              Image.asset(
+                                'icon/logoPrince.png',
+                                width: 270,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFFF1EFF1),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30.0),
+                      topRight: Radius.circular(30.0),
+                    )),
                 child: Padding(
-                  padding: const EdgeInsets.only(top:20.0),
+                  padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: PopupMenuButton<int>(
-                          //color: Color(0xFF5583CD),
-                          icon: Icon(Icons.menu, color: Colors.white,),
-                          onSelected: (value) {
-                            if (value == 1) {
-                              Navigator.push(
-                                context, 
-                                MaterialPageRoute(builder: (context) => FeedbackScreen())
-                              );
-                            }
-                            if (value == 2) {
-                              Navigator.push(
-                                context, 
-                                _launchURL()
-                              );
-                            }
-                          },
-                          itemBuilder: (context) => [
-                            PopupMenuItem(
-                              value: 1,
-                              child: Text("Обратная связь"),
-                            ),
-                            PopupMenuItem(
-                              value: 2,
-                              child: Text("Оставить отзыв"),
-                            ),
-                          ],
-                        ),
-                        //child: SvgPicture.asset("assets/icons/menu.svg"),
+                      SizedBox(height: 20),
+                      Text(
+                        "Следопытство",
+                        style: Theme.of(context).textTheme.headline5,
                       ),
-                      Expanded(
-                        child: Stack(
-                          children: <Widget>[
-                            Image.asset(
-                              'icon/logoPrince.png',
-                              width: 244,
-                            ),
-                          ],
-                        ),
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          HorizontalCard(
+                            icon: Icons.book,
+                            title: "Законы и\nЗаповеди",
+                            press: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) {
+                                  return Laws();
+                                }),
+                              );
+                            },
+                          ),
+                          HorizontalCard(
+                            icon: MdiIcons.cards,
+                            title: "\nНашивки",
+                            press: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) {
+                                  return Stripes();
+                                }),
+                              );
+                            },
+                          ),
+                          HorizontalCard(
+                            icon: MdiIcons.guitarAcoustic,
+                            title: "\nИспытания",
+                            press: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) {
+                                  return Trials();
+                                }),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                      //),
+                      SizedBox(height: 20),
+                      Text(
+                        "Развлечения",
+                        style: Theme.of(context).textTheme.headline5,
+                      ),
+                      SizedBox(height: 10),
+                      VerticalCard(
+                        image: 'icon/icon.png',
+                        title: "Песни",
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return Songs();
+                            }),
+                          );
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      VerticalCard(
+                        image: 'icon/icon.png',
+                        title: "Игры",
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return Games();
+                            }),
+                          );
+                        },
                       ),
                     ],
                   ),
                 ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Следопытство",
-                    style: Theme.of(context).textTheme.headline5,
-                  ),
-                  SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        HorizontalCard(
-                          icon: Icons.book, 
-                          title: "Законы и\nЗаповеди",
-                          press: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) {
-                                return Laws();
-                              }),
-                            );
-                          },
-                        ),
-                        HorizontalCard(
-                          icon: MdiIcons.cards, 
-                          title: "\nНашивки",
-                          press: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) {
-                                return Stripes();
-                              }),
-                            );
-                          },
-                        ),
-                        HorizontalCard(
-                          icon: MdiIcons.guitarAcoustic, 
-                          title: "\nИспытания",
-                          press: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) {
-                                return Trials();
-                              }),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  //),
-                  SizedBox(height: 20),
-                  Text(
-                    "Развлечения",
-                    style: Theme.of(context).textTheme.headline5,
-                  ),
-                  SizedBox(height:10),
-                  VerticalCard(
-                    image: 'icon/icon.png',
-                    title: "Песни",
-                    press: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) {
-                          return Songs();
-                        }),
-                      );
-                    },
-                  ),
-                  VerticalCard(
-                    image: 'icon/icon.png',
-                    title: "Игры",
-                    press: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) {
-                          return Games();
-                        }),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      )
-    );
+              )
+            ],
+          ),
+        ));
   }
 }
 
@@ -263,9 +272,9 @@ class VerticalCard extends StatefulWidget {
   final String title;
   final Function press;
   const VerticalCard({
-    Key key, 
-    this.image, 
-    this.title, 
+    Key key,
+    this.image,
+    this.title,
     this.press,
   }) : super(key: key);
 
@@ -277,65 +286,63 @@ class _VerticalCardState extends State<VerticalCard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
-      child: Stack(
-        children: <Widget>[
-          Container(
-             height: 90,
-             width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(1, 4),
-                  blurRadius: 20,
-                  color: Color(0xFFB0CCE1).withOpacity(0.32),
-                ),
-              ]
-            ),
-            child: Material(
-              borderRadius: BorderRadius.circular(13),
-              elevation: 5,
-              shadowColor: Colors.black,
-              color: Colors.white,
-              child: InkWell(
-                borderRadius: BorderRadius.circular(13),
-                onTap: widget.press,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Image.asset(widget.image,
-                          width: 67,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child:Container(
-                          width: MediaQuery.of(context).size.width - 150,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                widget.title,
-                                style: Theme.of(context).textTheme.headline6,
-                              ),
-                            ],
+        height: 100,
+        child: Stack(
+          children: <Widget>[
+            Container(
+              height: 90,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(1, 4),
+                      blurRadius: 20,
+                      color: Color(0xFFB0CCE1).withOpacity(0.32),
+                    ),
+                  ]),
+              child: Material(
+                  borderRadius: BorderRadius.circular(13),
+                  elevation: 5,
+                  shadowColor: Colors.black,
+                  color: Colors.white,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(13),
+                    onTap: widget.press,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Image.asset(
+                              widget.image,
+                              width: 67,
+                            ),
                           ),
-                        )
+                          Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width - 150,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      widget.title,
+                                      style:
+                                          Theme.of(context).textTheme.headline6,
+                                    ),
+                                  ],
+                                ),
+                              )),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-              )
+                    ),
+                  )),
             ),
-          ),
-        ],
-      )
-    );
+          ],
+        ));
   }
 }
 
@@ -344,10 +351,10 @@ class HorizontalCard extends StatefulWidget {
   final String title;
   final Function press;
   const HorizontalCard({
-    Key key, 
-    this.icon, 
-    this.title, 
-    this.press, 
+    Key key,
+    this.icon,
+    this.title,
+    this.press,
   }) : super(key: key);
 
   @override
@@ -356,8 +363,8 @@ class HorizontalCard extends StatefulWidget {
 
 class _HorizontalCardState extends State<HorizontalCard> {
   @override
-  Widget build(BuildContext context) {     
-      return Container(
+  Widget build(BuildContext context) {
+    return Container(
         //margin: EdgeInsets.only( right: 15, top: 5, bottom: 10),
         //padding: EdgeInsets.all(5),
         width: 95,
@@ -375,45 +382,42 @@ class _HorizontalCardState extends State<HorizontalCard> {
           ],
         ),
         child: Material(
-          borderRadius: BorderRadius.circular(13),
-          elevation: 5,
-          shadowColor: Colors.black,
-          color: Colors.white,
-          child: InkWell(
             borderRadius: BorderRadius.circular(13),
-            onTap: widget.press,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Column(
-                //crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Icon(
-                    widget.icon,
-                    size: 45,
-                    color: Colors.orange,
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    widget.title,
-                    style: Theme.of(context).textTheme.subtitle1,
-                  ),
-                ],
+            elevation: 5,
+            shadowColor: Colors.black,
+            color: Colors.white,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(13),
+              onTap: widget.press,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Column(
+                  //crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      widget.icon,
+                      size: 45,
+                      color: Colors.orange,
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      widget.title,
+                      style: Theme.of(context).textTheme.subtitle1,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          )
-        )
-    );
+            )));
   }
 }
 
-class MyClipper extends CustomClipper<Path>{
+class MyClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
     path.lineTo(0, size.height - 67);
     path.quadraticBezierTo(
-      size.width / 2 , size.height, size.width, size.height - 67
-    );
+        size.width / 2, size.height, size.width, size.height - 67);
     path.lineTo(size.width, 0);
     path.close();
     return path;
@@ -422,5 +426,4 @@ class MyClipper extends CustomClipper<Path>{
   bool shouldReclip(CustomClipper<Path> oldClipper) {
     return false;
   }
-
 }
