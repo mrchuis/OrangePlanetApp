@@ -257,6 +257,7 @@ class MyHomePage extends StatelessWidget {
                           );
                         },
                       ),
+                      SizedBox(height: 10),
                     ],
                   ),
                 ),
@@ -293,7 +294,7 @@ class _VerticalCardState extends State<VerticalCard> {
               height: 90,
               width: double.infinity,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  //borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
@@ -302,44 +303,56 @@ class _VerticalCardState extends State<VerticalCard> {
                       color: Color(0xFFB0CCE1).withOpacity(0.32),
                     ),
                   ]),
-              child: Material(
+              child: Container(
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(13),
-                  elevation: 5,
-                  shadowColor: Colors.black,
-                  color: Colors.white,
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(13),
-                    onTap: widget.press,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Image.asset(
-                              widget.image,
-                              width: 67,
-                            ),
-                          ),
-                          Padding(
-                              padding: const EdgeInsets.all(6.0),
-                              child: Container(
-                                width: MediaQuery.of(context).size.width - 150,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      widget.title,
-                                      style:
-                                          Theme.of(context).textTheme.headline6,
-                                    ),
-                                  ],
+                  color: Colors.orange,
+                ),
+                child: Container(
+                  margin: EdgeInsets.only(right: 5),
+                  child: Material(
+                      borderRadius: BorderRadius.circular(13),
+                      elevation: 5,
+                      shadowColor: Colors.black,
+                      color: Colors.white,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(13),
+                        onTap: widget.press,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Image.asset(
+                                  widget.image,
+                                  width: 67,
                                 ),
-                              )),
-                        ],
-                      ),
-                    ),
-                  )),
+                              ),
+                              Padding(
+                                  padding: const EdgeInsets.all(6.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width - 150,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          widget.title,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline6,
+                                        ),
+                                      ],
+                                    ),
+                                  )),
+                            ],
+                          ),
+                        ),
+                      )),
+                ),
+              ),
             ),
           ],
         ));
@@ -411,19 +424,19 @@ class _HorizontalCardState extends State<HorizontalCard> {
   }
 }
 
-class MyClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, size.height - 67);
-    path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 67);
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
+// class MyClipper extends CustomClipper<Path> {
+//   @override
+//   Path getClip(Size size) {
+//     var path = Path();
+//     path.lineTo(0, size.height - 67);
+//     path.quadraticBezierTo(
+//         size.width / 2, size.height, size.width, size.height - 67);
+//     path.lineTo(size.width, 0);
+//     path.close();
+//     return path;
+//   }
 
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
-  }
-}
+//   bool shouldReclip(CustomClipper<Path> oldClipper) {
+//     return false;
+//   }
+// }
