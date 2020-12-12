@@ -1,23 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:orange_planet_app/components/categories.dart';
 import 'package:orange_planet_app/components/games.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  List<String> categories = [
+    "Пятиминутки",
+    "Подвижные",
+    "На сплочение",
+    "На знакомство",
+    "С залом",
+    "Психологические",
+  ];
+
+  List<Games> games = fiveMinutesGames;
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Categories(),
+        Container(
+          height: 90.0,
+          color: Theme.of(context).primaryColor,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: categories.length,
+            itemBuilder: (context, index) => buildCategory(index),
+          ),
+        ),
         Expanded(
           child: Container(
             decoration: BoxDecoration(
-              color:Theme.of(context).accentColor,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30.0),
-                topRight: Radius.circular(30.0),
-              )
-            ),
+                color: Theme.of(context).accentColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
+                )),
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -33,9 +56,9 @@ class Body extends StatelessWidget {
                 ),
                 child: ListView.builder(
                   padding: EdgeInsets.only(top: 15.0),
-                  itemCount: fiveMinutesGames.length,
+                  itemCount: games.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final Games game = fiveMinutesGames[index];
+                    final Games game = games[index];
                     return Card(
                       child: ListTile(
                         title: Text(
@@ -53,6 +76,50 @@ class Body extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget buildCategory(int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedIndex = index;
+          if (selectedIndex == 0) {
+            games = fiveMinutesGames;
+          }
+          if (selectedIndex == 1) {
+            games = outdoorGames;
+          }
+          if (selectedIndex == 2) {
+            games = trustGames;
+          }
+          if (selectedIndex == 3) {
+            games = datingGames;
+          }
+          if (selectedIndex == 4) {
+            games = spectatorsGames;
+          }
+          if (selectedIndex == 5) {
+            games = psychologicalGames;
+          }
+        });
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              categories[index],
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 22.0,
+                color: selectedIndex == index ? Colors.black : Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
