@@ -26,7 +26,6 @@ class Stripes extends StatefulWidget {
 }
 
 class StripesState extends State<Stripes> {
-
   TextEditingController _textController = TextEditingController();
 
   final duplicateRouteNames = List<String>.from(getRouteName()..sort());
@@ -35,13 +34,13 @@ class StripesState extends State<Stripes> {
   @override
   void initState() {
     routeNames.addAll(duplicateRouteNames);
-    super.initState();  
+    super.initState();
   }
 
   void filterSearchResult(String query) {
     List<String> dummySearchList = List<String>();
     dummySearchList.addAll(duplicateRouteNames);
-    if(query.isNotEmpty) {
+    if (query.isNotEmpty) {
       List<String> dummyListData = List<String>();
       dummySearchList.forEach((item) {
         if (item.toLowerCase().contains(query)) {
@@ -64,7 +63,7 @@ class StripesState extends State<Stripes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar (
+      appBar: AppBar(
         centerTitle: true,
         title: Text('Нашивки'),
       ),
@@ -75,44 +74,43 @@ class StripesState extends State<Stripes> {
             child: TextField(
               controller: _textController,
               decoration: InputDecoration(
-                hintText: 'Поиск нашивки',
-                filled: true,
-                fillColor: Colors.white70,
-                prefixIcon: Icon(Icons.search,
-                  color: Colors.orange,
-                  size: 25.0,
-                ),
-                contentPadding: EdgeInsets.fromLTRB(7.0, 0.0, 7.0, 0.0),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(color: Colors.orange, width:1),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(color: Colors.orange, width:1),
-                )
-              ),
+                  hintText: 'Поиск нашивки',
+                  filled: true,
+                  fillColor: Colors.white70,
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.orange,
+                    size: 25.0,
+                  ),
+                  contentPadding: EdgeInsets.fromLTRB(7.0, 0.0, 7.0, 0.0),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: Colors.orange, width: 1),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: Colors.orange, width: 1),
+                  )),
               onChanged: filterSearchResult,
             ),
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: routeNames.length,
-              itemBuilder: (context, index) {
-                return Card(
+                itemCount: routeNames.length,
+                itemBuilder: (context, index) {
+                  return Card(
                     child: ListTile(
-                    title: Text(
-                      routeNames[index].replaceFirst(new RegExp(r'/'), ''),
+                      title: Text(
+                        routeNames[index].replaceFirst(new RegExp(r'/'), ''),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          Navigator.of(context).pushNamed(routeNames[index]);
+                        });
+                      },
                     ),
-                    onTap: () {
-                      setState(() {
-                        Navigator.of(context).pushNamed(routeNames[index]);
-                      });
-                    },
-                  ),
-                );
-              }
-            ),
+                  );
+                }),
           ),
         ],
       ),
@@ -120,7 +118,7 @@ class StripesState extends State<Stripes> {
   }
 }
 
-List<String> getRouteName(){
+List<String> getRouteName() {
   return [
     CookStripe.routeName,
     NavigatorStripe.routeName,

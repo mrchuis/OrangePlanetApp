@@ -25,7 +25,7 @@ class _BodyState extends State<Body> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          height: 90.0,
+          height: 60.0,
           color: Theme.of(context).primaryColor,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -105,7 +105,7 @@ class _BodyState extends State<Body> {
         });
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -113,7 +113,7 @@ class _BodyState extends State<Body> {
               categories[index],
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 22.0,
+                //fontSize: 22.0,
                 color: selectedIndex == index ? Colors.black : Colors.white,
               ),
             ),

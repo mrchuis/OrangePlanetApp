@@ -19,10 +19,10 @@ class GamesState extends State<Games> {
         centerTitle: true,
         title: Text(
           'Игры',
-          style: TextStyle(
-            fontSize: 28.0,
-            //fontWeight: FontWeight.bold,
-          ),
+          // style: TextStyle(
+          //   fontSize: 28.0,
+          //   //fontWeight: FontWeight.bold,
+          // ),
         ),
         elevation: 0.0,
       ),
