@@ -104,65 +104,61 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Color(0xFF035AA6),
         body: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            //crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SafeArea(
                 bottom: false,
                 //clipper: MyClipper(),
                 child: Container(
-                  padding: EdgeInsets.only(top: 10),
-                  height: 275,
+                  //padding: EdgeInsets.only(top: 10),
+                  height: 210,
                   width: double.infinity,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Align(
-                          alignment: Alignment.topRight,
-                          child: PopupMenuButton<int>(
-                            //color: Color(0xFF5583CD),
-                            icon: Icon(
-                              Icons.menu,
-                              color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: PopupMenuButton<int>(
+                          //color: Color(0xFF5583CD),
+                          icon: Icon(
+                            Icons.menu,
+                            color: Colors.white,
+                          ),
+                          onSelected: (value) {
+                            if (value == 1) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => FeedbackScreen()));
+                            }
+                            if (value == 2) {
+                              Navigator.push(context, _launchURL());
+                            }
+                          },
+                          itemBuilder: (context) => [
+                            PopupMenuItem(
+                              value: 1,
+                              child: Text("Обратная связь"),
                             ),
-                            onSelected: (value) {
-                              if (value == 1) {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            FeedbackScreen()));
-                              }
-                              if (value == 2) {
-                                Navigator.push(context, _launchURL());
-                              }
-                            },
-                            itemBuilder: (context) => [
-                              PopupMenuItem(
-                                value: 1,
-                                child: Text("Обратная связь"),
-                              ),
-                              PopupMenuItem(
-                                value: 2,
-                                child: Text("Оставить отзыв"),
-                              ),
-                            ],
-                          ),
-                          //child: SvgPicture.asset("assets/icons/menu.svg"),
+                            PopupMenuItem(
+                              value: 2,
+                              child: Text("Оставить отзыв"),
+                            ),
+                          ],
                         ),
-                        Expanded(
-                          child: Stack(
-                            children: <Widget>[
-                              Image.asset(
-                                'icon/logoPrince.png',
-                                width: 270,
-                              ),
-                            ],
-                          ),
+                        //child: SvgPicture.asset("assets/icons/menu.svg"),
+                      ),
+                      Expanded(
+                        child: Stack(
+                          children: <Widget>[
+                            Image.asset(
+                              'icon/logoPrince.png',
+                              width: 255,
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -294,7 +290,7 @@ class _VerticalCardState extends State<VerticalCard> {
               height: 90,
               width: double.infinity,
               decoration: BoxDecoration(
-                  //borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(13),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
@@ -383,7 +379,7 @@ class _HorizontalCardState extends State<HorizontalCard> {
         width: 95,
         height: 115,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(13),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
