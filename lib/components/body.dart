@@ -14,7 +14,7 @@ class _BodyState extends State<Body> {
     "На сплочение",
     "На знакомство",
     "С залом",
-    "Психологические",
+    "В автобусе",
   ];
 
   List<Games> games = fiveMinutesGames;
@@ -109,7 +109,7 @@ class _BodyState extends State<Body> {
             games = spectatorsGames;
           }
           if (selectedIndex == 5) {
-            games = psychologicalGames;
+            games = busGames;
           }
         });
       },
