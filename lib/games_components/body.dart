@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:orange_planet_app/components/games.dart';
-import 'package:orange_planet_app/components/details_screen.dart';
+import 'package:orange_planet_app/games_components/games.dart';
+import 'package:orange_planet_app/games_components/details_screen.dart';
 
 class Body extends StatefulWidget {
   @override
