@@ -18,8 +18,8 @@ dependencies:
   google_fonts: ^1.0.0
   grouped_buttons: ^1.0.4
   shared_preferences: ^0.5.7+3
-  flutter_svg: ^0.17.4
   url_launcher: ^5.7.4
+  flutter_svg: ^0.19.1 
 
   cupertino_icons: ^0.1.2
 
@@ -36,7 +36,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/icons/
+    - assets/icons/menu.svg
     - assets/images/
     - assets/images/bonfires/
     - assets/images/doctor/

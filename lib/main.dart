@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -100,30 +101,23 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Color(0xFF035AA6),
         body: SingleChildScrollView(
           child: Column(
-            //crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SafeArea(
-                bottom: false,
-                //clipper: MyClipper(),
-                child: Container(
-                  //padding: EdgeInsets.only(top: 10),
-                  height: 210,
-                  width: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Align(
+              Container(
+                height: size.height * 0.3,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(top: 23),
+                      child: Align(
                         alignment: Alignment.topRight,
                         child: PopupMenuButton<int>(
-                          //color: Color(0xFF5583CD),
-                          icon: Icon(
-                            Icons.menu,
-                            color: Colors.white,
-                          ),
+                          icon: SvgPicture.asset("assets/icons/menu.svg"),
                           onSelected: (value) {
                             if (value == 1) {
                               Navigator.push(
@@ -146,23 +140,18 @@ class MyHomePage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        //child: SvgPicture.asset("assets/icons/menu.svg"),
                       ),
-                      Expanded(
-                        child: Stack(
-                          children: <Widget>[
-                            Image.asset(
-                              'icon/logoPrince.png',
-                              width: 255,
-                            ),
-                          ],
-                        ),
+                    ),
+                    Expanded(
+                      child: Image.asset(
+                        'icon/logoPrince.png',
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               Container(
+                height: size.height * 0.7,
                 decoration: BoxDecoration(
                     color: Color(0xFFF1EFF1),
                     borderRadius: BorderRadius.only(
