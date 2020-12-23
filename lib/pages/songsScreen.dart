@@ -11,7 +11,7 @@ class Songs extends StatefulWidget {
 }
 
 class SongsState extends State<Songs> {
-  TextEditingController _textController = TextEditingController();
+  //TextEditingController _textController = TextEditingController();
 
   List<Song> duplicateItems = List<Song>();
   List<Song> songsSortList;
@@ -105,31 +105,32 @@ class SongsState extends State<Songs> {
       ),
       body: Column(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
-            child: TextField(
-              controller: _textController,
-              decoration: InputDecoration(
-                  hintText: 'Поиск песни',
-                  filled: true,
-                  fillColor: Colors.white70,
-                  prefixIcon: Icon(
-                    Icons.search,
-                    color: Colors.orange,
-                    size: 25.0,
-                  ),
-                  contentPadding: EdgeInsets.fromLTRB(7.0, 0.0, 7.0, 0.0),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    borderSide: BorderSide(color: Colors.orange, width: 1),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    borderSide: BorderSide(color: Colors.orange, width: 1),
-                  )),
-              onChanged: filterSearchResults,
-            ),
-          ),
+          // пока убрал поиск песен, т.к. работает неправильно
+          // Padding(
+          //   padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+          //   child: TextField(
+          //     controller: _textController,
+          //     decoration: InputDecoration(
+          //         hintText: 'Поиск песни',
+          //         filled: true,
+          //         fillColor: Colors.white70,
+          //         prefixIcon: Icon(
+          //           Icons.search,
+          //           color: Colors.orange,
+          //           size: 25.0,
+          //         ),
+          //         contentPadding: EdgeInsets.fromLTRB(7.0, 0.0, 7.0, 0.0),
+          //         enabledBorder: OutlineInputBorder(
+          //           borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          //           borderSide: BorderSide(color: Colors.orange, width: 1),
+          //         ),
+          //         focusedBorder: OutlineInputBorder(
+          //           borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          //           borderSide: BorderSide(color: Colors.orange, width: 1),
+          //         )),
+          //     onChanged: filterSearchResults,
+          //   ),
+          // ),
           Expanded(
             child: Container(
               child: FutureBuilder(
