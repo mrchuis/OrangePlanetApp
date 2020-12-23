@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:orange_planet_app/pages/gamesScreen.dart';
-import 'package:orange_planet_app/pages/feedback.dart';
+import 'package:orange_planet_app/home_components/home_body.dart';
 import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
 import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/climberStripe.dart';
@@ -19,12 +15,6 @@ import 'package:orange_planet_app/pages/stripes/sailor.dart';
 import 'package:orange_planet_app/pages/stripes/sniperStripe.dart';
 import 'package:orange_planet_app/pages/stripes/supplyManagerStripe.dart';
 import 'package:orange_planet_app/pages/stripes/theaterMasterStripe.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import 'pages/songsScreen.dart';
-import 'pages/stripesScreen.dart';
-import 'pages/laws.dart';
-import 'pages/trialsScreen.dart';
 import 'pages/stripes/cookStripe.dart';
 import 'pages/stripes/navigatorStripe.dart';
 import 'pages/stripes/campManagerStripe.dart';
@@ -58,7 +48,7 @@ class MyApp extends StatelessWidget {
             ),
             height: 45,
           )),
-      home: MyHomePage(),
+      home: HomeBody(),//MyHomePage(),
       routes: <String, WidgetBuilder>{
         CookStripe.routeName: (BuildContext context) => CookStripe(),
         NavigatorStripe.routeName: (BuildContext context) => NavigatorStripe(),
@@ -89,334 +79,334 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  _launchURL() async {
-    const url = 'https://flutter.dev';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+// class MyHomePage extends StatelessWidget {
+//   _launchURL() async {
+//     const url = 'https://flutter.dev';
+//     if (await canLaunch(url)) {
+//       await launch(url);
+//     } else {
+//       throw 'Could not launch $url';
+//     }
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Scaffold(
-        backgroundColor: Color(0xFF035AA6),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Container(
-                height: size.height * 0.3,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(top: 23),
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: PopupMenuButton<int>(
-                          icon: SvgPicture.asset("assets/icons/menu.svg"),
-                          onSelected: (value) {
-                            if (value == 1) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => FeedbackScreen()));
-                            }
-                            if (value == 2) {
-                              Navigator.push(context, _launchURL());
-                            }
-                          },
-                          itemBuilder: (context) => [
-                            PopupMenuItem(
-                              value: 1,
-                              child: Text("Обратная связь"),
-                            ),
-                            PopupMenuItem(
-                              value: 2,
-                              child: Text("Оставить отзыв"),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Image.asset(
-                        'icon/logoPrince.png',
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                height: size.height * 0.7,
-                decoration: BoxDecoration(
-                    color: Color(0xFFF1EFF1),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30.0),
-                      topRight: Radius.circular(30.0),
-                    )),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      SizedBox(height: 20),
-                      Text(
-                        "Следопытство",
-                        style: Theme.of(context).textTheme.headline5,
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          HorizontalCard(
-                            icon: Icons.book,
-                            title: "Законы и\nЗаповеди",
-                            press: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return Laws();
-                                }),
-                              );
-                            },
-                          ),
-                          HorizontalCard(
-                            icon: MdiIcons.cards,
-                            title: "\nНашивки",
-                            press: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return Stripes();
-                                }),
-                              );
-                            },
-                          ),
-                          HorizontalCard(
-                            icon: MdiIcons.guitarAcoustic,
-                            title: "\nИспытания",
-                            press: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return Trials();
-                                }),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                      //),
-                      SizedBox(height: 20),
-                      Text(
-                        "Развлечения",
-                        style: Theme.of(context).textTheme.headline5,
-                      ),
-                      SizedBox(height: 10),
-                      VerticalCard(
-                        image: 'icon/icon.png',
-                        title: "Песни",
-                        press: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) {
-                              return Songs();
-                            }),
-                          );
-                        },
-                      ),
-                      SizedBox(height: 10),
-                      VerticalCard(
-                        image: 'icon/icon.png',
-                        title: "Игры",
-                        press: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) {
-                              return Games();
-                            }),
-                          );
-                        },
-                      ),
-                      SizedBox(height: 10),
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
-        ));
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     Size size = MediaQuery.of(context).size;
+//     return Scaffold(
+//         backgroundColor: Color(0xFF035AA6),
+//         body: SingleChildScrollView(
+//           child: Column(
+//             children: <Widget>[
+//               Container(
+//                 height: size.height * 0.3,
+//                 child: Column(
+//                   crossAxisAlignment: CrossAxisAlignment.center,
+//                   children: <Widget>[
+//                     Padding(
+//                       padding: EdgeInsets.only(top: 23),
+//                       child: Align(
+//                         alignment: Alignment.topRight,
+//                         child: PopupMenuButton<int>(
+//                           icon: SvgPicture.asset("assets/icons/menu.svg"),
+//                           onSelected: (value) {
+//                             if (value == 1) {
+//                               Navigator.push(
+//                                   context,
+//                                   MaterialPageRoute(
+//                                       builder: (context) => FeedbackScreen()));
+//                             }
+//                             if (value == 2) {
+//                               Navigator.push(context, _launchURL());
+//                             }
+//                           },
+//                           itemBuilder: (context) => [
+//                             PopupMenuItem(
+//                               value: 1,
+//                               child: Text("Обратная связь"),
+//                             ),
+//                             PopupMenuItem(
+//                               value: 2,
+//                               child: Text("Оставить отзыв"),
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                     ),
+//                     Expanded(
+//                       child: Image.asset(
+//                         'icon/logoPrince.png',
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               Container(
+//                 height: size.height * 0.7,
+//                 decoration: BoxDecoration(
+//                     color: Color(0xFFF1EFF1),
+//                     borderRadius: BorderRadius.only(
+//                       topLeft: Radius.circular(30.0),
+//                       topRight: Radius.circular(30.0),
+//                     )),
+//                 child: Padding(
+//                   padding: EdgeInsets.symmetric(horizontal: 20),
+//                   child: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: <Widget>[
+//                       SizedBox(height: 20),
+//                       Text(
+//                         "Следопытство",
+//                         style: Theme.of(context).textTheme.headline5,
+//                       ),
+//                       SizedBox(height: 10),
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                         children: <Widget>[
+//                           HorizontalCard(
+//                             icon: Icons.book,
+//                             title: "Законы и\nЗаповеди",
+//                             press: () {
+//                               Navigator.push(
+//                                 context,
+//                                 MaterialPageRoute(builder: (context) {
+//                                   return Laws();
+//                                 }),
+//                               );
+//                             },
+//                           ),
+//                           HorizontalCard(
+//                             icon: MdiIcons.cards,
+//                             title: "\nНашивки",
+//                             press: () {
+//                               Navigator.push(
+//                                 context,
+//                                 MaterialPageRoute(builder: (context) {
+//                                   return Stripes();
+//                                 }),
+//                               );
+//                             },
+//                           ),
+//                           HorizontalCard(
+//                             icon: MdiIcons.guitarAcoustic,
+//                             title: "\nИспытания",
+//                             press: () {
+//                               Navigator.push(
+//                                 context,
+//                                 MaterialPageRoute(builder: (context) {
+//                                   return Trials();
+//                                 }),
+//                               );
+//                             },
+//                           ),
+//                         ],
+//                       ),
+//                       //),
+//                       SizedBox(height: 20),
+//                       Text(
+//                         "Развлечения",
+//                         style: Theme.of(context).textTheme.headline5,
+//                       ),
+//                       SizedBox(height: 10),
+//                       VerticalCard(
+//                         image: 'icon/icon.png',
+//                         title: "Песни",
+//                         press: () {
+//                           Navigator.push(
+//                             context,
+//                             MaterialPageRoute(builder: (context) {
+//                               return Songs();
+//                             }),
+//                           );
+//                         },
+//                       ),
+//                       SizedBox(height: 10),
+//                       VerticalCard(
+//                         image: 'icon/icon.png',
+//                         title: "Игры",
+//                         press: () {
+//                           Navigator.push(
+//                             context,
+//                             MaterialPageRoute(builder: (context) {
+//                               return Games();
+//                             }),
+//                           );
+//                         },
+//                       ),
+//                       SizedBox(height: 10),
+//                     ],
+//                   ),
+//                 ),
+//               )
+//             ],
+//           ),
+//         ));
+//   }
+// }
 
-class VerticalCard extends StatefulWidget {
-  final String image;
-  final String title;
-  final Function press;
-  const VerticalCard({
-    Key key,
-    this.image,
-    this.title,
-    this.press,
-  }) : super(key: key);
+// class VerticalCard extends StatefulWidget {
+//   final String image;
+//   final String title;
+//   final Function press;
+//   const VerticalCard({
+//     Key key,
+//     this.image,
+//     this.title,
+//     this.press,
+//   }) : super(key: key);
 
-  @override
-  _VerticalCardState createState() => _VerticalCardState();
-}
+//   @override
+//   _VerticalCardState createState() => _VerticalCardState();
+// }
 
-class _VerticalCardState extends State<VerticalCard> {
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-        height: 100,
-        child: Stack(
-          children: <Widget>[
-            Container(
-              height: 90,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(13),
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(1, 4),
-                      blurRadius: 20,
-                      color: Color(0xFFB0CCE1).withOpacity(0.32),
-                    ),
-                  ]),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(13),
-                  color: Colors.orange,
-                ),
-                child: Container(
-                  margin: EdgeInsets.only(right: 5),
-                  child: Material(
-                      borderRadius: BorderRadius.circular(13),
-                      elevation: 5,
-                      shadowColor: Colors.black,
-                      color: Colors.white,
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(13),
-                        onTap: widget.press,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Image.asset(
-                                  widget.image,
-                                  width: 67,
-                                ),
-                              ),
-                              Padding(
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.of(context).size.width - 150,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          widget.title,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline6,
-                                        ),
-                                      ],
-                                    ),
-                                  )),
-                            ],
-                          ),
-                        ),
-                      )),
-                ),
-              ),
-            ),
-          ],
-        ));
-  }
-}
+// class _VerticalCardState extends State<VerticalCard> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//         height: 100,
+//         child: Stack(
+//           children: <Widget>[
+//             Container(
+//               height: 90,
+//               width: double.infinity,
+//               decoration: BoxDecoration(
+//                   borderRadius: BorderRadius.circular(13),
+//                   color: Colors.white,
+//                   boxShadow: [
+//                     BoxShadow(
+//                       offset: Offset(1, 4),
+//                       blurRadius: 20,
+//                       color: Color(0xFFB0CCE1).withOpacity(0.32),
+//                     ),
+//                   ]),
+//               child: Container(
+//                 decoration: BoxDecoration(
+//                   borderRadius: BorderRadius.circular(13),
+//                   color: Colors.orange,
+//                 ),
+//                 child: Container(
+//                   margin: EdgeInsets.only(right: 5),
+//                   child: Material(
+//                       borderRadius: BorderRadius.circular(13),
+//                       elevation: 5,
+//                       shadowColor: Colors.black,
+//                       color: Colors.white,
+//                       child: InkWell(
+//                         borderRadius: BorderRadius.circular(13),
+//                         onTap: widget.press,
+//                         child: Padding(
+//                           padding: const EdgeInsets.all(8.0),
+//                           child: Row(
+//                             children: <Widget>[
+//                               Padding(
+//                                 padding: const EdgeInsets.all(4.0),
+//                                 child: Image.asset(
+//                                   widget.image,
+//                                   width: 67,
+//                                 ),
+//                               ),
+//                               Padding(
+//                                   padding: const EdgeInsets.all(6.0),
+//                                   child: Container(
+//                                     width:
+//                                         MediaQuery.of(context).size.width - 150,
+//                                     child: Column(
+//                                       crossAxisAlignment:
+//                                           CrossAxisAlignment.start,
+//                                       children: <Widget>[
+//                                         Text(
+//                                           widget.title,
+//                                           style: Theme.of(context)
+//                                               .textTheme
+//                                               .headline6,
+//                                         ),
+//                                       ],
+//                                     ),
+//                                   )),
+//                             ],
+//                           ),
+//                         ),
+//                       )),
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ));
+//   }
+// }
 
-class HorizontalCard extends StatefulWidget {
-  final IconData icon;
-  final String title;
-  final Function press;
-  const HorizontalCard({
-    Key key,
-    this.icon,
-    this.title,
-    this.press,
-  }) : super(key: key);
+// class HorizontalCard extends StatefulWidget {
+//   final IconData icon;
+//   final String title;
+//   final Function press;
+//   const HorizontalCard({
+//     Key key,
+//     this.icon,
+//     this.title,
+//     this.press,
+//   }) : super(key: key);
 
-  @override
-  _HorizontalCardState createState() => _HorizontalCardState();
-}
+//   @override
+//   _HorizontalCardState createState() => _HorizontalCardState();
+// }
 
-class _HorizontalCardState extends State<HorizontalCard> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        //margin: EdgeInsets.only( right: 15, top: 5, bottom: 10),
-        //padding: EdgeInsets.all(5),
-        width: 95,
-        height: 115,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(13),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(1, 4),
-              blurRadius: 20,
-              color: Color(0xFFB0CCE1).withOpacity(0.32),
-              //color: Colors.black12,
-            )
-          ],
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(13),
-            color: Colors.orange,
-          ),
-          child: Container(
-            margin: EdgeInsets.only(right: 5),
-            child: Material(
-                borderRadius: BorderRadius.circular(13),
-                elevation: 5,
-                shadowColor: Colors.black,
-                color: Colors.white,
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(13),
-                  onTap: widget.press,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
-                    child: Column(
-                      //crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          widget.icon,
-                          size: 45,
-                          color: Colors.orange,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          widget.title,
-                          style: Theme.of(context).textTheme.subtitle1,
-                        ),
-                      ],
-                    ),
-                  ),
-                )),
-          ),
-        ));
-  }
-}
+// class _HorizontalCardState extends State<HorizontalCard> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//         //margin: EdgeInsets.only( right: 15, top: 5, bottom: 10),
+//         //padding: EdgeInsets.all(5),
+//         width: 95,
+//         height: 115,
+//         decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(13),
+//           color: Colors.white,
+//           boxShadow: [
+//             BoxShadow(
+//               offset: Offset(1, 4),
+//               blurRadius: 20,
+//               color: Color(0xFFB0CCE1).withOpacity(0.32),
+//               //color: Colors.black12,
+//             )
+//           ],
+//         ),
+//         child: Container(
+//           decoration: BoxDecoration(
+//             borderRadius: BorderRadius.circular(13),
+//             color: Colors.orange,
+//           ),
+//           child: Container(
+//             margin: EdgeInsets.only(right: 5),
+//             child: Material(
+//                 borderRadius: BorderRadius.circular(13),
+//                 elevation: 5,
+//                 shadowColor: Colors.black,
+//                 color: Colors.white,
+//                 child: InkWell(
+//                   borderRadius: BorderRadius.circular(13),
+//                   onTap: widget.press,
+//                   child: Padding(
+//                     padding: const EdgeInsets.only(top: 10.0),
+//                     child: Column(
+//                       //crossAxisAlignment: CrossAxisAlignment.center,
+//                       children: <Widget>[
+//                         Icon(
+//                           widget.icon,
+//                           size: 45,
+//                           color: Colors.orange,
+//                         ),
+//                         SizedBox(height: 10),
+//                         Text(
+//                           widget.title,
+//                           style: Theme.of(context).textTheme.subtitle1,
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 )),
+//           ),
+//         ));
+//   }
+// }
 
 // class MyClipper extends CustomClipper<Path> {
 //   @override
