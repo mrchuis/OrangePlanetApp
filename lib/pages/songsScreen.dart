@@ -241,7 +241,12 @@ class _SecondScreenState extends State<SecondScreen>
       // add any unstyled text before the next match
       spans.add(TextSpan(text: text.substring(spanBoundary, startIndex)));
       // style the matched text
-      final endIndex = startIndex + 2;
+      var endIndex = startIndex + 2;
+      if (text.substring(startIndex, startIndex + 3) == "Dm7")
+      {
+        endIndex += 1;
+      }
+      
       final spanText = text.substring(startIndex, endIndex);
       if (spanText == "__") {
         spans.add(TextSpan(text: spanText, style: underlineStyle));
