@@ -7,6 +7,10 @@ class SplashScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(40.0),
+            child: Image.asset('icon/icon.png'),
+          ),
           Text(
             "Initialization",
             style: TextStyle(

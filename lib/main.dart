@@ -28,7 +28,7 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
 
-  final Future _initFuture = Init.initialize();
+  //final Future _initFuture = Init.initialize();
 
   @override
   Widget build(BuildContext context) {
@@ -52,16 +52,17 @@ class MyApp extends StatelessWidget {
             ),
             height: 45,
           )),
-      home: FutureBuilder(
-        future: _initFuture,
-        builder: (context, snapshot){
-          if(snapshot.connectionState == ConnectionState.done) {
-            return HomeBody();
-          } else {
-            return SplashScreen();
-          }
-        },
-      ),//HomeBody(),
+      home: HomeBody(),
+      // FutureBuilder(
+      //   future: _initFuture,
+      //   builder: (context, snapshot){
+      //     if(snapshot.connectionState == ConnectionState.done) {
+      //       return HomeBody();
+      //     } else {
+      //       return SplashScreen();
+      //     }
+      //   },
+      // ),//
       routes: <String, WidgetBuilder>{
         CookStripe.routeName: (BuildContext context) => CookStripe(),
         NavigatorStripe.routeName: (BuildContext context) => NavigatorStripe(),
