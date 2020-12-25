@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:orange_planet_app/home_components/home_header.dart';
-import 'package:orange_planet_app/home_components/horizontal_card.dart';
-import 'package:orange_planet_app/home_components/vertical_card.dart';
-import 'package:orange_planet_app/pages/gamesScreen.dart';
-import 'package:orange_planet_app/pages/laws.dart';
-import 'package:orange_planet_app/pages/songsScreen.dart';
-import 'package:orange_planet_app/pages/stripesScreen.dart';
-import 'package:orange_planet_app/pages/trialsScreen.dart';
+import 'package:orange_planet_app/screens/games/gamesScreen.dart';
+import 'package:orange_planet_app/screens/laws/laws.dart';
+import 'package:orange_planet_app/screens/songs/songs_list_screen.dart';
+import 'package:orange_planet_app/screens/home/components/home_header.dart';
+import 'package:orange_planet_app/screens/home/components/horizontal_card.dart';
+import 'package:orange_planet_app/screens/home/components/vertical_card.dart';
+import 'package:orange_planet_app/screens/stripes/stripesScreen.dart';
+import 'package:orange_planet_app/screens/trials/trialsScreen.dart';
 
 class HomeBody extends StatelessWidget {
 

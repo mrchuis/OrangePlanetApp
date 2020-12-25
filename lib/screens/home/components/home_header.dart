@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:orange_planet_app/pages/feedback.dart';
+import 'package:orange_planet_app/screens/home/components/feedback.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeHeader extends StatelessWidget {

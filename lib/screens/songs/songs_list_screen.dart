@@ -3,8 +3,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:orange_planet_app/songs_components/song.dart';
-import 'package:orange_planet_app/songs_components/song_screen.dart';
+import 'package:orange_planet_app/screens/songs/components/song.dart';
+import 'package:orange_planet_app/screens/songs/components/song_screen.dart';
 
 class Songs extends StatefulWidget {
   SongsState createState() {

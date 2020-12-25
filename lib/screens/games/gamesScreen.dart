@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:orange_planet_app/games_components/body.dart';
+import 'package:orange_planet_app/screens/games/components/body.dart';
 
 class Games extends StatefulWidget {
   GamesState createState() {

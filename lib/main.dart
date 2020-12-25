@@ -1,27 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:orange_planet_app/home_components/home_body.dart';
-import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
-import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
-import 'package:orange_planet_app/pages/stripes/climberStripe.dart';
-import 'package:orange_planet_app/pages/stripes/doctorStripe.dart';
-import 'package:orange_planet_app/pages/stripes/drummer.dart';
-import 'package:orange_planet_app/pages/stripes/guitarPlayerStripe.dart';
-import 'package:orange_planet_app/pages/stripes/knitterStripe.dart';
-import 'package:orange_planet_app/pages/stripes/painterStripe.dart';
-import 'package:orange_planet_app/pages/stripes/photographer.dart';
-import 'package:orange_planet_app/pages/stripes/repairMasterStripe.dart';
-import 'package:orange_planet_app/pages/stripes/sailor.dart';
-import 'package:orange_planet_app/pages/stripes/sniperStripe.dart';
-import 'package:orange_planet_app/pages/stripes/supplyManagerStripe.dart';
-import 'package:orange_planet_app/pages/stripes/theaterMasterStripe.dart';
-import 'pages/stripes/cookStripe.dart';
-import 'pages/stripes/navigatorStripe.dart';
-import 'pages/stripes/campManagerStripe.dart';
+import 'package:orange_planet_app/screens/home/home_body.dart';
+import 'package:orange_planet_app/init.dart';
+
+import 'package:orange_planet_app/splash_screen.dart';
+
+import 'screens/stripes/components/campManagerStripe.dart';
+import 'screens/stripes/components/campfireStripe.dart';
+import 'screens/stripes/components/chroniclerStripe.dart';
+import 'screens/stripes/components/climberStripe.dart';
+import 'screens/stripes/components/cookStripe.dart';
+import 'screens/stripes/components/doctorStripe.dart';
+import 'screens/stripes/components/drummer.dart';
+import 'screens/stripes/components/guitarPlayerStripe.dart';
+import 'screens/stripes/components/knitterStripe.dart';
+import 'screens/stripes/components/navigatorStripe.dart';
+import 'screens/stripes/components/painterStripe.dart';
+import 'screens/stripes/components/photographer.dart';
+import 'screens/stripes/components/repairMasterStripe.dart';
+import 'screens/stripes/components/sailor.dart';
+import 'screens/stripes/components/sniperStripe.dart';
+import 'screens/stripes/components/supplyManagerStripe.dart';
+import 'screens/stripes/components/theaterMasterStripe.dart';
+
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+
+  final Future _initFuture = Init.initialize();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,7 +52,16 @@ class MyApp extends StatelessWidget {
             ),
             height: 45,
           )),
-      home: HomeBody(),
+      home: FutureBuilder(
+        future: _initFuture,
+        builder: (context, snapshot){
+          if(snapshot.connectionState == ConnectionState.done) {
+            return HomeBody();
+          } else {
+            return SplashScreen();
+          }
+        },
+      ),//HomeBody(),
       routes: <String, WidgetBuilder>{
         CookStripe.routeName: (BuildContext context) => CookStripe(),
         NavigatorStripe.routeName: (BuildContext context) => NavigatorStripe(),

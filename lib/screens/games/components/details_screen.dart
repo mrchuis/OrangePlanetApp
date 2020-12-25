@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:orange_planet_app/games_components/games.dart';
+import 'package:orange_planet_app/screens/games/components/games.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Games game;

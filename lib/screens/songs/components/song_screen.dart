@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:orange_planet_app/songs_components/song.dart';
+import 'package:orange_planet_app/screens/songs/components/song.dart';
 
 class SongScreen extends StatefulWidget {
   final Song song;

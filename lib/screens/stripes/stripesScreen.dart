@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:orange_planet_app/pages/stripes/campManagerStripe.dart';
-import 'package:orange_planet_app/pages/stripes/campfireStripe.dart';
-import 'package:orange_planet_app/pages/stripes/chroniclerStripe.dart';
-import 'package:orange_planet_app/pages/stripes/climberStripe.dart';
-import 'package:orange_planet_app/pages/stripes/cookStripe.dart';
-import 'package:orange_planet_app/pages/stripes/doctorStripe.dart';
 
-import 'package:orange_planet_app/pages/stripes/drummer.dart';
-import 'package:orange_planet_app/pages/stripes/guitarPlayerStripe.dart';
-import 'package:orange_planet_app/pages/stripes/knitterStripe.dart';
-import 'package:orange_planet_app/pages/stripes/photographer.dart';
-import 'package:orange_planet_app/pages/stripes/repairMasterStripe.dart';
-import 'package:orange_planet_app/pages/stripes/sailor.dart';
-import 'package:orange_planet_app/pages/stripes/sniperStripe.dart';
-
-import 'package:orange_planet_app/pages/stripes/supplyManagerStripe.dart';
-import 'package:orange_planet_app/pages/stripes/theaterMasterStripe.dart';
-
-import 'stripes/navigatorStripe.dart';
+import 'components/campManagerStripe.dart';
+import 'components/campfireStripe.dart';
+import 'components/chroniclerStripe.dart';
+import 'components/climberStripe.dart';
+import 'components/cookStripe.dart';
+import 'components/doctorStripe.dart';
+import 'components/drummer.dart';
+import 'components/guitarPlayerStripe.dart';
+import 'components/knitterStripe.dart';
+import 'components/navigatorStripe.dart';
+import 'components/photographer.dart';
+import 'components/repairMasterStripe.dart';
+import 'components/sailor.dart';
+import 'components/sniperStripe.dart';
+import 'components/supplyManagerStripe.dart';
+import 'components/theaterMasterStripe.dart';
 
 class Stripes extends StatefulWidget {
   StripesState createState() {
