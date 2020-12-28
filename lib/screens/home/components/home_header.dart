@@ -22,52 +22,75 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: size.height * 0.38,
-      width: double.infinity,
-      color: Color(0xFF035AA6),
-      child: Column(
-        children: <Widget>[
-          Align(
-            alignment: Alignment.topRight,
-              child: Padding(
-              padding: const EdgeInsets.only(top:40, right: 10),
-              child: PopupMenuButton<int>(
-                icon: SvgPicture.asset("assets/icons/menu.svg"),
-                onSelected: (value) {
-                  if (value == 1) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => FeedbackScreen()));
-                  }
-                  if (value == 2) {
-                    Navigator.push(context, _launchURL());
-                  }
-                },
-                itemBuilder: (context) => [
-                  PopupMenuItem(
-                    value: 1,
-                    child: Text("Обратная связь"),
-                  ),
-                  PopupMenuItem(
-                    value: 2,
-                    child: Text("Оставить отзыв"),
-                  ),
+    return ClipPath(
+      //clipper: MyClipper(),
+      child: Container(
+        height: size.height * 0.38,
+        child: Column(
+          children: <Widget>[
+            Align(
+              alignment: Alignment.topRight,
+                child: Padding(
+                padding: const EdgeInsets.only(top:30, right: 10),
+                child: PopupMenuButton<int>(
+                  icon: SvgPicture.asset("assets/icons/menu.svg"),
+                  onSelected: (value) {
+                    if (value == 1) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FeedbackScreen()));
+                    }
+                    if (value == 2) {
+                      Navigator.push(context, _launchURL());
+                    }
+                  },
+                  itemBuilder: (context) => [
+                    PopupMenuItem(
+                      value: 1,
+                      child: Text("Обратная связь"),
+                    ),
+                    PopupMenuItem(
+                      value: 2,
+                      child: Text("Оставить отзыв"),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              child: Stack(
+                children: <Widget>[
+                  Image.asset(
+                    'icon/logoPrince1.png',
+                    width: 240,
+                    fit: BoxFit.fitWidth,
+                    alignment: Alignment.topCenter,
+                  )
                 ],
               ),
             ),
-          ),
-          Expanded(
-            child: Stack(
-              children: <Widget>[Image.asset(
-              'icon/logoPrince.png',
-              alignment: Alignment.topCenter,
-              )],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
+
+// class MyClipper extends CustomClipper<Path> {
+//   @override
+//   Path getClip(Size size) {
+//     var path = Path();
+//     path.lineTo(0, size.height - 80);
+//     path.quadraticBezierTo(
+//         size.width / 2, size.height, size.width, size.height - 80);
+//     path.lineTo(size.width, 0);
+//     path.close();
+//     return path;
+//   }
+
+//   @override
+//   bool shouldReclip(CustomClipper<Path> oldClipper) {
+//     return false;
+//   }
+// }
