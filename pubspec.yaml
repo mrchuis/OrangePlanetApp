@@ -37,6 +37,9 @@ flutter:
 
   assets:
     - assets/icons/menu.svg
+    - assets/icons/palatka.png
+    - assets/icons/elka.png
+    - assets/icons/fire.png
     - assets/images/
     - assets/images/bonfires/
     - assets/images/doctor/
