@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:orange_planet_app/screens/home/home_body.dart';
-import 'package:orange_planet_app/init.dart';
-
-import 'package:orange_planet_app/splash_screen.dart';
-
 import 'screens/stripes/components/campManagerStripe.dart';
 import 'screens/stripes/components/campfireStripe.dart';
 import 'screens/stripes/components/chroniclerStripe.dart';
