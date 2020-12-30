@@ -55,6 +55,7 @@ class _BodyState extends State<Body> {
                   topLeft: Radius.circular(30.0),
                   topRight: Radius.circular(30.0),
                 ),
+                // TODO limiting games for free version
                 child: ListView.builder(
                   padding: EdgeInsets.only(top: 15.0),
                   itemCount: games.length,
