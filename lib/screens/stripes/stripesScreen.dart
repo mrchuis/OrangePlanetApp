@@ -27,11 +27,14 @@ class StripesState extends State<Stripes> {
   TextEditingController _textController = TextEditingController();
 
   final duplicateRouteNames = List<String>.from(getRouteName()..sort());
+  // ignore: non_constant_identifier_names
+  List<String> stripes_limit; 
   var routeNames = List<String>();
 
   @override
   void initState() {
     routeNames.addAll(duplicateRouteNames);
+    stripes_limit = List.generate(8, (index) => duplicateRouteNames[index]);
     super.initState();
   }
 
@@ -97,18 +100,32 @@ class StripesState extends State<Stripes> {
             child: ListView.builder(
                 itemCount: routeNames.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    child: ListTile(
-                      title: Text(
-                        routeNames[index].replaceFirst(new RegExp(r'/'), ''),
+                  if (stripes_limit.contains(routeNames[index])) {
+                    return Card(
+                      child: ListTile(
+                        title: Text(
+                          routeNames[index].replaceFirst(new RegExp(r'/'), ''),
+                        ),
+                        onTap: () {
+                          setState(() {
+                            Navigator.of(context).pushNamed(routeNames[index]);
+                          });
+                        },
                       ),
-                      onTap: () {
-                        setState(() {
-                          Navigator.of(context).pushNamed(routeNames[index]);
-                        });
-                      },
-                    ),
-                  );
+                    );
+                  } else {
+                    return Card(
+                      child: ListTile(
+                        trailing: Icon(Icons.lock_outlined),
+                        title: Text(
+                          routeNames[index].replaceFirst(new RegExp(r'/'), ''),
+                        ),
+                        onTap: () {
+                          // buy full version
+                        },
+                      ),
+                    );
+                  }
                 }),
           ),
         ],

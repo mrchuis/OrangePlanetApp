@@ -8,7 +8,9 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  List<String> categories = [
+  
+  static const int GAMES_LIMIT = 4;
+  static const List<String> categories = [
     "Пятиминутки",
     "Подвижные",
     "На сплочение",
@@ -61,24 +63,38 @@ class _BodyState extends State<Body> {
                   itemCount: games.length,
                   itemBuilder: (BuildContext context, int index) {
                     final Games game = games[index];
-                    return Card(
-                      child: ListTile(
-                        title: Text(
-                          game.title,
+                    if (index <= GAMES_LIMIT) {
+                      return Card(
+                        child: ListTile(
+                          title: Text(
+                            game.title,
+                          ),
+                          onTap: () {
+                            setState(() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DetailsScreen(
+                                            game: game,
+                                          )));
+                              //Navigator.of(context).pushNamed(routeNames[index]);
+                            });
+                          },
                         ),
-                        onTap: () {
-                          setState(() {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => DetailsScreen(
-                                          game: game,
-                                        )));
-                            //Navigator.of(context).pushNamed(routeNames[index]);
-                          });
-                        },
-                      ),
-                    );
+                      );
+                    } else {
+                      return Card(
+                        child: ListTile(
+                          trailing: Icon(Icons.lock_outlined),
+                          title: Text(
+                            game.title,
+                          ),
+                          onTap: () {
+                            // buy full version
+                          },
+                        ),
+                      );
+                    }
                   },
                 ),
               ),
