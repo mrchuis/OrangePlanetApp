@@ -41,11 +41,6 @@ class FeedbackScreen extends StatelessWidget {
                 padding: EdgeInsets.all(8.0),
                 child: RaisedButton(
                   elevation: 2,
-                  // color: Colors.white,
-                  // shape: RoundedRectangleBorder(
-                  //   borderRadius: BorderRadius.all(Radius.circular(4)),
-                  //   side: BorderSide(color: Colors.orange, width: 1.75),
-                  // ),
                   child: Text("ОТПРАВИТЬ СООБЩЕНИЕ", style: TextStyle(fontSize: 14)),
                   onPressed: ()=>_sendEmail(),
                 )
@@ -58,7 +53,7 @@ class FeedbackScreen extends StatelessWidget {
   }
 
   _sendEmail() async {
-    String toMailId = 'mrchuev@yandex.ru';
+    String toMailId = 'orangeplanetcamp@gmail.com';
     String subject = _subjectController.text;
     String body = _bodyController.text;
 
