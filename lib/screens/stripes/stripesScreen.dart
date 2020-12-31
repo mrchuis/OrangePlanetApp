@@ -126,12 +126,12 @@ class StripesState extends State<Stripes> {
                             barrierDismissible: false,
                             builder: (BuildContext context) {
                               return AlertDialog(
-                                title: Text('AlertDialog Title'),
+                                title: Text('Заблокировано'),
                                 content: SingleChildScrollView(
                                   child: ListBody(
                                     children: <Widget>[
-                                      Text('This is a demo alert dialog.'),
-                                      Text('Would you like to approve of this message?'),
+                                      Text('В бесплатной версии ограничен список игр и нашивок.'),
+                                      Text('\nПолный доступ ко всем функциям приложения доступен в pro-версии за 99 рублей.'),
                                     ],
                                   ),
                                 ),
