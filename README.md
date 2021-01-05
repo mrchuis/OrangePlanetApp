@@ -7,5 +7,8 @@
 ### Songspage UI
 
 ![Songs](/songs.png)
-![Song](/song.png)
+
+### Stripes UI
+
+![Songs](/stripes.png)
 
