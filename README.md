@@ -1,6 +1,9 @@
-# orange_planet_app
+# Application for summer camp "Orange Planet"
 
-Application for summer camp "Orange Planet"
+### Homepage UI
+
+![Homepage](/mainpage.png)
+
 
 
 
