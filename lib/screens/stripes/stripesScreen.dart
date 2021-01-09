@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'components/campManagerStripe.dart';
 import 'components/campfireStripe.dart';
@@ -24,11 +25,21 @@ class Stripes extends StatefulWidget {
 }
 
 class StripesState extends State<Stripes> {
+  _playstoreURL() async {
+    const url =
+        'https://play.google.com/store/apps/details?id=com.mrchuis.orange_planet_app';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   TextEditingController _textController = TextEditingController();
 
   final duplicateRouteNames = List<String>.from(getRouteName()..sort());
   // ignore: non_constant_identifier_names
-  List<String> stripes_limit; 
+  List<String> stripes_limit;
   var routeNames = List<String>();
 
   @override
@@ -122,36 +133,37 @@ class StripesState extends State<Stripes> {
                         ),
                         onTap: () {
                           return showDialog<void>(
-                            context: context,
-                            barrierDismissible: false,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                title: Text('Заблокировано'),
-                                content: SingleChildScrollView(
-                                  child: ListBody(
-                                    children: <Widget>[
-                                      Text('В бесплатной версии ограничен список игр и нашивок.'),
-                                      Text('\nПолный доступ ко всем функциям приложения доступен в pro-версии за 99 рублей.'),
-                                    ],
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Заблокировано'),
+                                  content: SingleChildScrollView(
+                                    child: ListBody(
+                                      children: <Widget>[
+                                        Text(
+                                            'В бесплатной версии ограничен список игр и нашивок.'),
+                                        Text(
+                                            '\nПолный доступ ко всем функциям приложения доступен в pro-версии за 99 рублей.'),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                actions: <Widget>[
-                                  TextButton(
-                                    child: Text('Назад'),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  TextButton(
-                                    child: Text('Купить'),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                ],
-                              );
-                            }
-                          );
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: Text('Назад'),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    TextButton(
+                                      child: Text('Купить'),
+                                      onPressed: () {
+                                        _playstoreURL();
+                                      },
+                                    ),
+                                  ],
+                                );
+                              });
                         },
                       ),
                     );
