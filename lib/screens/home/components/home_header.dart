@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:orange_planet_app/screens/home/components/feedback.dart';
-//import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({
-    Key key,
-  }) : super(key: key);
-
-  // _launchURL() async {
-  //   const url = 'https://flutter.dev';
-  //   if (await canLaunch(url)) {
-  //     await launch(url);
-  //   } else {
-  //     throw 'Could not launch $url';
-  //   }
-  // }
+  _launchURL() async {
+    const url =
+        'https://play.google.com/store/apps/details?id=com.mrchuis.orange_planet_app';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,19 +31,19 @@ class HomeHeader extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => FeedbackScreen()));
                 }
-                // if (value == 2) {
-                //   Navigator.push(context, _launchURL());
-                // }
+                if (value == 2) {
+                  Navigator.push(context, _launchURL());
+                }
               },
               itemBuilder: (context) => [
                 PopupMenuItem(
                   value: 1,
                   child: Text("Обратная связь"),
                 ),
-                // PopupMenuItem(
-                //   value: 2,
-                //   child: Text("Оставить отзыв"),
-                // ),
+                PopupMenuItem(
+                  value: 2,
+                  child: Text("Оставить отзыв"),
+                ),
               ],
             ),
           ],
