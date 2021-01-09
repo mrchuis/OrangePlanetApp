@@ -15,7 +15,6 @@ class Songs extends StatefulWidget {
 class SongsState extends State<Songs> {
   //TextEditingController _textController = TextEditingController();
 
-  List<Song> duplicateItems = List<Song>();
   List<Song> songsSortList;
 
   Future<List<Song>> _getSongs() async {
@@ -44,6 +43,7 @@ class SongsState extends State<Songs> {
   }
 
   _parseSongFiles(songsFileList) {
+    var duplicateItems = new List<Song>();
     var songsTemp = new List<Song>();
     String content = "";
     int counter = 0;
@@ -74,29 +74,29 @@ class SongsState extends State<Songs> {
     return duplicateItems;
   }
 
-  void filterSearchResults(String query) {
-    List<Song> dummySearchList = List<Song>();
-    dummySearchList.addAll(duplicateItems);
-    if (query.isNotEmpty) {
-      List<Song> dummyListData = List<Song>();
-      dummySearchList.forEach((item) {
-        if (item.title.toLowerCase().contains(query) ||
-            item.singer.toLowerCase().contains(query)) {
-          dummyListData.add(item);
-        }
-      });
-      setState(() {
-        songsSortList.clear();
-        songsSortList.addAll(dummyListData);
-      });
-      return;
-    } else {
-      setState(() {
-        songsSortList.clear();
-        songsSortList.addAll(duplicateItems);
-      });
-    }
-  }
+  // void filterSearchResults(String query) {
+  //   List<Song> dummySearchList = List<Song>();
+  //   dummySearchList.addAll(duplicateItems);
+  //   if (query.isNotEmpty) {
+  //     List<Song> dummyListData = List<Song>();
+  //     dummySearchList.forEach((item) {
+  //       if (item.title.toLowerCase().contains(query) ||
+  //           item.singer.toLowerCase().contains(query)) {
+  //         dummyListData.add(item);
+  //       }
+  //     });
+  //     setState(() {
+  //       songsSortList.clear();
+  //       songsSortList.addAll(dummyListData);
+  //     });
+  //     return;
+  //   } else {
+  //     setState(() {
+  //       songsSortList.clear();
+  //       songsSortList.addAll(duplicateItems);
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
