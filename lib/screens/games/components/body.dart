@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:orange_planet_app/screens/games/components/details_screen.dart';
 import 'package:orange_planet_app/screens/games/components/games.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -8,7 +9,16 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  
+  _playstoreURL() async {
+    const url =
+        'https://play.google.com/store/apps/details?id=com.mrchuis.orange_planet_app';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   static const int GAMES_LIMIT = 4;
   static const List<String> categories = [
     "Пятиминутки",
@@ -91,36 +101,37 @@ class _BodyState extends State<Body> {
                           ),
                           onTap: () {
                             return showDialog<void>(
-                              context: context,
-                              barrierDismissible: false,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text('Заблокировано'),
-                                  content: SingleChildScrollView(
-                                    child: ListBody(
-                                      children: <Widget>[
-                                        Text('В бесплатной версии ограничен список игр и нашивок.'),
-                                        Text('\nПолный доступ ко всем функциям приложения доступен в pro-версии за 99 рублей.'),
-                                      ],
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('Заблокировано'),
+                                    content: SingleChildScrollView(
+                                      child: ListBody(
+                                        children: <Widget>[
+                                          Text(
+                                              'В бесплатной версии ограничен список игр и нашивок.'),
+                                          Text(
+                                              '\nПолный доступ ко всем функциям приложения доступен в pro-версии за 99 рублей.'),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      child: Text('Назад'),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                    ),
-                                    TextButton(
-                                      child: Text('Купить'),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                    ),
-                                  ],
-                                );
-                              }
-                            );
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: Text('Назад'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                      TextButton(
+                                        child: Text('Купить'),
+                                        onPressed: () {
+                                          _playstoreURL();
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                });
                             // buy full version
                           },
                         ),
