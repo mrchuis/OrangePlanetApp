@@ -106,7 +106,6 @@ class StripesState extends State<Stripes> {
               onChanged: filterSearchResult,
             ),
           ),
-          // TODO limiting stripes for free version
           Expanded(
             child: ListView.builder(
                 itemCount: routeNames.length,
