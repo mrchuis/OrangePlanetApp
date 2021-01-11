@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:orange_planet_app/init.dart';
 import 'package:orange_planet_app/screens/home/home_body.dart';
 import 'screens/stripes/components/campManagerStripe.dart';
 import 'screens/stripes/components/campfireStripe.dart';
@@ -19,12 +20,19 @@ import 'screens/stripes/components/sniperStripe.dart';
 import 'screens/stripes/components/supplyManagerStripe.dart';
 import 'screens/stripes/components/theaterMasterStripe.dart';
 
-
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
-  //final Future _initFuture = Init.initialize();
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    Init.initialize(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,16 +57,6 @@ class MyApp extends StatelessWidget {
             height: 45,
           )),
       home: HomeBody(),
-      // FutureBuilder(
-      //   future: _initFuture,
-      //   builder: (context, snapshot){
-      //     if(snapshot.connectionState == ConnectionState.done) {
-      //       return HomeBody();
-      //     } else {
-      //       return SplashScreen();
-      //     }
-      //   },
-      // ),//
       routes: <String, WidgetBuilder>{
         CookStripe.routeName: (BuildContext context) => CookStripe(),
         NavigatorStripe.routeName: (BuildContext context) => NavigatorStripe(),
