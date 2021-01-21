@@ -10,6 +10,7 @@ import 'components/drummer.dart';
 import 'components/guitarPlayerStripe.dart';
 import 'components/knitterStripe.dart';
 import 'components/navigatorStripe.dart';
+import 'components/painterStripe.dart';
 import 'components/photographer.dart';
 import 'components/repairMasterStripe.dart';
 import 'components/sailor.dart';
@@ -125,7 +126,7 @@ List<String> getRouteName() {
     ChroniclerStripe.routeName,
     SniperStripe.routeName,
     TheaterMasterStripe.routeName,
-    //PainterStripe.routeName,
+    PainterStripe.routeName,
     SupplyManagerStripe.routeName,
     ClimberStripe.routeName,
     KnitterStripe.routeName,
