@@ -19,7 +19,8 @@ dependencies:
   grouped_buttons: ^1.0.4
   shared_preferences: ^0.5.7+3
   url_launcher: ^5.7.4
-  flutter_svg: ^0.19.1 
+  flutter_svg: ^0.19.1
+  firebase_admob: ^0.9.3
 
   cupertino_icons: ^0.1.2
 

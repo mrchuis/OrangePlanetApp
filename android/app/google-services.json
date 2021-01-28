@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "249342317592",
+    "project_id": "orange-planet-camp-free",
+    "storage_bucket": "orange-planet-camp-free.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249342317592:android:75a192356cb8345f0c5f6d",
+        "android_client_info": {
+          "package_name": "com.mrchuis_free.orange_planet_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249342317592-gdf55gq8lra540oj86p2bi264323u5jr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc9jBuSYPwyC_03YvW-zoJ8HSLGErLpEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249342317592-gdf55gq8lra540oj86p2bi264323u5jr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

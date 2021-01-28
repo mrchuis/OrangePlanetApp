@@ -6,7 +6,9 @@ class SniperStripe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
+      body: Padding(
+        padding: const EdgeInsets.only(bottom: 50.0),
+        child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
               expandedHeight: 50.0,
@@ -17,9 +19,9 @@ class SniperStripe extends StatelessWidget {
               ),
             ),
             SliverList(
-              delegate:SliverChildBuilderDelegate(
-                (content, index) => SingleChildScrollView(
-                  child: Container(
+                delegate: SliverChildBuilderDelegate(
+              (content, index) => SingleChildScrollView(
+                child: Container(
                     padding: EdgeInsets.fromLTRB(3, 5, 3, 3),
                     child: Column(
                       children: <Widget>[
@@ -32,23 +34,26 @@ class SniperStripe extends StatelessWidget {
                             ),
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+                                padding: const EdgeInsets.only(
+                                    left: 10.0, right: 10.0, bottom: 10.0),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: <Widget>[
-                                    Text(
-                                      "1. Знать и применять технику безопасности при стрельбе.\n"
-                                      "\n2. Знать основные команды и расположение объектов в тире.\n"
-                                      "\n3. Знать устройство огнестрельного оружия и пневматической винтовки.\n"
-                                      "\n4. Набрать необходимое кол-во баллов с расстояния 10 м по цели 14 см диаметром (центр 2 см и 6 кругов по 1 см):\n"
-                                      "\n⦁ пятью выстрелами в «упоре лежа» – не менее 30 очков;\n"
-                                      "\n⦁ пятью выстрелами из положения «с колена» или «сидя» – не менее 25 очков;\n"
-                                      "\n⦁ пятью выстрелами из положения «стоя» – не менее 20 очков.\n",
-                                      style: Theme.of(context).textTheme.bodyText2,
-                                    ), 
-                                  ]
-                                ),
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: <Widget>[
+                                      Text(
+                                        "1. Знать и применять технику безопасности при стрельбе.\n"
+                                        "\n2. Знать основные команды и расположение объектов в тире.\n"
+                                        "\n3. Знать устройство огнестрельного оружия и пневматической винтовки.\n"
+                                        "\n4. Набрать необходимое кол-во баллов с расстояния 10 м по цели 14 см диаметром (центр 2 см и 6 кругов по 1 см):\n"
+                                        "\n⦁ пятью выстрелами в «упоре лежа» – не менее 30 очков;\n"
+                                        "\n⦁ пятью выстрелами из положения «с колена» или «сидя» – не менее 25 очков;\n"
+                                        "\n⦁ пятью выстрелами из положения «стоя» – не менее 20 очков.\n",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                      ),
+                                    ]),
                               ),
                             ],
                           ),
@@ -62,21 +67,24 @@ class SniperStripe extends StatelessWidget {
                             ),
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+                                padding: const EdgeInsets.only(
+                                    left: 10.0, right: 10.0, bottom: 10.0),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: <Widget>[
-                                    Text(
-                                      "Решения, принятые ответственным по безопасности (инструктором, судьей), неоспоримы и обязательны к выполнению.\n"
-                                      "\nПри стрельбе используется только исправное оружие и промышленно-произведенные боеприпасы. \n"
-                                      "\nВсе оружие до момента выхода на стрелковую позицию содержится в разряженном состоянии и направлено стволом вниз. Ствол винтовки всегда направлен в противоположную сторону от нахождения людей. Категорически запрещается направлять оружие в сторону людей! В секторе обстрела оружием не должно находиться людей! Без команды, объявляющей о начале соревнований, запрещается взводить и заряжать оружие. Когда оружие взведено и заряжено на стрелковом рубеже, ствол оружия направлен в сторону мишени.\n"
-                                      "\nЕсли по какой-либо причине выстрел не может быть произведен, инструктор должен объявить: «прекратить огонь». Оружие должно быть разряжено, пулька удалена. Это может быть сделано с нормально функционирующими винтовками путем выстрела в землю. После этого ствол должен быть направлен в землю. После окончания стрельбы проверь отсутствие пули в стволе. При наличии пули в стволе произведи выстрел в направлении мишени.\n"
-                                      "\nКатегорически запрещается хранить или оставлять на время винтовку заряженной, во взведенном состоянии.",
-                                      style: Theme.of(context).textTheme.bodyText2,
-                                    ), 
-                                  ]
-                                ),
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: <Widget>[
+                                      Text(
+                                        "Решения, принятые ответственным по безопасности (инструктором, судьей), неоспоримы и обязательны к выполнению.\n"
+                                        "\nПри стрельбе используется только исправное оружие и промышленно-произведенные боеприпасы. \n"
+                                        "\nВсе оружие до момента выхода на стрелковую позицию содержится в разряженном состоянии и направлено стволом вниз. Ствол винтовки всегда направлен в противоположную сторону от нахождения людей. Категорически запрещается направлять оружие в сторону людей! В секторе обстрела оружием не должно находиться людей! Без команды, объявляющей о начале соревнований, запрещается взводить и заряжать оружие. Когда оружие взведено и заряжено на стрелковом рубеже, ствол оружия направлен в сторону мишени.\n"
+                                        "\nЕсли по какой-либо причине выстрел не может быть произведен, инструктор должен объявить: «прекратить огонь». Оружие должно быть разряжено, пулька удалена. Это может быть сделано с нормально функционирующими винтовками путем выстрела в землю. После этого ствол должен быть направлен в землю. После окончания стрельбы проверь отсутствие пули в стволе. При наличии пули в стволе произведи выстрел в направлении мишени.\n"
+                                        "\nКатегорически запрещается хранить или оставлять на время винтовку заряженной, во взведенном состоянии.",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                      ),
+                                    ]),
                               ),
                             ],
                           ),
@@ -90,25 +98,28 @@ class SniperStripe extends StatelessWidget {
                             ),
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+                                padding: const EdgeInsets.only(
+                                    left: 10.0, right: 10.0, bottom: 10.0),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: <Widget>[
-                                    Text(
-                                      "На огневой рубеж шагом марш!\n"
-                                      "\nПриготовиться к стрельбе!\n"
-                                      "\nЗаряжай! Ответ стрелка: «… к стрельбе готов».\n"
-                                      "\nОгонь!\n"
-                                      "\nСтой, прекратить огонь! Ответ стрелка: «… стрельбу закончил».\n"
-                                      "\nРазряжай!\n"
-                                      "\nОружие к осмотру!\n"
-                                      "\nОтбой!\n"
-                                      "\nСмена, к мишеням шагом марш!",
-                                      style: Theme.of(context).textTheme.bodyText2,
-                                    ), 
-                                  ]
-                                ),
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: <Widget>[
+                                      Text(
+                                        "На огневой рубеж шагом марш!\n"
+                                        "\nПриготовиться к стрельбе!\n"
+                                        "\nЗаряжай! Ответ стрелка: «… к стрельбе готов».\n"
+                                        "\nОгонь!\n"
+                                        "\nСтой, прекратить огонь! Ответ стрелка: «… стрельбу закончил».\n"
+                                        "\nРазряжай!\n"
+                                        "\nОружие к осмотру!\n"
+                                        "\nОтбой!\n"
+                                        "\nСмена, к мишеням шагом марш!",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                      ),
+                                    ]),
                               ),
                             ],
                           ),
@@ -122,48 +133,51 @@ class SniperStripe extends StatelessWidget {
                             ),
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+                                padding: const EdgeInsets.only(
+                                    left: 10.0, right: 10.0, bottom: 10.0),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: <Widget>[
-                                    Image.asset(
-                                      'assets/images/sniper/gung.png',
-                                      height: 230,
-                                      alignment: Alignment.topCenter,
-                                    ),
-                                    Text(
-                                      "Пистолет:\n"
-                                      "1. Мушка\n"
-                                      "2. Ствол\n"
-                                      "3. Возвратная пружина\n"
-                                      "4. Затвор\n"
-                                      "5. Выбрасыватель\n"
-                                      "6. Боек\n"
-                                      "7. Ударник\n"
-                                      "8. Гривка с прорезью\n"
-                                      "9. Курок\n"
-                                      "10. Разобщитель\n"
-                                      "11. Рукоятка пистолета\n"
-                                      "12. Боевая пружина\n"
-                                      "13. Защелка магазина\n"
-                                      "14. Крышка магазина\n"
-                                      "15. Пружина подавателя\n"
-                                      "16. Подаватель\n"
-                                      "17. Корпус магазина\n"
-                                      "18. Спусковой крючок\n"
-                                      "19. Спусковая скоба\n"
-                                      "20. Патронник с патроном\n"
-                                      "\nБоевой патрон:\n"
-                                      "21. Рамка\n"
-                                      "22. Пуля\n"
-                                      "23. Пороховой заряд\n"
-                                      "24. Гильза\n"
-                                      "25. Капсюль",
-                                      style: Theme.of(context).textTheme.bodyText2,
-                                    ), 
-                                  ]
-                                ),
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/images/sniper/gung.png',
+                                        height: 230,
+                                        alignment: Alignment.topCenter,
+                                      ),
+                                      Text(
+                                        "Пистолет:\n"
+                                        "1. Мушка\n"
+                                        "2. Ствол\n"
+                                        "3. Возвратная пружина\n"
+                                        "4. Затвор\n"
+                                        "5. Выбрасыватель\n"
+                                        "6. Боек\n"
+                                        "7. Ударник\n"
+                                        "8. Гривка с прорезью\n"
+                                        "9. Курок\n"
+                                        "10. Разобщитель\n"
+                                        "11. Рукоятка пистолета\n"
+                                        "12. Боевая пружина\n"
+                                        "13. Защелка магазина\n"
+                                        "14. Крышка магазина\n"
+                                        "15. Пружина подавателя\n"
+                                        "16. Подаватель\n"
+                                        "17. Корпус магазина\n"
+                                        "18. Спусковой крючок\n"
+                                        "19. Спусковая скоба\n"
+                                        "20. Патронник с патроном\n"
+                                        "\nБоевой патрон:\n"
+                                        "21. Рамка\n"
+                                        "22. Пуля\n"
+                                        "23. Пороховой заряд\n"
+                                        "24. Гильза\n"
+                                        "25. Капсюль",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                      ),
+                                    ]),
                               ),
                             ],
                           ),
@@ -177,31 +191,34 @@ class SniperStripe extends StatelessWidget {
                             ),
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+                                padding: const EdgeInsets.only(
+                                    left: 10.0, right: 10.0, bottom: 10.0),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: <Widget>[
-                                    Image.asset(
-                                      'assets/images/sniper/rifle.png',
-                                      alignment: Alignment.topCenter,
-                                    ),
-                                    Text(
-                                      "\n1. Ствол\n"
-                                      "2. Прицел\n"
-                                      "3. Ствольная коробка\n"
-                                      "4. Спусковой крючок\n"
-                                      "5. Ложа\n"
-                                      "6. Спусковая скоба\n"
-                                      "7. Затыльник\n"
-                                      "8. Приклад\n"
-                                      "9. Рукоятка удержания\n"
-                                      "10. Мушка\n"
-                                      "11. Намушник",
-                                      style: Theme.of(context).textTheme.bodyText2,
-                                    ), 
-                                  ]
-                                ),
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/images/sniper/rifle.png',
+                                        alignment: Alignment.topCenter,
+                                      ),
+                                      Text(
+                                        "\n1. Ствол\n"
+                                        "2. Прицел\n"
+                                        "3. Ствольная коробка\n"
+                                        "4. Спусковой крючок\n"
+                                        "5. Ложа\n"
+                                        "6. Спусковая скоба\n"
+                                        "7. Затыльник\n"
+                                        "8. Приклад\n"
+                                        "9. Рукоятка удержания\n"
+                                        "10. Мушка\n"
+                                        "11. Намушник",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                      ),
+                                    ]),
                               ),
                             ],
                           ),
@@ -215,156 +232,188 @@ class SniperStripe extends StatelessWidget {
                             ),
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+                                padding: const EdgeInsets.only(
+                                    left: 10.0, right: 10.0, bottom: 10.0),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: <Widget>[
-                                    RichText(
-                                      text: TextSpan(
-                                        style: Theme.of(context).textTheme.bodyText2,
-                                        children: [
-                                          TextSpan(
-                                            text: "Процесс стрельбы состоит из трех основных элементов: изготовка, прицеливание, спуск.",
-                                          ),
-                                          TextSpan(
-                                            text: "\n\nИзготовка к стрельбе ",
-                                            style: TextStyle(fontWeight: FontWeight.bold),
-                                          ),
-                                          TextSpan(
-                                            text: "– это принятие положения для стрельбы и процесс заряжания винтовки."
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: <Widget>[
+                                      RichText(
+                                          text: TextSpan(
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyText2,
+                                              children: [
+                                            TextSpan(
+                                              text:
+                                                  "Процесс стрельбы состоит из трех основных элементов: изготовка, прицеливание, спуск.",
+                                            ),
+                                            TextSpan(
+                                              text: "\n\nИзготовка к стрельбе ",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "– это принятие положения для стрельбы и процесс заряжания винтовки."
                                                   "\nСтрельба из винтовки производится из положений: «стоя», «с колена», «сидя», «лежа».\n",
-                                          ),
-                                        ]
-                                      )
-                                    ),
-                                    Image.asset(
-                                      'assets/images/sniper/schooting1.png',
-                                      height: 280,
-                                      alignment: Alignment.topCenter,
-                                    ),
-                                    Text(
-                                      "\nДля стрельбы «стоя» (рис. 1) необходимо повернуться вполоборота вправо по отношению к направлению на цель и, не приставляя левой ноги, отставить ее влево примерно на ширину плеч, как удобно снайперу, распределив при этом тяжесть тела равномерно на обе ноги. Одновременно, подавая правую руку по ремню несколько вверх, снять винтовку с плеча и, подхватив ее левой рукой снизу за ствольные накладки (А) или подхватив за магазин (Б), энергично подать дульную часть вперед в сторону цели.\n",
-                                      style: Theme.of(context).textTheme.bodyText2,
-                                    ), 
-                                    Image.asset(
-                                      'assets/images/sniper/schooting2.png',
-                                      height: 260,
-                                      alignment: Alignment.topCenter,
-                                    ),
-                                    Text(
-                                      "\nДля стрельбы «с колена» (рис. 2) необходимо взять винтовку в правую руку за ствольные накладки дульной частью вперед, одновременно с этим отставить правую ногу назад, опуститься на правое колено и присесть на каблук. Голень левой ноги при этом должна оставаться в вертикальном положении, а бедра составить угол, близкий к прямому. Переложить винтовку ствольными накладками на левую руку (А) или взять за магазин (Б), направив ее в сторону цели.\n",
-                                      style: Theme.of(context).textTheme.bodyText2,
-                                    ),
-                                    Image.asset(
-                                      'assets/images/sniper/schooting3.png',
-                                      height: 220,
-                                      alignment: Alignment.topCenter,
-                                    ),
-                                    Text(
-                                      "\nДля стрельбы «сидя» надо взять винтовку в правую руку за ствольные накладки дульной частью вперед. Одновременно с этим, опираясь на левую руку, нужно сесть на землю вполоборота по отношению к направлению на цель, прочно уперев каблуки в землю или скрестив ноги и поджав их под себя, и взяться левой рукой за ствольные накладки.\n",
-                                      style: Theme.of(context).textTheme.bodyText2,
-                                    ),
-                                    Image.asset(
-                                      'assets/images/sniper/schooting4.png',
-                                      //height: 220,
-                                      alignment: Alignment.topCenter,
-                                    ),
-                                    Text(
-                                      "\nДля стрельбы «лежа» (рис. 4.) необходимо подать правую руку по ремню несколько вверх и, снимая винтовку с плеча, подхватить ее левой рукой за ствольные накладки дульной частью вперед, одновременно сделать полный шаг правой ногой вперед и вправо. Наклонясь вперед, опустись на левое колено и поставь левую руку на землю впереди себя, пальцами вправо. Затем, опираясь последовательно на бедро левой ноги и предплечье левой руки, ляг на левый бок и быстро повернись на живот, слегка раскинув ноги носками наружу, положи винтовку ствольными накладками (А) на ладонь левой руки или возьмись за магазин (Б).\n",
-                                      style: Theme.of(context).textTheme.bodyText2,
-                                    ),
-                                    RichText(
-                                      text: TextSpan(
-                                        style: Theme.of(context).textTheme.bodyText2,
-                                        children: [
-                                          TextSpan(
-                                            text: "Правильное ",
-                                          ),
-                                          TextSpan(
-                                            text: "прицеливание ",
-                                            style: TextStyle(fontWeight: FontWeight.bold),
-                                          ),
-                                          TextSpan(
-                                            text: "является важнейшим элементом точной стрельбы. Прицеливание рекомендуется разбить на два этапа: ",
-                                          ),
-                                          TextSpan(
-                                            text: "предварительный ",
-                                            style: TextStyle(fontStyle: FontStyle.italic),
-                                          ),
-                                          TextSpan(
-                                            text: "и ",
-                                          ),
-                                          TextSpan(
-                                            text: "основной",
-                                            style: TextStyle(fontStyle: FontStyle.italic),
-                                          ),
-                                          TextSpan(
-                                            text: ".\n\nПредварительный ",
-                                            style: TextStyle(fontStyle: FontStyle.italic),
-                                          ),
-                                          TextSpan(
-                                            text: "этап занимает большую часть времени и направлен на проверку правильности изготовки.",
-                                          ),
-                                          TextSpan(
-                                            text: "\n\nОсновной ",
-                                            style: TextStyle(fontStyle: FontStyle.italic),
-                                          ),
-                                          TextSpan(
-                                            text: "этап нужен для более точной наводки винтовки и подготовки к нажатию на спусковой крючок. Такое прицеливание уменьшит усталость зрительной системы и повысит точность стрельбы.",
-                                          ),
-                                          TextSpan(
-                                            text: "\n\nПравило прицела первое.\n",
-                                            style:TextStyle(fontWeight: FontWeight.bold),
-                                          ),
-                                          TextSpan(
-                                            text: "Прицеливаясь с открытым прицелом, следует без напряжения закрыть левый глаз, а правым отчетливо видеть прорезь прицела и мушку, не обращая внимание на то, что цель будет видна несколько туманно. Главное — это прорезь и мушка, а точка прицеливания — второстепенное.",
-                                          ),
-                                        ]
-                                      )
-                                    ),
-                                    Image.asset(
-                                      'assets/images/sniper/muschka.png',
-                                      height: 120,
-                                      alignment: Alignment.topCenter,
-                                    ),
-                                    Text(
-                                      "\nМушка должна быть ровная (см. рис.), т.е. находиться в середине прицела и вровень с его краями. Если мушка будет крупная, т.е. выше прорези прицела, пули уйдут вверх, если мушка мелкая, т. е. ниже прорези прицела, пули уйдут вниз (существует поговорка «пуля мушку водит»). Самое небольшое отклонение мушки в прорези прицела приводят к значительному отклонению пули от точки прицеливания. Поэтому, если надо внести поправку, то следует делать это за счет соответствующей установки прицела или выноса точки прицеливания. Если пули ложатся левее, необходимо целиться правее, но сохраняя при этом ровную мушку.\n",
-                                      style: Theme.of(context).textTheme.bodyText2,
-                                    ),
-                                    RichText(
-                                      text: TextSpan(
-                                        style: Theme.of(context).textTheme.bodyText2,
-                                        children: [
-                                          TextSpan(
-                                            text: "Правило прицела второе.\n",
-                                            style:TextStyle(fontWeight: FontWeight.bold),
-                                          ),
-                                          TextSpan(
-                                            text: "Никогда нельзя «играть» мушкой. Ровная мушка — это непререкаемый закон прицеливания. При стрельбе с оптическим прицелом эти затруднения отпадают.",
-                                          ),
-                                          TextSpan(
-                                            text: "\n\nПравило прицела третье.\n",
-                                            style:TextStyle(fontWeight: FontWeight.bold),
-                                          ),
-                                          TextSpan(
-                                            text: "Нельзя наклонять вправо или влево винтовку (сваливать) при прицеливании как с открытым, так и с оптическим прицелом. Под сваливанием понимают такое положение винтовки, когда гривка открытого прицела и шкала боковых поправок оптического прицела располагаются не горизонтально. При сваливании винтовки вправо пули отклоняются вправо и вниз, при этом отклонение больше, чем больше расстояние и угол сваливания.",
-                                          ),
-                                          TextSpan(
-                                            text: "\n\nТехника спуска курка ",
-                                            style:TextStyle(fontWeight: FontWeight.bold),
-                                          ),
-                                          TextSpan(
-                                            text: "имеет большое, а подчас и решающее значение в производстве выстрела. Во-первых, спуск курка не должен смещать наведенное в цель оружие. Для этого стрелку нужно уметь плавно нажимать на спусковой крючок. Во-вторых, спуск курка следует производить в полном соответствии со зрительным восприятием, т.е. приурочивать к определенному моменту, когда «ровная мушка» находится под нижним обрезом «яблока» мишени."
+                                            ),
+                                          ])),
+                                      Image.asset(
+                                        'assets/images/sniper/schooting1.png',
+                                        height: 280,
+                                        alignment: Alignment.topCenter,
+                                      ),
+                                      Text(
+                                        "\nДля стрельбы «стоя» (рис. 1) необходимо повернуться вполоборота вправо по отношению к направлению на цель и, не приставляя левой ноги, отставить ее влево примерно на ширину плеч, как удобно снайперу, распределив при этом тяжесть тела равномерно на обе ноги. Одновременно, подавая правую руку по ремню несколько вверх, снять винтовку с плеча и, подхватив ее левой рукой снизу за ствольные накладки (А) или подхватив за магазин (Б), энергично подать дульную часть вперед в сторону цели.\n",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                      ),
+                                      Image.asset(
+                                        'assets/images/sniper/schooting2.png',
+                                        height: 260,
+                                        alignment: Alignment.topCenter,
+                                      ),
+                                      Text(
+                                        "\nДля стрельбы «с колена» (рис. 2) необходимо взять винтовку в правую руку за ствольные накладки дульной частью вперед, одновременно с этим отставить правую ногу назад, опуститься на правое колено и присесть на каблук. Голень левой ноги при этом должна оставаться в вертикальном положении, а бедра составить угол, близкий к прямому. Переложить винтовку ствольными накладками на левую руку (А) или взять за магазин (Б), направив ее в сторону цели.\n",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                      ),
+                                      Image.asset(
+                                        'assets/images/sniper/schooting3.png',
+                                        height: 220,
+                                        alignment: Alignment.topCenter,
+                                      ),
+                                      Text(
+                                        "\nДля стрельбы «сидя» надо взять винтовку в правую руку за ствольные накладки дульной частью вперед. Одновременно с этим, опираясь на левую руку, нужно сесть на землю вполоборота по отношению к направлению на цель, прочно уперев каблуки в землю или скрестив ноги и поджав их под себя, и взяться левой рукой за ствольные накладки.\n",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                      ),
+                                      Image.asset(
+                                        'assets/images/sniper/schooting4.png',
+                                        //height: 220,
+                                        alignment: Alignment.topCenter,
+                                      ),
+                                      Text(
+                                        "\nДля стрельбы «лежа» (рис. 4.) необходимо подать правую руку по ремню несколько вверх и, снимая винтовку с плеча, подхватить ее левой рукой за ствольные накладки дульной частью вперед, одновременно сделать полный шаг правой ногой вперед и вправо. Наклонясь вперед, опустись на левое колено и поставь левую руку на землю впереди себя, пальцами вправо. Затем, опираясь последовательно на бедро левой ноги и предплечье левой руки, ляг на левый бок и быстро повернись на живот, слегка раскинув ноги носками наружу, положи винтовку ствольными накладками (А) на ладонь левой руки или возьмись за магазин (Б).\n",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                      ),
+                                      RichText(
+                                          text: TextSpan(
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyText2,
+                                              children: [
+                                            TextSpan(
+                                              text: "Правильное ",
+                                            ),
+                                            TextSpan(
+                                              text: "прицеливание ",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "является важнейшим элементом точной стрельбы. Прицеливание рекомендуется разбить на два этапа: ",
+                                            ),
+                                            TextSpan(
+                                              text: "предварительный ",
+                                              style: TextStyle(
+                                                  fontStyle: FontStyle.italic),
+                                            ),
+                                            TextSpan(
+                                              text: "и ",
+                                            ),
+                                            TextSpan(
+                                              text: "основной",
+                                              style: TextStyle(
+                                                  fontStyle: FontStyle.italic),
+                                            ),
+                                            TextSpan(
+                                              text: ".\n\nПредварительный ",
+                                              style: TextStyle(
+                                                  fontStyle: FontStyle.italic),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "этап занимает большую часть времени и направлен на проверку правильности изготовки.",
+                                            ),
+                                            TextSpan(
+                                              text: "\n\nОсновной ",
+                                              style: TextStyle(
+                                                  fontStyle: FontStyle.italic),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "этап нужен для более точной наводки винтовки и подготовки к нажатию на спусковой крючок. Такое прицеливание уменьшит усталость зрительной системы и повысит точность стрельбы.",
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "\n\nПравило прицела первое.\n",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "Прицеливаясь с открытым прицелом, следует без напряжения закрыть левый глаз, а правым отчетливо видеть прорезь прицела и мушку, не обращая внимание на то, что цель будет видна несколько туманно. Главное — это прорезь и мушка, а точка прицеливания — второстепенное.",
+                                            ),
+                                          ])),
+                                      Image.asset(
+                                        'assets/images/sniper/muschka.png',
+                                        height: 120,
+                                        alignment: Alignment.topCenter,
+                                      ),
+                                      Text(
+                                        "\nМушка должна быть ровная (см. рис.), т.е. находиться в середине прицела и вровень с его краями. Если мушка будет крупная, т.е. выше прорези прицела, пули уйдут вверх, если мушка мелкая, т. е. ниже прорези прицела, пули уйдут вниз (существует поговорка «пуля мушку водит»). Самое небольшое отклонение мушки в прорези прицела приводят к значительному отклонению пули от точки прицеливания. Поэтому, если надо внести поправку, то следует делать это за счет соответствующей установки прицела или выноса точки прицеливания. Если пули ложатся левее, необходимо целиться правее, но сохраняя при этом ровную мушку.\n",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                      ),
+                                      RichText(
+                                          text: TextSpan(
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyText2,
+                                              children: [
+                                            TextSpan(
+                                              text: "Правило прицела второе.\n",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "Никогда нельзя «играть» мушкой. Ровная мушка — это непререкаемый закон прицеливания. При стрельбе с оптическим прицелом эти затруднения отпадают.",
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "\n\nПравило прицела третье.\n",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "Нельзя наклонять вправо или влево винтовку (сваливать) при прицеливании как с открытым, так и с оптическим прицелом. Под сваливанием понимают такое положение винтовки, когда гривка открытого прицела и шкала боковых поправок оптического прицела располагаются не горизонтально. При сваливании винтовки вправо пули отклоняются вправо и вниз, при этом отклонение больше, чем больше расстояние и угол сваливания.",
+                                            ),
+                                            TextSpan(
+                                              text: "\n\nТехника спуска курка ",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "имеет большое, а подчас и решающее значение в производстве выстрела. Во-первых, спуск курка не должен смещать наведенное в цель оружие. Для этого стрелку нужно уметь плавно нажимать на спусковой крючок. Во-вторых, спуск курка следует производить в полном соответствии со зрительным восприятием, т.е. приурочивать к определенному моменту, когда «ровная мушка» находится под нижним обрезом «яблока» мишени."
                                                   "\n\nПомни: для достижения меткого выстрела стрелок должен производить действие (плавное нажатие на спусковой крючок) и прицеливание не раздельно, не изолированно одно от другого, а строго согласованно между собой."
                                                   "Сложность выполнения такого согласованного действия заключается в том, что оружие при прицеливании не бывает неподвижным, оно непрерывно колеблется, в зависимости от степени устойчивости изготовки стрелка. В результате «ровная мушка» в большей или меньшей мере отклоняется в сторону от точки прицеливания, останавливаясь под нижним обрезом «яблока» мишени лишь на непродолжительное время, в течение которого стрелок и должен завершить плавное нажатие на спусковой крючок и произвести выстрел."
                                                   "\n\nОт работы указательного пальца правой руки при нажатии на спусковой крючок зависит качество выстрела, так как самая тщательная и тонкая наводка будет нарушена при малейшем неправильном движении пальца. Для производства выстрела при стрельбе из спортивной винтовки, а также револьвера необходимо нажимать на спусковой крючок первой фалангой указательного пальца. Такое нажатие требует наименьшего движения пальца. Нажимать на спусковой крючок нужно прямо-назад, чтобы указательный палец двигался вдоль оси канала ствола. Для производства выстрела стрелок должен научиться плавно, постепенно и равномерно усиливать давление на спусковой крючок, что, однако, не означает нажимать «медленно», а именно плавно, без рывка. Спуск курка должен занимать не более 1,5—2,5 сек.",
-                                          ),
-                                        ]
-                                      )
-                                    ),
-                                  ]
-                                ),
+                                            ),
+                                          ])),
+                                    ]),
                               ),
                             ],
                           ),
@@ -378,32 +427,34 @@ class SniperStripe extends StatelessWidget {
                             ),
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+                                padding: const EdgeInsets.only(
+                                    left: 10.0, right: 10.0, bottom: 10.0),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: <Widget>[
-                                    Text(
-                                      "Маскироваться надо всегда под фон местности так, чтобы, по возможности, слиться с ним, быть от него не отличимым и потому малозаметным. Определи преобладающие цвета фона местности и используй их при маскировке. Различай фоны чистые, то есть однообразные по цвету, и фоны пестрые, или пятнистые. При маскировке на чистом фоне не подходит использование пятнистой одежды, и наоборот. Маскирующее действие пятнистой одежды связано с тем, что часть пятен сливается с фоном местности и становится как бы невидимой; остальные же хорошо заметные пятна с виду кажутся разрозненными.\n"
-                                      "\nСамый невыгодный для маскировки фон – равнинный: на нем меньше всего заслонов, за которыми можно укрыться. Фоны местностей без растительного покрова летом после дождя в большинстве случаев темнеют. В бесснежный период можно пользоваться маскировочной сеткой, в которую  вплетаются пучки травы, древесные ветки и т. п., смотря по местности.\n"
-                                      "\nНадо заботиться о том, чтобы маскировочный костюм во время движения не шумел и не цеплялся за кустарники. Следует всегда избегать четких контуров всей фигуры, особенно головы и плеч. Очертания фигуры маскирующегося не должны быть симметричными. Зайчики от блестящих частей одежды и оружия – частая причина неудачной маскировки. Снайпер должен уметь не только замаскироваться, но и первым обнаружить противника. Запомни: звук шагов по дороге и негромкий разговор слышен на расстоянии 500 м. Кашель можно услышать до 750 м. Громкий крик ты услышишь на расстоянии до 1 км. Стук топора слышен на дальности до 400 м. А еще знай, что слух ночью обостряется, что в жару слышно хуже, а на открытой местности или воде – лучше.\n"
-                                      "\nРазведчик должен еще и внимательно вглядываться вдаль. На ровной местности и на воде предметы кажутся меньше, а в дождь все видится ближе. Свет от спички в темноте можно увидеть за 700 м, костер – до 8 км, автомобильные фары – до 10 км. На расстоянии 800 м ты скажешь, что виден именно человек; на расстоянии 400 м увидишь очертания его головы и плеч. Когда же до тебя останется 100 м, будут видны его детали одежды и вооружения. Удачи!",
-                                      style: Theme.of(context).textTheme.bodyText2,
-                                    ), 
-                                  ]
-                                ),
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: <Widget>[
+                                      Text(
+                                        "Маскироваться надо всегда под фон местности так, чтобы, по возможности, слиться с ним, быть от него не отличимым и потому малозаметным. Определи преобладающие цвета фона местности и используй их при маскировке. Различай фоны чистые, то есть однообразные по цвету, и фоны пестрые, или пятнистые. При маскировке на чистом фоне не подходит использование пятнистой одежды, и наоборот. Маскирующее действие пятнистой одежды связано с тем, что часть пятен сливается с фоном местности и становится как бы невидимой; остальные же хорошо заметные пятна с виду кажутся разрозненными.\n"
+                                        "\nСамый невыгодный для маскировки фон – равнинный: на нем меньше всего заслонов, за которыми можно укрыться. Фоны местностей без растительного покрова летом после дождя в большинстве случаев темнеют. В бесснежный период можно пользоваться маскировочной сеткой, в которую  вплетаются пучки травы, древесные ветки и т. п., смотря по местности.\n"
+                                        "\nНадо заботиться о том, чтобы маскировочный костюм во время движения не шумел и не цеплялся за кустарники. Следует всегда избегать четких контуров всей фигуры, особенно головы и плеч. Очертания фигуры маскирующегося не должны быть симметричными. Зайчики от блестящих частей одежды и оружия – частая причина неудачной маскировки. Снайпер должен уметь не только замаскироваться, но и первым обнаружить противника. Запомни: звук шагов по дороге и негромкий разговор слышен на расстоянии 500 м. Кашель можно услышать до 750 м. Громкий крик ты услышишь на расстоянии до 1 км. Стук топора слышен на дальности до 400 м. А еще знай, что слух ночью обостряется, что в жару слышно хуже, а на открытой местности или воде – лучше.\n"
+                                        "\nРазведчик должен еще и внимательно вглядываться вдаль. На ровной местности и на воде предметы кажутся меньше, а в дождь все видится ближе. Свет от спички в темноте можно увидеть за 700 м, костер – до 8 км, автомобильные фары – до 10 км. На расстоянии 800 м ты скажешь, что виден именно человек; на расстоянии 400 м увидишь очертания его головы и плеч. Когда же до тебя останется 100 м, будут видны его детали одежды и вооружения. Удачи!",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                      ),
+                                    ]),
                               ),
                             ],
                           ),
                         ),
                       ],
-                    )
-                  ),
-                ),
-                childCount: 1,
-              )
-            ),
+                    )),
+              ),
+              childCount: 1,
+            )),
           ],
+        ),
       ),
     );
   }

@@ -1,5 +1,7 @@
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 
+import 'package:orange_planet_app/ad_manager.dart';
 import 'components/campManagerStripe.dart';
 import 'components/campfireStripe.dart';
 import 'components/chroniclerStripe.dart';
@@ -27,6 +29,14 @@ class Stripes extends StatefulWidget {
 class StripesState extends State<Stripes> {
   TextEditingController _textController = TextEditingController();
 
+  BannerAd _bannerAd;
+
+  void _loadBannerAd() {
+    _bannerAd
+      ..load()
+      ..show(anchorType: AnchorType.bottom);
+  }
+
   final duplicateRouteNames = List<String>.from(getRouteName()..sort());
   // ignore: non_constant_identifier_names
   List<String> stripes_limit;
@@ -34,9 +44,22 @@ class StripesState extends State<Stripes> {
 
   @override
   void initState() {
+    super.initState();
+
     routeNames.addAll(duplicateRouteNames);
     stripes_limit = List.generate(8, (index) => duplicateRouteNames[index]);
-    super.initState();
+
+    _bannerAd = BannerAd(
+      adUnitId: AdManager.bannerAdUnitId,
+      size: AdSize.banner,
+    );
+    _loadBannerAd();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    super.dispose();
   }
 
   void filterSearchResult(String query) {
@@ -97,22 +120,25 @@ class StripesState extends State<Stripes> {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-                itemCount: routeNames.length,
-                itemBuilder: (context, index) {
-                  return Card(
-                    child: ListTile(
-                      title: Text(
-                        routeNames[index].replaceFirst(new RegExp(r'/'), ''),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 50.0),
+              child: ListView.builder(
+                  itemCount: routeNames.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      child: ListTile(
+                        title: Text(
+                          routeNames[index].replaceFirst(new RegExp(r'/'), ''),
+                        ),
+                        onTap: () {
+                          setState(() {
+                            Navigator.of(context).pushNamed(routeNames[index]);
+                          });
+                        },
                       ),
-                      onTap: () {
-                        setState(() {
-                          Navigator.of(context).pushNamed(routeNames[index]);
-                        });
-                      },
-                    ),
-                  );
-                }),
+                    );
+                  }),
+            ),
           ),
         ],
       ),

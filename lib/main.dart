@@ -1,5 +1,7 @@
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:orange_planet_app/ad_manager.dart';
 import 'package:orange_planet_app/screens/home/home_body.dart';
 import 'init.dart';
 import 'screens/stripes/components/campManagerStripe.dart';
@@ -19,6 +21,7 @@ import 'screens/stripes/components/sailor.dart';
 import 'screens/stripes/components/sniperStripe.dart';
 import 'screens/stripes/components/supplyManagerStripe.dart';
 import 'screens/stripes/components/theaterMasterStripe.dart';
+import 'splash_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -56,17 +59,17 @@ class _MyAppState extends State<MyApp> {
             ),
             height: 45,
           )),
-      home: HomeBody(),
-      // FutureBuilder(
-      //   future: _initFuture,
-      //   builder: (context, snapshot){
-      //     if(snapshot.connectionState == ConnectionState.done) {
-      //       return HomeBody();
-      //     } else {
-      //       return SplashScreen();
-      //     }
-      //   },
-      // ),//
+      home: //HomeBody(),
+          FutureBuilder(
+        future: _initAdMob(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return HomeBody();
+          } else {
+            return SplashScreen();
+          }
+        },
+      ), //
       routes: <String, WidgetBuilder>{
         CookStripe.routeName: (BuildContext context) => CookStripe(),
         NavigatorStripe.routeName: (BuildContext context) => NavigatorStripe(),
@@ -94,5 +97,9 @@ class _MyAppState extends State<MyApp> {
         DoctorStripe.routeName: (BuildContext context) => DoctorStripe(),
       },
     );
+  }
+
+  Future<void> _initAdMob() {
+    return FirebaseAdMob.instance.initialize(appId: AdManager.appId);
   }
 }
