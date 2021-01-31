@@ -59,8 +59,7 @@ class _MyAppState extends State<MyApp> {
             ),
             height: 45,
           )),
-      home: //HomeBody(),
-          FutureBuilder(
+      home: FutureBuilder(
         future: _initAdMob(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {

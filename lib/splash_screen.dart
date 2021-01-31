@@ -8,18 +8,24 @@ class SplashScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(40.0),
-            child: Image.asset('icon/icon.png'),
-          ),
-          Text(
-            "Initialization",
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
+            padding: const EdgeInsets.all(20.0),
+            child: Image.asset(
+              'icon/icon.png',
+              width: 250,
             ),
           ),
+          CircularProgressIndicator(
+            backgroundColor: Color(0xFFF37120),
+          ),
           SizedBox(height: 20),
-          CircularProgressIndicator(),
+          Text(
+            "Загрузка...",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFFF37120),
+            ),
+          ),
         ],
       ),
     );

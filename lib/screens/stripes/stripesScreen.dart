@@ -27,9 +27,35 @@ class Stripes extends StatefulWidget {
 }
 
 class StripesState extends State<Stripes> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   TextEditingController _textController = TextEditingController();
 
   BannerAd _bannerAd;
+  InterstitialAd _interstitialAd;
+  bool _isInterstitialAdReady;
+  int checkAds = 0;
+
+  void _loadInterstitialAd() {
+    _interstitialAd.load();
+  }
+
+  void _onInterstitialAdEvent(MobileAdEvent event) {
+    switch (event) {
+      case MobileAdEvent.loaded:
+        _isInterstitialAdReady = true;
+        break;
+      case MobileAdEvent.failedToLoad:
+        _isInterstitialAdReady = false;
+        print('Failed to load an interstitial ad');
+        break;
+      case MobileAdEvent.closed:
+        Navigator.pushNamedAndRemoveUntil(
+            _scaffoldKey.currentContext, '/', (_) => false);
+        break;
+      default:
+      // do nothing
+    }
+  }
 
   void _loadBannerAd() {
     _bannerAd
@@ -38,8 +64,7 @@ class StripesState extends State<Stripes> {
   }
 
   final duplicateRouteNames = List<String>.from(getRouteName()..sort());
-  // ignore: non_constant_identifier_names
-  List<String> stripes_limit;
+
   var routeNames = List<String>();
 
   @override
@@ -47,18 +72,24 @@ class StripesState extends State<Stripes> {
     super.initState();
 
     routeNames.addAll(duplicateRouteNames);
-    stripes_limit = List.generate(8, (index) => duplicateRouteNames[index]);
 
     _bannerAd = BannerAd(
       adUnitId: AdManager.bannerAdUnitId,
       size: AdSize.banner,
     );
     _loadBannerAd();
+
+    _isInterstitialAdReady = false;
+    _interstitialAd = InterstitialAd(
+      adUnitId: AdManager.interstitialAdUnitId,
+      listener: _onInterstitialAdEvent,
+    );
   }
 
   @override
   void dispose() {
     _bannerAd?.dispose();
+    _interstitialAd?.dispose();
     super.dispose();
   }
 
@@ -131,9 +162,33 @@ class StripesState extends State<Stripes> {
                           routeNames[index].replaceFirst(new RegExp(r'/'), ''),
                         ),
                         onTap: () {
-                          setState(() {
-                            Navigator.of(context).pushNamed(routeNames[index]);
-                          });
+                          if (checkAds % 2 == 0) {
+                            checkAds++;
+                            if (!_isInterstitialAdReady) {
+                              _loadInterstitialAd();
+                            }
+                            setState(() {
+                              Navigator.of(context)
+                                  .pushNamed(routeNames[index]);
+                            });
+                          } else {
+                            checkAds++;
+                            if (_isInterstitialAdReady) {
+                              _interstitialAd.show();
+                            }
+                            setState(() {
+                              Navigator.of(context)
+                                  .pushNamed(routeNames[index])
+                                  .then((_) {
+                                _interstitialAd?.dispose();
+                                _isInterstitialAdReady = false;
+                                _interstitialAd = InterstitialAd(
+                                  adUnitId: AdManager.interstitialAdUnitId,
+                                  listener: _onInterstitialAdEvent,
+                                );
+                              });
+                            });
+                          }
                         },
                       ),
                     );
