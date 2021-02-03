@@ -1,7 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
-class PainterStripe extends StatelessWidget {
+class PainterStripe extends StatefulWidget {
   static const String routeName = "/Художник";
+
+  @override
+  _PainterStripeState createState() => _PainterStripeState();
+}
+
+class _PainterStripeState extends State<PainterStripe> {
+
+    int _current = 0;
+
+  final List<Widget> _impressionismList = [
+    ScrollCard(
+      image: 'assets/images/doctor/help4.png',
+      title: 'Картина 1',
+      subtitle:
+          'Клод Моне',
+    ),
+    ScrollCard(
+      image: 'assets/images/doctor/stop_blood.png',
+      title: 'Картина 2',
+      subtitle: 'Поль Сезанн',
+    ),
+    ScrollCard(
+      image: 'assets/images/doctor/help.png',
+      title: 'Картина 3',
+      subtitle: 'Пьер Огюст Ренуар',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +43,7 @@ class PainterStripe extends StatelessWidget {
               floating: true,
               pinned: false,
               flexibleSpace: new FlexibleSpaceBar(
-                title: Text(routeName.replaceFirst(new RegExp(r'/'), '')),
+                title: Text(PainterStripe.routeName.replaceFirst(new RegExp(r'/'), '')),
               ),
             ),
             SliverList(
@@ -145,46 +173,77 @@ class PainterStripe extends StatelessWidget {
                                     children: <Widget>[
                                       RichText(
                                         text: TextSpan(
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText2,
-                                            children: [
-                                              TextSpan(
-                                                text: "\n1. Академизм ",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              TextSpan(
-                                                text:
-                                                    "(от фр. academisme) – направление в европейской живописи XVI-XIX веков.\n",
-                                              ),
-                                              TextSpan(
-                                                text:
-                                                    "\nОсновывалось на догматическом следовании внешним формам классического искусства. Последователи характеризовали этот стиль как рассуждение над формой искусства древнего античного мира и эпохи Возрождения. Академизм восполнял в себе традиции античного искусства, в которых идеализирован образ натуры, компенсируя при этом норму красоты.\n",
-                                              ),
-                                              TextSpan(
-                                                text:
-                                                    "\nВ этом стиле писали братья Аннибале и Агостино Каррачи и их двоюродный брат Лодовико Карраччи. Среди русских художников выделим Александра Иванова, Константина Маковского.\n",
-                                              ),
-                                              TextSpan(
-                                                text: "\n2. Импрессионизм ",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              TextSpan(
-                                                text:
-                                                    "(от фр. impression - впечатление) – направление в европейской живописи, зародившееся во Франции в середине XIX века.\n",
-                                              ),
-                                              TextSpan(
-                                                text:
-                                                    "\nИмпрессионисты избегали всяких подробностей в рисунке и пытались уловить общее впечатление от того, что видит глаз в конкретный момент. Этого эффекта они достигали при помощи цвета и фактуры.\n",
-                                              ),
-                                              TextSpan(
-                                                text:
-                                                    "\nСамые известные художники этого направления: Эдуард Мане, Пьер Огюст Ренуар, Поль Сезанн, Эдгар Дега, Клод Моне, Камиль Писсарро. Из русских – Константин Коровин, Игорь Грабарь.\n",
-                                              ),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText2,
+                                          children: [
+                                            TextSpan(
+                                              text: "\n1. Академизм ",
+                                              style: TextStyle(
+                                                  fontWeight:
+                                                      FontWeight.bold),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "(от фр. academisme) – направление в европейской живописи XVI-XIX веков.\n",
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "\nОсновывалось на догматическом следовании внешним формам классического искусства. Последователи характеризовали этот стиль как рассуждение над формой искусства древнего античного мира и эпохи Возрождения. Академизм восполнял в себе традиции античного искусства, в которых идеализирован образ натуры, компенсируя при этом норму красоты.\n",
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "\nВ этом стиле писали братья Аннибале и Агостино Каррачи и их двоюродный брат Лодовико Карраччи. Среди русских художников выделим Александра Иванова, Константина Маковского.\n",
+                                            ),
+                                          ]
+                                        ),
+                                      ),
+                                      RichText(
+                                        text: TextSpan(
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText2,
+                                          children: [
+                                            TextSpan(
+                                            text: "\n2. Импрессионизм ",
+                                            style: TextStyle(
+                                                fontWeight:
+                                                    FontWeight.bold),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "(от фр. impression - впечатление) – направление в европейской живописи, зародившееся во Франции в середине XIX века.\n",
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "\nИмпрессионисты избегали всяких подробностей в рисунке и пытались уловить общее впечатление от того, что видит глаз в конкретный момент. Этого эффекта они достигали при помощи цвета и фактуры.\n",
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  "\nСамые известные художники этого направления: Эдуард Мане, Пьер Огюст Ренуар, Поль Сезанн, Эдгар Дега, Клод Моне, Камиль Писсарро. Из русских – Константин Коровин, Игорь Грабарь.\n",
+                                            ),
+                                          ]
+                                        ),
+                                      ),
+                                      CarouselSlider(
+                                        items: _impressionismList,
+                                        options: CarouselOptions(
+                                          height: 200,
+                                          viewportFraction: 0.5,
+                                          autoPlay: true,
+                                          enlargeCenterPage: true,
+                                          onPageChanged: (index, reason) {
+                                            setState(() {
+                                              _current = index;
+                                            });
+                                          }),
+                                      ),
+                                      RichText(
+                                        text: TextSpan(
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText2,
+                                          children: [                                              
                                               TextSpan(
                                                 text: "\n3. Кубизм ",
                                                 style: TextStyle(
@@ -589,5 +648,68 @@ class PainterStripe extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class ScrollCard extends StatelessWidget {
+  final String subtitle;
+  final String title;
+  final String image;
+
+  const ScrollCard({Key key, this.title, this.subtitle, this.image})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(5.0),
+      child: Material(
+        elevation: 5,
+        borderRadius: BorderRadius.circular(13),
+        shadowColor: Colors.black,
+        color: Colors.white,
+        child: Stack(
+          fit: StackFit.passthrough,
+          children: [
+            Image.asset(
+              image,
+              fit: BoxFit.fitHeight,
+            ),
+          ],
+        ),
+      )
+    );
+    // return Card(
+    //   elevation: 5,
+    //   child: Padding(
+    //     padding: const EdgeInsets.all(8.0),
+    //     child: Row(
+    //       children: [
+    //         Expanded(flex: 1, child: Image.asset(image)),
+    //         Expanded(
+    //           flex: 4,
+    //           child: Padding(
+    //             padding: const EdgeInsets.only(left: 8),
+    //             child: Column(
+    //               crossAxisAlignment: CrossAxisAlignment.start,
+    //               children: [
+    //                 Text(
+    //                   title,
+    //                   style: TextStyle(
+    //                     fontWeight: FontWeight.bold,
+    //                   ),
+    //                 ),
+    //                 Text(
+    //                   subtitle,
+    //                   style: TextStyle(fontWeight: FontWeight.normal),
+    //                 ),
+    //               ],
+    //             ),
+    //           ),
+    //         )
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 }
